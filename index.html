@@ -20,645 +20,156 @@
       --panel-2: rgba(214, 164, 92, 0.05);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Georgia, serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top, rgba(214, 164, 92, 0.10), transparent 25%),
-        radial-gradient(circle at bottom left, rgba(185, 120, 47, 0.10), transparent 20%),
-        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
-      line-height: 1.6;
+        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 25%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .container { width:90%; max-width:1100px; margin:auto; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(92%, 1180px);
-      margin: 0 auto;
-    }
-
-    .site-header {
+    header {
       position: sticky;
-      top: 0;
-      z-index: 1000;
+      top:0;
       backdrop-filter: blur(10px);
-      background: rgba(3, 3, 3, 0.88);
-      border-bottom: 1px solid var(--line);
+      background: rgba(3,3,3,0.9);
+      border-bottom:1px solid var(--line);
     }
 
     .nav {
-      min-height: 86px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .brand { display:flex; align-items:center; gap:12px; }
 
     .brand img {
-      height: 52px;
-      width: auto;
-      filter: drop-shadow(0 0 14px rgba(214, 164, 92, 0.24));
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+      height:52px;
+      filter: drop-shadow(0 0 14px rgba(214,164,92,0.25));
     }
 
     .brand-name {
-      font-size: 0.98rem;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    .brand-tag {
-      font-family: Arial, sans-serif;
-      font-size: 0.76rem;
-      color: var(--muted);
-      letter-spacing: 0.9px;
-      margin-top: 4px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-soft);
-    }
-
-    .nav-cta {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(214, 164, 92, 0.42);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--gold-soft);
+      letter-spacing:2px;
+      color:var(--gold-soft);
+      font-size:14px;
     }
 
     .hero {
-      padding: 92px 0 76px;
-      position: relative;
-      overflow: hidden;
+      text-align:center;
+      padding:90px 20px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(214, 164, 92, 0.32), transparent);
+    .hero img {
+      height:220px;
+      margin-bottom:20px;
+      filter: drop-shadow(0 0 30px rgba(214,164,92,0.3));
+      animation: glow 4s infinite ease-in-out;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 58px;
-      align-items: center;
+    @keyframes glow {
+      0% { transform:scale(1); }
+      50% { transform:scale(1.02); }
+      100% { transform:scale(1); }
     }
 
-    .eyebrow {
-      display: inline-block;
-      font-family: Arial, sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
+    h1 {
+      font-size:42px;
+      margin-bottom:15px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.7rem, 5.8vw, 5.2rem);
-      line-height: 1.03;
-      margin-bottom: 18px;
-      text-wrap: balance;
-    }
-
-    .hero p {
-      max-width: 700px;
-      font-family: Arial, sans-serif;
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
+    p {
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 999px;
-      font-family: Arial, sans-serif;
-      font-size: 0.97rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-gold {
-      color: #111111;
-      background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-soft));
-      box-shadow: 0 0 24px rgba(214, 164, 92, 0.18);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(214, 164, 92, 0.38);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--gold-soft);
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .hero-points span {
-      border-radius: 999px;
-      padding: 10px 14px;
-      border: 1px solid rgba(214, 164, 92, 0.14);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-    }
-
-    .logo-frame {
-      width: min(100%, 470px);
-      aspect-ratio: 1 / 1;
-      border-radius: 34px;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(243, 215, 162, 0.10), transparent 26%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(214,164,92,0.04));
-      border: 1px solid var(--line);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.02) inset,
-        0 0 40px rgba(0,0,0,0.35);
-    }
-
-    .logo-frame img {
-      width: 100%;
-      max-width: 360px;
-      filter: drop-shadow(0 0 28px rgba(214, 164, 92, 0.24));
-      animation: pulseGlow 4s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0% { transform: scale(1); filter: drop-shadow(0 0 22px rgba(214, 164, 92, 0.18)); }
-      50% { transform: scale(1.015); filter: drop-shadow(0 0 34px rgba(214, 164, 92, 0.30)); }
-      100% { transform: scale(1); filter: drop-shadow(0 0 22px rgba(214, 164, 92, 0.18)); }
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 24px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#b9782f,#d6a45c,#f3d7a2);
+      color:black;
+      font-weight:bold;
     }
 
     .section {
-      padding: 90px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(2rem, 3vw, 2.9rem);
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      max-width: 780px;
-      margin: 0 auto 46px;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      padding:70px 20px;
+      text-align:center;
     }
 
     .card {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+      border:1px solid var(--line);
+      padding:25px;
+      border-radius:18px;
+      margin-top:20px;
     }
 
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 1.18rem;
-      color: var(--gold-soft);
-    }
-
-    .card p {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      margin-top: 24px;
-    }
-
-    .panel {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 34px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.22);
-    }
-
-    .panel h3 {
-      font-size: 1.38rem;
-      margin-bottom: 14px;
-      color: var(--gold-soft);
-    }
-
-    .panel p,
-    .panel ul {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-    }
-
-    .panel ul {
-      padding-left: 18px;
-      margin-top: 12px;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: grid;
-      gap: 16px;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-    }
-
-    .feature-list li {
-      padding: 18px 18px 18px 22px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(214, 164, 92, 0.16);
-      position: relative;
-    }
-
-    .feature-list li::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 24px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 10px rgba(214,164,92,0.35);
-    }
-
-    .feature-list strong {
-      display: block;
-      color: var(--gold-soft);
-      margin-bottom: 4px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.04rem;
-    }
-
-    .cta-panel {
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 44px 30px;
-      border-radius: 32px;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 42%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(214,164,92,0.04));
-      box-shadow: 0 0 34px rgba(0,0,0,0.25);
-    }
-
-    .cta-panel p {
-      max-width: 700px;
-      margin: 0 auto 28px;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-    }
-
-    .footer {
-      padding: 28px 0 36px;
-      border-top: 1px solid rgba(214, 164, 92, 0.18);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-family: Arial, sans-serif;
-      color: #a89d8e;
-      font-size: 0.92rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .disclaimer {
-      margin-top: 14px;
-      font-family: Arial, sans-serif;
-      font-size: 0.84rem;
-      color: #9e9487;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .cards-3,
-      .split {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        text-align: center;
-      }
-
-      .button-row,
-      .hero-points {
-        justify-content: center;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .brand img {
-        height: 44px;
-      }
-
-      .hero {
-        padding: 72px 0 64px;
-      }
-
-      .hero h1 {
-        font-size: 2.35rem;
-      }
-
-      .section {
-        padding: 74px 0;
-      }
-
-      .card,
-      .panel,
-      .cta-panel {
-        padding: 24px;
-      }
-
-      .logo-frame img {
-        max-width: 280px;
-      }
+    footer {
+      text-align:center;
+      padding:25px;
+      border-top:1px solid var(--line);
+      color:#aaa;
+      font-size:14px;
     }
   </style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <img src="logo.png.WEBP" alt="Wealth Assistance logo" />
-        <div class="brand-text">
-          <span class="brand-name">Wealth Assistance</span>
-          <span class="brand-tag">Legacy • Structure • Leverage</span>
-        </div>
-      </a>
-
-      <nav class="nav-links">
-        <a href="#blueprint">Blueprint</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact" class="nav-cta">Book a Call</a>
-      </nav>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="logo.png.WEBP" alt="logo">
+      <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Welcome to Wealth Assistance</div>
-          <h1>Protect Your Wealth. Build Your Legacy. Unlock Generational Freedom.</h1>
-          <p>
-            We help families and entrepreneurs create structured systems for wealth,
-            protection, leverage, and long-term control through a more intentional approach.
-          </p>
+<section class="hero">
+  <img src="logo.png.WEBP" alt="logo">
+  <h1>Protect Your Wealth. Build Your Legacy.</h1>
+  <p>
+    We help families and entrepreneurs create structured systems for wealth,
+    protection, and long-term control.
+  </p>
+  <a href="mailto:info@wealthassistance.us" class="btn">Book Consultation</a>
+</section>
 
-          <div class="button-row">
-            <a href="#contact" class="btn btn-gold">Talk with a Legacy Architect</a>
-            <a href="#blueprint" class="btn btn-outline">Explore the Blueprint</a>
-          </div>
+<section class="section">
+  <h2>Legacy Stacking Blueprint</h2>
 
-          <div class="hero-points">
-            <span>Trust-Based Structures</span>
-            <span>Legacy Planning</span>
-            <span>Private Control</span>
-            <span>Wealth Leverage</span>
-          </div>
-        </div>
+  <div class="card">
+    <h3>Trust-Based Structures</h3>
+    <p>Build protection, tax strategy, and long-term control into your system.</p>
+  </div>
 
-        <div class="hero-visual">
-          <div class="logo-frame">
-            <img src="logo.png.WEBP" alt="Wealth Assistance brand mark" />
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <h3>Infinite Banking</h3>
+    <p>Learn how to fund your own system and create internal leverage.</p>
+  </div>
 
-    <section class="section" id="blueprint">
-      <div class="container">
-        <h2 class="section-title">The Legacy Stacking Blueprint</h2>
-        <p class="section-subtitle">
-          A premium framework built around structure, leverage, privacy, and long-term family wealth.
-        </p>
+  <div class="card">
+    <h3>Private Lending</h3>
+    <p>Create opportunities for passive income within your structure.</p>
+  </div>
+</section>
 
-        <div class="split">
-          <div class="panel">
-            <h3>A Complete Legacy Stacking System. Built for You.</h3>
-            <p>
-              The Legacy Stacking Blueprint is designed to help create a secure,
-              private, and more intentional approach to family wealth strategy.
-            </p>
-          </div>
+<section class="section">
+  <h2>Contact</h2>
+  <p>Email: info@wealthassistance.us</p>
+  <p>Phone: (765) 251-0535</p>
+</section>
 
-          <ul class="feature-list">
-            <li>
-              <strong>Design Your Legacy</strong>
-              Build trust-centered structures for protection, strategic tax positioning, and long-term control.
-            </li>
-            <li>
-              <strong>Coordinate Infinite Banking</strong>
-              Learn how to fund and grow your system using a private banking approach.
-            </li>
-            <li>
-              <strong>Private Lending Access</strong>
-              Create opportunities for passive income through trust-based lending strategies.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="benefits">
-      <div class="container">
-        <h2 class="section-title">Why Families Think Beyond Income</h2>
-        <p class="section-subtitle">
-          Lasting wealth usually comes from structure, not just earnings.
-        </p>
-
-        <div class="cards-3">
-          <div class="card">
-            <h3>Asset Protection</h3>
-            <p>
-              Use trust-centered planning to reduce exposure, create protection, and build a stronger foundation.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Private Control</h3>
-            <p>
-              Create a system that supports privacy, intentional decision-making, and long-term influence.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Legacy Leverage</h3>
-            <p>
-              Build a framework designed to support multigenerational planning instead of one-generation accumulation.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="container">
-        <div class="split">
-          <div class="panel">
-            <h3>Why 1% of Families Stay Wealthy for Generations</h3>
-            <p>
-              The strongest legacy plans are built on structure, discipline, privacy, and legal positioning.
-            </p>
-            <ul>
-              <li>Trust-based systems can help avoid probate, common tax traps, and unnecessary exposure.</li>
-              <li>A stronger structure can help protect assets from creditors, divorce exposure, and avoidable risk.</li>
-              <li>Private control matters when you want long-term influence over family wealth.</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <h3>This Is How Wealth Is Built for Generations</h3>
-            <p>
-              You do not need millions to begin thinking like a family office. You need the right architecture and sequencing.
-            </p>
-            <ul>
-              <li>Start with strategy instead of scattered decisions.</li>
-              <li>Build a structure around protection, leverage, and legacy.</li>
-              <li>Create systems designed to outlive short-term thinking.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="cta-panel">
-          <h2 class="section-title">Book a Private Call with a Legacy Architect</h2>
-          <p>
-            Ready to create a stronger foundation for your business, wealth, and legacy goals?
-          </p>
-          <div class="button-row" style="justify-content:center; margin-bottom:0;">
-            <a href="mailto:youremail@example.com" class="btn btn-gold">Email Wealth Assistance</a>
-            <a href="tel:+10000000000" class="btn btn-outline">Call Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>© 2026 Wealth Assistance. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="#top">Home</a>
-          <a href="#blueprint">Blueprint</a>
-          <a href="#why">About</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="disclaimer">
-        Wealth Assistance provides strategic education and structure coordination. Replace the email and phone placeholders in the contact section with your real contact information.
-      </div>
-    </div>
-  </footer>
+<footer>
+  © 2026 Wealth Assistance
+</footer>
 
 </body>
 </html>
