@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Consultation | Wealth Assistance</title>
+  <meta name="description" content="Request a private consultation with Wealth Assistance to explore fit, priorities, and next steps for wealth structure, legacy planning, and strategic coordination." />
+  <style>
+    :root {
+      --bg-1: #030303;
+      --bg-2: #0a0a0a;
+      --bg-3: #111111;
+      --gold: #d6a45c;
+      --gold-soft: #f3d7a2;
+      --text: #f7f3ee;
+      --muted: #cfc6b9;
+      --line: rgba(214,164,92,0.22);
+      --panel: rgba(255,255,255,0.03);
+      --panel-2: rgba(214,164,92,0.05);
+    }
 
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 25%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      line-height:1.7;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(92%,1000px); margin:0 auto; }
+
+    .site-header {
+      background: rgba(3,3,3,0.9);
+      border-bottom:1px solid var(--line);
+      position: sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height:86px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+    }
+
+    .brand { display:flex; align-items:center; gap:14px; }
+
+    .brand img {
+      height:52px;
+      filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
+    }
+
+    .brand-text {
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .brand-name {
+      font-size:.98rem;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
+      color:var(--gold-soft);
+    }
+
+    .brand-tag {
+      font-family:Arial,sans-serif;
+      font-size:.76rem;
+      color:var(--muted);
+      letter-spacing:.9px;
+      margin-top:4px;
+    }
+
+    .nav-links {
+      display:flex;
+      gap:22px;
+      font-family:Arial,sans-serif;
+      color:var(--muted);
+      font-size:.94rem;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a:hover { color:var(--gold-soft); }
+
+    .nav-cta {
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid rgba(214,164,92,0.42);
+      background:rgba(255,255,255,0.02);
+      color:var(--gold-soft);
+    }
+
+    .page-hero {
+      padding:90px 0 50px;
+      text-align:center;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      font-family:Arial,sans-serif;
+      font-size:.82rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height:1.08;
+      margin-bottom:16px;
+    }
+
+    .intro {
+      max-width:760px;
+      margin:0 auto;
+      font-family:Arial,sans-serif;
+      color:var(--muted);
+      font-size:1.04rem;
+    }
+
+    .section {
+      padding:40px 0 90px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:40px 32px;
+      text-align:center;
+    }
+
+    .panel h2 {
+      color:var(--gold-soft);
+      margin-bottom:14px;
+      font-size:1.7rem;
+    }
+
+    .panel p {
+      max-width:720px;
+      margin:0 auto 18px;
+      font-family:Arial,sans-serif;
+      color:var(--muted);
+    }
+
+    .contact-links {
+      display:grid;
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .contact-card {
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .contact-card h3 {
+      color:var(--gold-soft);
+      margin-bottom:8px;
+      font-size:1.15rem;
+    }
+
+    .contact-card p, .contact-card a {
+      font-family:Arial,sans-serif;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .footer {
+      padding:28px 0 36px;
+      border-top:1px solid rgba(214,164,92,0.18);
+      font-family:Arial,sans-serif;
+      color:#a89d8e;
+      font-size:.92rem;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav { flex-direction:column; align-items:flex-start; padding:16px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="logo.png.WEBP" alt="Wealth Assistance logo" />
+      <div class="brand-text">
+        <span class="brand-name">Wealth Assistance</span>
+        <span class="brand-tag">Private Wealth Strategy</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blueprint.html">Blueprint</a>
+      <a href="clients.html">Who We Work With</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Private Consultation</div>
+    <h1>Begin with a confidential conversation.</h1>
+    <p class="intro">
+      We work best with clients who value thoughtful planning, privacy, and a long-range approach to wealth and legacy.
+      Start with a private consultation to explore fit and next steps.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="panel">
+      <h2>Connect with Wealth Assistance</h2>
+      <p>
+        Use the contact information below to begin the conversation. This is the best starting point for serious inquiries and qualified clients.
+      </p>
+
+      <div class="contact-links">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:info@wealthassistance.us">info@wealthassistance.us</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p><a href="tel:+17652510535">(765) 251-0535</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Consultation Focus</h3>
+          <p>
+            Private wealth structure, legacy planning, strategic coordination, and fit for the Legacy Stacking Blueprint.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2026 Wealth Assistance. All rights reserved.</div>
+    <div>
+      <a href="index.html">Home</a> ·
+      <a href="services.html">Services</a> ·
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
