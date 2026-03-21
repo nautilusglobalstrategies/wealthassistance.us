@@ -7,19 +7,23 @@
   <meta name="description" content="Wealth Assistance is a private wealth strategy firm focused on structure, protection, leverage, and multigenerational planning." />
   <style>
     :root {
-      --bg-1: #040404;
-      --bg-2: #0a0a0a;
+      --bg-1: #030303;
+      --bg-2: #070707;
       --bg-3: #111111;
-      --glass: rgba(255,255,255,0.045);
-      --glass-2: rgba(214,164,92,0.06);
+      --glass: rgba(255,255,255,0.05);
+      --glass-2: rgba(255,255,255,0.025);
       --gold: #d6a45c;
       --gold-soft: #f3d7a2;
       --gold-deep: #b9782f;
       --text: #f7f3ee;
-      --muted: #bfb6a8;
+      --muted: #bdb3a4;
       --line: rgba(214,164,92,0.22);
       --line-soft: rgba(255,255,255,0.08);
-      --shadow: 0 10px 40px rgba(0,0,0,0.35);
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --blur: blur(14px);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
     }
 
     * {
@@ -36,11 +40,13 @@
       font-family: Georgia, serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top center, rgba(214,164,92,0.10), transparent 22%),
-        radial-gradient(circle at bottom left, rgba(214,164,92,0.08), transparent 18%),
-        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
+        radial-gradient(circle at 15% 10%, rgba(214,164,92,0.12), transparent 18%),
+        radial-gradient(circle at 85% 18%, rgba(214,164,92,0.10), transparent 16%),
+        radial-gradient(circle at 20% 85%, rgba(185,120,47,0.08), transparent 18%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 38%, var(--bg-3) 100%);
       min-height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
 
     body::before {
@@ -49,11 +55,22 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
-      opacity: 0.28;
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+      opacity: 0.38;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(214,164,92,0.03) 50%, transparent 100%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
     }
 
     a {
@@ -62,17 +79,50 @@
     }
 
     .container {
-      width: min(92%, 1220px);
+      width: min(92%, 1280px);
       margin: 0 auto;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb-1 {
+      width: 220px;
+      height: 220px;
+      top: 110px;
+      left: -40px;
+      background: rgba(214,164,92,0.10);
+    }
+
+    .orb-2 {
+      width: 260px;
+      height: 260px;
+      top: 360px;
+      right: -80px;
+      background: rgba(214,164,92,0.09);
+    }
+
+    .orb-3 {
+      width: 180px;
+      height: 180px;
+      bottom: 180px;
+      left: 18%;
+      background: rgba(185,120,47,0.08);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: rgba(5,5,5,0.72);
+      background: rgba(5,5,5,0.68);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
     .nav {
@@ -80,7 +130,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      padding: 18px 0;
+      padding: 16px 0;
     }
 
     .brand {
@@ -90,29 +140,29 @@
     }
 
     .brand img {
-      height: 50px;
+      height: 52px;
       width: auto;
-      filter: drop-shadow(0 0 14px rgba(214,164,92,0.30));
+      filter: drop-shadow(0 0 16px rgba(214,164,92,0.32));
     }
 
     .brand-meta {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .brand-name {
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       letter-spacing: 2.8px;
       color: var(--gold-soft);
     }
 
     .brand-sub {
       font-family: Arial, sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 1.4px;
-      color: var(--muted);
+      font-size: 0.70rem;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
+      color: var(--muted);
     }
 
     .nav-links {
@@ -130,58 +180,120 @@
     }
 
     .nav-cta {
-      border: 1px solid rgba(214,164,92,0.42);
       padding: 10px 16px;
       border-radius: 999px;
+      border: 1px solid rgba(214,164,92,0.42);
       color: var(--gold-soft);
-      background: rgba(255,255,255,0.02);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(214,164,92,0.04));
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.03),
+        0 0 18px rgba(214,164,92,0.08);
+    }
+
+    .top-rail {
+      position: relative;
+      z-index: 1;
+      padding-top: 26px;
+    }
+
+    .rail-shell {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(214,164,92,0.04));
+      backdrop-filter: var(--blur);
+      box-shadow: var(--shadow);
+    }
+
+    .rail-card {
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.025);
+      min-height: 92px;
+    }
+
+    .rail-label {
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .rail-value {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.45;
     }
 
     .hero {
-      padding: 88px 0 42px;
       position: relative;
+      z-index: 1;
+      padding: 26px 0 36px;
+    }
+
+    .hero-shell {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(214,164,92,0.05));
+      backdrop-filter: var(--blur);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(214,164,92,0.12), transparent 22%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.05), transparent 14%);
     }
 
     .hero-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
       align-items: stretch;
     }
 
     .hero-copy,
     .hero-side {
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, var(--glass), var(--glass-2));
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.025);
+      overflow: hidden;
+      position: relative;
     }
 
     .hero-copy {
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
+      padding: 42px;
     }
 
-    .hero-copy::before {
+    .hero-copy::after {
       content: "";
       position: absolute;
-      inset: 0 auto auto 0;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(214,164,92,0.16), transparent 70%);
+      inset: auto auto -40px -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(214,164,92,0.12), transparent 72%);
+      filter: blur(18px);
       pointer-events: none;
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
     }
 
     .eyebrow {
@@ -190,7 +302,7 @@
       gap: 10px;
       font-family: Arial, sans-serif;
       font-size: 0.76rem;
-      letter-spacing: 2.8px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 18px;
@@ -198,24 +310,24 @@
 
     .eyebrow::before {
       content: "";
-      width: 36px;
+      width: 34px;
       height: 1px;
       background: linear-gradient(90deg, var(--gold), transparent);
     }
 
     h1 {
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: 1.02;
-      margin-bottom: 18px;
-      max-width: 780px;
+      font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+      line-height: 0.98;
+      margin-bottom: 20px;
+      max-width: 820px;
     }
 
     .hero-copy p {
       font-family: Arial, sans-serif;
       color: var(--muted);
-      max-width: 760px;
-      font-size: 1.04rem;
-      line-height: 1.7;
+      max-width: 780px;
+      font-size: 1.05rem;
+      line-height: 1.75;
     }
 
     .signal-row {
@@ -229,116 +341,155 @@
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid rgba(214,164,92,0.16);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       font-family: Arial, sans-serif;
       font-size: 0.82rem;
       color: var(--muted);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
     }
 
-    .side-top {
-      border: 1px solid var(--line-soft);
-      border-radius: 24px;
-      padding: 18px;
-      background: rgba(255,255,255,0.02);
+    .hero-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
     }
 
-    .side-top .label,
-    .side-bottom .label {
+    .side-block {
+      padding: 24px;
+      position: relative;
+    }
+
+    .side-block + .side-block {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .side-label {
       font-family: Arial, sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .side-top h2 {
-      font-size: 1.35rem;
+    .side-title {
+      font-size: 1.4rem;
       line-height: 1.2;
-      margin-bottom: 10px;
       color: var(--gold-soft);
+      margin-bottom: 12px;
     }
 
-    .side-top p,
-    .side-bottom p {
+    .side-copy {
       font-family: Arial, sans-serif;
       color: var(--muted);
+      line-height: 1.7;
       font-size: 0.95rem;
-      line-height: 1.65;
     }
 
-    .side-bottom {
-      border: 1px solid var(--line-soft);
-      border-radius: 24px;
-      padding: 18px;
-      background: rgba(255,255,255,0.02);
+    .metric-stack {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
     }
 
     .metric {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
       font-family: Arial, sans-serif;
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .metric:first-of-type {
-      border-top: none;
-      padding-top: 0;
-    }
-
-    .metric span:last-child {
+    .metric strong {
       color: var(--gold-soft);
+      font-weight: 600;
     }
 
     .section {
-      padding: 34px 0 84px;
+      position: relative;
+      z-index: 1;
+      padding: 12px 0 84px;
     }
 
-    .section-grid {
+    .matrix-shell {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(214,164,92,0.04));
+      backdrop-filter: var(--blur);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .matrix-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      margin-top: 26px;
+      gap: 20px;
     }
 
     .panel {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--glass), var(--glass-2));
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
       position: relative;
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.025);
+      padding: 30px;
       overflow: hidden;
+      min-height: 240px;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 38%);
     }
 
     .panel::after {
       content: "";
       position: absolute;
-      inset: 0;
+      right: -30px;
+      bottom: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(214,164,92,0.10), transparent 72%);
+      filter: blur(10px);
       pointer-events: none;
-      background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent 35%);
+    }
+
+    .panel-tag {
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .panel h3 {
       color: var(--gold-soft);
       margin-bottom: 12px;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       position: relative;
       z-index: 1;
     }
 
     .panel p,
     .panel ul {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
       position: relative;
       z-index: 1;
-      line-height: 1.7;
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      line-height: 1.75;
     }
 
     .panel ul {
@@ -346,49 +497,63 @@
       margin-top: 12px;
     }
 
-    .wide-panel {
-      margin-top: 26px;
+    .wide-shell {
+      margin-top: 20px;
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--glass), var(--glass-2));
-      border-radius: 30px;
-      padding: 36px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(214,164,92,0.05));
+      backdrop-filter: var(--blur);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
+      padding: 18px;
+    }
+
+    .wide-panel {
       position: relative;
+      border: 1px solid var(--line-soft);
+      border-radius: 26px;
+      background: rgba(255,255,255,0.025);
+      padding: 36px;
       overflow: hidden;
     }
 
     .wide-panel::before {
       content: "";
       position: absolute;
-      inset: auto -60px -60px auto;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(214,164,92,0.12), transparent 70%);
+      top: -30px;
+      right: -20px;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(214,164,92,0.12), transparent 74%);
+      filter: blur(14px);
       pointer-events: none;
     }
 
     .wide-panel h3 {
-      color: var(--gold-soft);
-      margin-bottom: 12px;
-      font-size: 1.55rem;
       position: relative;
       z-index: 1;
+      color: var(--gold-soft);
+      margin-bottom: 14px;
+      font-size: 1.65rem;
     }
 
     .wide-panel p {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      max-width: 950px;
       position: relative;
       z-index: 1;
-      line-height: 1.75;
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      max-width: 980px;
+      line-height: 1.8;
     }
 
     .footer-bar {
-      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
       padding: 28px 0 34px;
-      margin-top: 10px;
+      border-top: 1px solid var(--line);
+      background: rgba(5,5,5,0.35);
+      backdrop-filter: blur(8px);
     }
 
     .footer-inner {
@@ -398,7 +563,7 @@
       flex-wrap: wrap;
       align-items: center;
       font-family: Arial, sans-serif;
-      color: #a59a8b;
+      color: #a69b8d;
       font-size: 0.9rem;
     }
 
@@ -408,32 +573,38 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 980px) {
+    .footer-links a:hover {
+      color: var(--gold-soft);
+    }
+
+    @media (max-width: 1020px) {
+      .rail-shell,
       .hero-grid,
-      .section-grid {
+      .matrix-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        grid-template-rows: auto auto;
       }
 
       .nav {
         flex-direction: column;
         align-items: flex-start;
       }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
     }
 
     @media (max-width: 640px) {
       .hero-copy,
-      .hero-side,
+      .side-block,
       .panel,
-      .wide-panel {
-        padding: 24px;
+      .wide-panel,
+      .rail-card {
+        padding: 22px;
       }
 
       h1 {
-        font-size: 2.3rem;
+        font-size: 2.35rem;
       }
 
       .brand img {
@@ -444,136 +615,170 @@
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <a href="index.html" class="brand">
-      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
-      <div class="brand-meta">
-        <div class="brand-name">WEALTH ASSISTANCE</div>
-        <div class="brand-sub">Private Wealth Strategy</div>
-      </div>
-    </a>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
 
-    <div class="nav-links">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="blueprint.html">Blueprint</a>
-      <a href="clients.html">Clients</a>
-      <a href="strategy.html">Strategy Lab</a>
-      <a href="contact.html" class="nav-cta">Private Consultation</a>
-    </div>
-  </div>
-</header>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="logo.png.WEBP" alt="Wealth Assistance logo">
+        <div class="brand-meta">
+          <div class="brand-name">WEALTH ASSISTANCE</div>
+          <div class="brand-sub">Private Wealth Strategy</div>
+        </div>
+      </a>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow">About Wealth Assistance</div>
-      <h1>A more strategic architecture for private wealth.</h1>
-      <p>
-        Wealth Assistance exists for clients who want more than fragmented advice and isolated tactics.
-        Our approach is built around structure, protection, leverage, continuity, and a more deliberate
-        way of thinking about long-term wealth.
-      </p>
-
-      <div class="signal-row">
-        <div class="signal">Structure First</div>
-        <div class="signal">Private Coordination</div>
-        <div class="signal">Long-Horizon Planning</div>
-        <div class="signal">Legacy Infrastructure</div>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blueprint.html">Blueprint</a>
+        <a href="clients.html">Clients</a>
+        <a href="strategy.html">Strategy Lab</a>
+        <a href="contact.html" class="nav-cta">Private Consultation</a>
       </div>
     </div>
+  </header>
 
-    <div class="hero-side">
-      <div class="side-top">
-        <div class="label">Positioning</div>
-        <h2>Built for serious clients, not generic financial traffic.</h2>
-        <p>
-          The firm is intentionally designed to feel like a private wealth interface:
-          strategic, selective, and future-facing.
-        </p>
-      </div>
-
-      <div class="side-bottom">
-        <div class="label">Core Signals</div>
-        <div class="metric"><span>Planning Style</span><span>Long-Term</span></div>
-        <div class="metric"><span>Client Experience</span><span>Private</span></div>
-        <div class="metric"><span>Primary Lens</span><span>Structure</span></div>
-        <div class="metric"><span>Best Fit</span><span>Qualified Clients</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-grid">
-      <div class="panel">
-        <h3>Our Philosophy</h3>
-        <p>
-          Real wealth planning is not just about what you earn or what you buy.
-          It is about how assets, entities, protections, and decisions are arranged into
-          a system that creates greater resilience, clarity, and continuity over time.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h3>Our Approach</h3>
-        <p>
-          We operate more like a strategic relationship than a transactional advisory funnel.
-          The clients we serve typically value discretion, structure, and a planning horizon
-          that extends beyond short-term gains.
-        </p>
+  <section class="top-rail">
+    <div class="container">
+      <div class="rail-shell">
+        <div class="rail-card">
+          <div class="rail-label">Planning Lens</div>
+          <div class="rail-value">Structure before tactics</div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-label">Client Profile</div>
+          <div class="rail-value">Families, founders, investors</div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-label">Experience Style</div>
+          <div class="rail-value">Private, deliberate, strategic</div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-label">Primary Focus</div>
+          <div class="rail-value">Control, continuity, leverage</div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="wide-panel">
-      <h3>What Makes This Different</h3>
-      <p>
-        Wealth Assistance is designed around a broader architecture of wealth. That includes
-        trust-centered conversations, long-range coordination, legacy planning priorities,
-        capital positioning, and a more intentional relationship between the moving parts of a client’s financial life.
-        The goal is not just growth. The goal is a system built for control, protection, leverage, and multigenerational endurance.
-      </p>
+  <section class="hero">
+    <div class="container hero-shell">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">About Wealth Assistance</div>
+          <h1>A private wealth interface built around long-term architecture.</h1>
+          <p>
+            Wealth Assistance exists for clients who want more than isolated financial products and fragmented planning.
+            We focus on the larger system: structure, protection, leverage, continuity, and the strategic coordination
+            required to make wealth more durable over time.
+          </p>
+
+          <div class="signal-row">
+            <div class="signal">Structure First</div>
+            <div class="signal">Private Coordination</div>
+            <div class="signal">Legacy Infrastructure</div>
+            <div class="signal">Long-Horizon Strategy</div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="side-block">
+            <div class="side-label">Positioning</div>
+            <div class="side-title">Not a generic advisory funnel.</div>
+            <div class="side-copy">
+              This firm is designed to feel more like a private wealth operating layer:
+              selective, strategic, and built for serious planning conversations.
+            </div>
+          </div>
+
+          <div class="side-block">
+            <div class="side-label">System Signals</div>
+            <div class="metric-stack">
+              <div class="metric"><span>Planning Horizon</span><strong>Long-Term</strong></div>
+              <div class="metric"><span>Client Experience</span><strong>Private</strong></div>
+              <div class="metric"><span>Primary Lens</span><strong>Structure</strong></div>
+              <div class="metric"><span>Best Fit</span><strong>Qualified Clients</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section-grid">
-      <div class="panel">
-        <h3>What We Value</h3>
-        <ul>
-          <li>Privacy and discretion</li>
-          <li>Clear structure over financial noise</li>
-          <li>Coordination over fragmentation</li>
-          <li>Long-term, multigenerational thinking</li>
-        </ul>
+  <section class="section">
+    <div class="container matrix-shell">
+      <div class="matrix-grid">
+        <div class="panel">
+          <div class="panel-tag">Philosophy</div>
+          <h3>Wealth works differently when it is built as a system.</h3>
+          <p>
+            Real planning is not just about income, products, or scattered tactical decisions.
+            It is about how assets, entities, protections, and long-term intentions are arranged
+            into a coordinated architecture.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-tag">Approach</div>
+          <h3>Coordination over fragmentation.</h3>
+          <p>
+            We help bring a more structured lens to conversations around private wealth, family continuity,
+            leverage, and strategic alignment so the moving parts work together instead of competing for attention.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-tag">Values</div>
+          <h3>What we prioritize</h3>
+          <ul>
+            <li>Privacy and discretion</li>
+            <li>Clarity over financial noise</li>
+            <li>Long-term, multigenerational thinking</li>
+            <li>Intentional systems over reactive choices</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-tag">Fit</div>
+          <h3>Who this is designed for</h3>
+          <ul>
+            <li>Families building serious legacy infrastructure</li>
+            <li>Founders and business owners thinking beyond income</li>
+            <li>Investors seeking stronger coordination and control</li>
+            <li>Clients who value strategic depth and private advisory relationships</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="panel">
-        <h3>Who This Is For</h3>
-        <ul>
-          <li>Families building serious legacy infrastructure</li>
-          <li>Founders and business owners thinking beyond income</li>
-          <li>Investors seeking stronger alignment and control</li>
-          <li>Clients who value thoughtful, high-trust planning</li>
-        </ul>
+      <div class="wide-shell">
+        <div class="wide-panel">
+          <h3>What makes this different</h3>
+          <p>
+            Wealth Assistance is built around a broader architecture of wealth. That includes trust-centered conversations,
+            strategic capital positioning, family continuity, long-range coordination, and a more deliberate relationship
+            between the moving parts of a client’s financial life. The goal is not simply growth. The goal is a system built
+            for control, protection, leverage, and endurance.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer-bar">
-  <div class="container footer-inner">
-    <div>© 2026 Wealth Assistance</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="blueprint.html">Blueprint</a>
-      <a href="strategy.html">Strategy Lab</a>
-      <a href="contact.html">Contact</a>
+  <footer class="footer-bar">
+    <div class="container footer-inner">
+      <div>© 2026 Wealth Assistance</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blueprint.html">Blueprint</a>
+        <a href="strategy.html">Strategy Lab</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
