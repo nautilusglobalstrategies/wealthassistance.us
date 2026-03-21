@@ -1,234 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Wealth Assistance</title>
-  <meta name="description" content="Strategic services for private wealth structure, legacy planning, and high-level coordination." />
-  <style>
-    :root{
-      --bg:#06080d;
-      --bg2:#0b0f17;
-      --gold:#d6a45c;
-      --gold-soft:#f3d7a2;
-      --text:#f7f3ee;
-      --muted:#bfb5a7;
-      --line:rgba(214,164,92,.18);
-      --glass:rgba(255,255,255,.04);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Wealth Assistance</title>
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family:Georgia, serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(214,164,92,.08), transparent 20%),
-        radial-gradient(circle at 80% 20%, rgba(50,120,255,.08), transparent 20%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-    }
+<style>
+:root{
+  --bg:#06080d;
+  --gold:#d6a45c;
+  --gold-soft:#f3d7a2;
+  --text:#f7f3ee;
+  --muted:#bfb5a7;
+  --line:rgba(214,164,92,.18);
+}
 
-    a{text-decoration:none;color:inherit;}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    .container{
-      width:min(92%,1200px);
-      margin:auto;
-    }
+body{
+  font-family:Georgia, serif;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(6,8,13,.85), rgba(6,8,13,.95)),
+    url("services-hero.PNG") center/cover no-repeat fixed;
+}
 
-    header{
-      position:sticky;
-      top:0;
-      background:rgba(0,0,0,.6);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
-      z-index:1000;
-    }
+/* CONTAINER */
+.container{
+  width:min(92%,1200px);
+  margin:auto;
+}
 
-    .nav{
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      align-items:center;
-      gap:20px;
-      padding:16px 0;
-    }
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  z-index:1000;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+.nav{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  padding:16px 0;
+}
 
-    .brand img{height:50px;}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .brand-name{
-      font-size:.9rem;
-      letter-spacing:2px;
-      color:var(--gold-soft);
-    }
+.brand img{height:50px;}
 
-    .nav-links{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      flex-wrap:wrap;
-    }
+.brand-name{
+  font-size:.9rem;
+  letter-spacing:2px;
+  color:var(--gold-soft);
+}
 
-    .nav-links a:hover{color:var(--gold-soft);}
+.nav-links{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  flex-wrap:wrap;
+}
 
-    .nav-cta{
-      padding:10px 16px;
-      border:1px solid var(--gold);
-      border-radius:999px;
-      color:var(--gold-soft);
-      white-space:nowrap;
-    }
+.nav-links a:hover{color:var(--gold-soft);}
 
-    .hero{
-      padding:60px 0;
-    }
+.nav-cta{
+  padding:10px 16px;
+  border:1px solid var(--gold);
+  border-radius:999px;
+  color:var(--gold-soft);
+}
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-      align-items:center;
-    }
+/* HERO */
+.hero{
+  padding:100px 0 60px;
+  text-align:center;
+}
 
-    h1{
-      font-size:clamp(2.5rem,5vw,4rem);
-      line-height:1.05;
-      margin-bottom:20px;
-    }
+.hero h1{
+  font-size:clamp(2.5rem,5vw,4rem);
+  margin-bottom:20px;
+}
 
-    .hero p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:1.05rem;
-    }
+.hero p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
 
-    .hero-img{
-      border-radius:20px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:0 20px 50px rgba(0,0,0,.5);
-      min-height:320px;
-      background:rgba(255,255,255,.02);
-    }
+/* SECTION */
+.section{
+  padding:60px 0;
+}
 
-    .hero-img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
 
-    .section{
-      padding:70px 0;
-    }
+/* CARDS */
+.card{
+  padding:30px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+}
 
-    .section-intro{
-      text-align:center;
-      max-width:860px;
-      margin:0 auto 40px;
-    }
+.card h3{
+  color:var(--gold-soft);
+  margin-bottom:12px;
+}
 
-    .section-intro h2{
-      font-size:clamp(2rem,4vw,3rem);
-      margin-bottom:16px;
-    }
+.card p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  line-height:1.7;
+}
 
-    .section-intro p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:1.02rem;
-    }
+/* CTA BAND */
+.band{
+  margin-top:40px;
+  padding:30px;
+  text-align:center;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.65);
+}
 
-    .grid-2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-    }
+.band h3{
+  color:var(--gold-soft);
+  margin-bottom:10px;
+}
 
-    .card{
-      padding:30px;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:var(--glass);
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 0;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+}
 
-    .card h3{
-      color:var(--gold-soft);
-      margin-bottom:14px;
-      font-size:1.5rem;
-    }
+.footer-links{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
 
-    .card p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      line-height:1.75;
-    }
+.footer-links a:hover{color:var(--gold-soft);}
 
-    .band{
-      margin-top:40px;
-      padding:28px;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:var(--glass);
-      text-align:center;
-    }
+/* MOBILE */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-    .band h3{
-      color:var(--gold-soft);
-      margin-bottom:10px;
-      font-size:1.4rem;
-    }
-
-    .band p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      line-height:1.7;
-      max-width:860px;
-      margin:auto;
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:30px 0;
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-    }
-
-    .footer-links{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .footer-links a:hover{color:var(--gold-soft);}
-
-    @media(max-width:900px){
-      .hero-grid,
-      .grid-2{
-        grid-template-columns:1fr;
-      }
-
-      .nav{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+  .nav{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP" alt="logo">
+      <img src="logo.png.WEBP">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -246,73 +200,58 @@
 </header>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Strategic services designed for protection, control, and continuity.</h1>
-      <p>
-        Our services are built for clients who want more than isolated solutions.
-        We help structure wealth, strengthen legacy planning, and bring higher-level
-        coordination to the relationship between business, family, and capital.
-      </p>
-    </div>
-
-    <div class="hero-img">
-      <img src="services-hero.PNG" alt="Private wealth services vault">
-    </div>
+  <div class="container">
+    <h1>Strategic services built for control and continuity.</h1>
+    <p>
+      We focus on structuring wealth, strengthening legacy, and aligning
+      business, family, and capital into a cohesive system.
+    </p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container section-intro">
-    <h2>Services built around structure, not noise.</h2>
-    <p>
-      The goal is not simply to add more moving parts. The goal is to bring
-      greater clarity, stronger alignment, and a more durable architecture to
-      serious wealth and legacy planning.
-    </p>
-  </div>
+  <div class="container grid">
 
-  <div class="container grid-2">
     <div class="card">
       <h3>Private Wealth Structuring</h3>
       <p>
-        We help clients think more intentionally about how wealth is arranged
-        across entities, protections, ownership structures, and long-term planning priorities.
+        Intentional design of ownership, protection, and entity structure
+        to create clarity and long-term control.
       </p>
     </div>
 
     <div class="card">
       <h3>Legacy Planning Strategy</h3>
       <p>
-        For families concerned with continuity, stewardship, and multigenerational outcomes,
-        we help frame the strategic architecture behind a more durable legacy plan.
+        Strategic frameworks designed to support multigenerational continuity
+        and long-term wealth preservation.
       </p>
     </div>
 
     <div class="card">
       <h3>Strategic Coordination</h3>
       <p>
-        Wealth rarely exists in one category alone. We help align the conversations surrounding
-        business, family, control, and long-term intent so those pieces work together.
+        Alignment across business, personal, and financial decisions so all
+        components operate as a unified system.
       </p>
     </div>
 
     <div class="card">
       <h3>Private Consultation</h3>
       <p>
-        Our consultation process is designed for clients who value privacy, depth,
-        and a more deliberate planning relationship than conventional advisory channels provide.
+        A more deliberate and private approach to planning for clients seeking
+        depth, structure, and control.
       </p>
     </div>
+
   </div>
 
   <div class="container">
     <div class="band">
-      <h3>Built for serious clients.</h3>
+      <h3>Built for serious clients</h3>
       <p>
-        These services are best suited for households, founders, and investors seeking
-        a more intentional structure around wealth and legacy—clients who value control,
-        continuity, and thoughtful execution over quick financial noise.
+        Designed for families, founders, and investors who value structure,
+        privacy, and long-term execution over short-term noise.
       </p>
     </div>
   </div>
