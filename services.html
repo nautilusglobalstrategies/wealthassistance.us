@@ -18,6 +18,18 @@
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
+/* 🔥 FIXED LINK COLORS (NO MORE PURPLE) */
+a,
+a:visited,
+a:active {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold-soft);
+}
+
 body{
   font-family:Georgia, serif;
   color:var(--text);
@@ -63,16 +75,26 @@ header{
   color:var(--gold-soft);
 }
 
+/* NAV LINKS */
 .nav-links{
   display:flex;
   justify-content:center;
   gap:22px;
   font-family:Arial,sans-serif;
-  color:var(--muted);
   flex-wrap:wrap;
 }
 
-.nav-links a:hover{color:var(--gold-soft);}
+.nav-links a{
+  color:var(--muted);
+}
+
+.nav-links a:visited{
+  color:var(--muted);
+}
+
+.nav-links a:hover{
+  color:var(--gold-soft);
+}
 
 .nav-cta{
   padding:10px 16px;
@@ -161,7 +183,17 @@ footer{
   margin-top:10px;
 }
 
-.footer-links a:hover{color:var(--gold-soft);}
+.footer-links a{
+  color:var(--muted);
+}
+
+.footer-links a:visited{
+  color:var(--muted);
+}
+
+.footer-links a:hover{
+  color:var(--gold-soft);
+}
 
 /* MOBILE */
 @media(max-width:900px){
