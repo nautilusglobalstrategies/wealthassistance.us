@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Wealth Assistance</title>
 
   <style>
@@ -56,7 +56,9 @@
       gap:12px;
     }
 
-    .brand img{height:50px;}
+    .brand img{
+      height:50px;
+    }
 
     .brand-name{
       font-size:.9rem;
@@ -72,13 +74,21 @@
       color:var(--muted);
     }
 
-    .nav-links a:hover{color:var(--gold-soft);}
+    .nav-links a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold-soft);
+    }
 
     .nav-cta{
       padding:10px 16px;
       border:1px solid var(--gold);
       border-radius:999px;
       color:var(--gold-soft);
+      text-decoration:none;
     }
 
     /* HERO */
@@ -162,7 +172,14 @@
       margin-top:10px;
     }
 
-    .footer-links a:hover{color:var(--gold-soft);}
+    .footer-links a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .footer-links a:hover{
+      color:var(--gold-soft);
+    }
 
     @media(max-width:900px){
       .hero-grid,
@@ -178,7 +195,7 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP">
+      <img src="logo.png.WEBP" alt="logo">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -207,7 +224,8 @@
     </div>
 
     <div class="hero-img">
-      <img src="about-hero.png" alt="Wealth structure visualization">
+      <!-- FIXED IMAGE PATH -->
+      <img src="./about-hero.png" alt="Wealth structure visualization">
     </div>
   </div>
 </section>
