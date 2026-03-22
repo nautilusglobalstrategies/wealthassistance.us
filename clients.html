@@ -23,35 +23,31 @@ a{
 }
 a:hover{color:var(--gold-soft);}
 
-/* 🔥 UPDATED BACKGROUND (WOOD POPS NOW) */
+/* WOOD BACKGROUND */
 body{
   font-family:Georgia, serif;
   color:var(--text);
-
   background:
     linear-gradient(rgba(6,8,13,.55), rgba(6,8,13,.65)),
     url("ziricote.jpg.PNG");
-
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-/* LIGHTING (enhances grain instead of muting it) */
+/* LIGHTING */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-
   background:
     radial-gradient(circle at 25% 30%, rgba(255,255,255,.12), transparent 45%),
     radial-gradient(circle at 75% 70%, rgba(0,0,0,.35), transparent 55%);
-
   mix-blend-mode: soft-light;
 }
 
-/* container */
+/* CONTAINER */
 .container{
   width:min(92%,1200px);
   margin:auto;
@@ -105,7 +101,7 @@ header{
 
 /* HERO */
 .hero{
-  padding:100px 0 70px;
+  padding:100px 0 40px;
   text-align:center;
 }
 
@@ -116,11 +112,12 @@ header{
 }
 
 .hero p{
-  max-width:760px;
+  max-width:900px;
   margin:auto;
   font-family:Arial,sans-serif;
   color:var(--muted);
   line-height:1.75;
+  font-size:1.02rem;
 }
 
 /* GRID */
@@ -128,18 +125,15 @@ header{
   margin-top:60px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:30px;
+  gap:34px;
 }
 
-/* 🔥 LIGHTER CARDS (lets wood show through) */
 .card{
   padding:32px;
   border-radius:20px;
   border:1px solid var(--line);
-
   background:rgba(0,0,0,.55);
   backdrop-filter:blur(8px);
-
   box-shadow:
     0 15px 35px rgba(0,0,0,.25),
     inset 0 1px 0 rgba(255,255,255,.05);
@@ -147,14 +141,15 @@ header{
 
 .card h3{
   color:var(--gold-soft);
-  margin-bottom:12px;
+  margin-bottom:16px;
   font-size:1.35rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.75;
+  line-height:1.9;
+  font-size:1.02rem;
 }
 
 /* NOT FIT */
@@ -163,24 +158,24 @@ header{
   padding:45px;
   border:1px solid var(--line);
   border-radius:20px;
-
   background:rgba(0,0,0,.6);
   backdrop-filter:blur(8px);
-
   text-align:center;
 }
 
 .not-fit h3{
   color:var(--gold-soft);
   margin-bottom:15px;
+  font-size:2rem;
 }
 
 .not-fit p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  max-width:750px;
+  max-width:900px;
   margin:auto;
-  line-height:1.75;
+  line-height:1.85;
+  font-size:1.02rem;
 }
 
 /* CTA */
@@ -195,7 +190,6 @@ header{
   border-radius:999px;
   color:var(--gold-soft);
   display:inline-block;
-
   background:rgba(0,0,0,.3);
 }
 
@@ -222,7 +216,7 @@ footer{
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP">
+      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -243,9 +237,8 @@ footer{
   <div class="container">
     <h1>Designed for clients who think long-term.</h1>
     <p>
-      Wealth Assistance is not built for transactional conversations.
-      It is designed for individuals and families who want structure,
-      clarity, and control over how their wealth is built and preserved.
+      The best client relationships are built on alignment, not persuasion.
+      We work best with people who value thoughtful structure over financial noise.
     </p>
   </div>
 </section>
@@ -254,29 +247,39 @@ footer{
 
   <div class="card">
     <h3>Families Building Legacy</h3>
-    <p>Focused on continuity, protection, and generational outcomes.</p>
+    <p>
+      You are focused on long-term continuity, protection, and ensuring that what you build today carries forward across generations.
+    </p>
   </div>
 
   <div class="card">
-    <h3>Founders & Business Owners</h3>
-    <p>Thinking beyond income into ownership and structured wealth.</p>
+    <h3>Founders &amp; Business Owners</h3>
+    <p>
+      You are thinking beyond income and into ownership, structure, and how your business integrates into your broader wealth strategy.
+    </p>
   </div>
 
   <div class="card">
     <h3>High-Income Earners</h3>
-    <p>Seeking better control and leverage of capital.</p>
+    <p>
+      You have strong cash flow but want a more intentional system around how that capital is deployed, protected, and leveraged.
+    </p>
   </div>
 
   <div class="card">
     <h3>Strategic Thinkers</h3>
-    <p>Value long-term structure over short-term tactics.</p>
+    <p>
+      You value structure over shortcuts and are willing to take a deliberate, long-range approach to building and managing wealth.
+    </p>
   </div>
 
 </section>
 
 <section class="container not-fit">
   <h3>This is not a fit if:</h3>
-  <p>You are looking for quick wins or surface-level strategies.</p>
+  <p>
+    You are looking for quick wins, one-off advice, or surface-level strategies. The work we do is structured, intentional, and built for long-term outcomes — not short-term tactics.
+  </p>
 </section>
 
 <section class="cta">
