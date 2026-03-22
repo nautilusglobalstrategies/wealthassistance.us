@@ -30,7 +30,6 @@
 
     a{color:inherit;text-decoration:none}
 
-    /* TOP NAV — MATCHES YOUR OTHER CUSTOM PAGES */
     header{
       position:sticky;
       top:0;
@@ -62,10 +61,23 @@
       display:block;
     }
 
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
     .brand-name{
       font-size:.9rem;
       letter-spacing:2px;
       color:var(--gold-soft);
+      white-space:nowrap;
+    }
+
+    .brand-sub{
+      font-size:.82rem;
+      color:var(--muted);
+      margin-top:4px;
       white-space:nowrap;
     }
 
@@ -105,7 +117,6 @@
       padding:20px 0 30px;
     }
 
-    /* HERO */
     .hero{
       min-height:430px;
       display:flex;
@@ -188,7 +199,6 @@
       font-size:.92rem;
     }
 
-    /* SECTIONS */
     .section{
       margin-top:22px;
       padding:24px;
@@ -343,7 +353,10 @@
 
     @media(max-width:700px){
       .container{padding-top:14px}
-      .hero{min-height:420px;background-position:center center}
+      .hero{
+        min-height:420px;
+        background-position:center center;
+      }
       .hero-inner,.section{padding:18px}
       .hero-copy h1{font-size:2.25rem}
     }
@@ -355,11 +368,13 @@
   <div class="nav-wrap">
     <div class="brand">
       <img src="logo.png.WEBP" alt="Wealth Assistance logo">
-      <div class="brand-name">WEALTH ASSISTANCE</div>
+      <div class="brand-text">
+        <div class="brand-name">WEALTH ASSISTANCE</div>
+        <div class="brand-sub">Private Wealth Strategy</div>
+      </div>
     </div>
 
     <nav class="nav-links">
-      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="blueprint.html">Blueprint</a>
@@ -367,7 +382,7 @@
       <a href="strategy.html" class="active">Strategy Lab</a>
     </nav>
 
-    <a id="navConsultBtn" href="#" class="nav-cta">Private Consultation</a>
+    <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="nav-cta">Private Consultation</a>
   </div>
 </header>
 
@@ -451,7 +466,7 @@
             Multi-layer capital cycle scenarios for individuals whose positioning extends beyond a single capital layer.
           </p>
         </div>
-        <a href="#" class="btn btn-secondary consult-link">Request Access</a>
+        <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="btn btn-secondary">Request Access</a>
       </div>
 
       <div class="module locked">
@@ -463,7 +478,7 @@
             Model how layered liquidity reserves, cash-equivalent positioning, and capital efficiency interact over time.
           </p>
         </div>
-        <a href="#" class="btn btn-secondary consult-link">Request Access</a>
+        <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="btn btn-secondary">Request Access</a>
       </div>
 
       <div class="module locked">
@@ -475,7 +490,7 @@
             Explore controlled capital deployment scenarios and evaluate structural yield opportunities.
           </p>
         </div>
-        <a href="#" class="btn btn-secondary consult-link">Request Access</a>
+        <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="btn btn-secondary">Request Access</a>
       </div>
 
       <div class="module locked">
@@ -487,7 +502,7 @@
             Advanced positioning strategies built to protect margin, improve structural efficiency, and reduce leakage.
           </p>
         </div>
-        <a href="#" class="btn btn-secondary consult-link">Request Access</a>
+        <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="btn btn-secondary">Request Access</a>
       </div>
 
       <div class="module locked">
@@ -499,7 +514,7 @@
             A full architecture layer for individuals and families seeking entity, trust, tax, and capital alignment.
           </p>
         </div>
-        <a href="#" class="btn btn-secondary consult-link">Request Access</a>
+        <a href="https://nautilusglobalstrategies.github.io/private-consultation/" class="btn btn-secondary">Request Access</a>
       </div>
     </div>
   </section>
@@ -509,16 +524,6 @@
   </div>
 
 </div>
-
-<script>
-  const CONSULT_URL = "PASTE-YOUR-PRIVATE-CONSULTATION-URL-HERE";
-
-  document.getElementById("navConsultBtn").href = CONSULT_URL;
-
-  document.querySelectorAll(".consult-link").forEach(link => {
-    link.href = CONSULT_URL;
-  });
-</script>
 
 </body>
 </html>
