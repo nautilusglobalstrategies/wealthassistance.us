@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | Wealth Assistance</title>
+<meta name="description" content="Explore Wealth Assistance services, including private wealth structuring, legacy planning strategy, strategic coordination, and private consultation." />
+<link rel="preload" as="image" href="services-hero.PNG" />
 
 <style>
 :root{
@@ -13,12 +15,14 @@
   --text:#f7f3ee;
   --muted:#bfb5a7;
   --line:rgba(214,164,92,.18);
+  --shadow:0 20px 50px rgba(0,0,0,.45);
 }
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-/* 🔥 FIX LINK COLORS (NO PURPLE) */
+/* LINKS */
 a,
 a:visited,
 a:active{
@@ -30,12 +34,12 @@ a:hover{
   color:var(--gold-soft);
 }
 
-/* 🔥 IMPROVED BACKGROUND VISIBILITY */
+/* BODY */
 body{
   font-family:Georgia, serif;
   color:var(--text);
   background:
-    linear-gradient(rgba(6,8,13,.60), rgba(6,8,13,.80)),
+    linear-gradient(rgba(6,8,13,.60), rgba(6,8,13,.82)),
     url("services-hero.PNG") center/cover no-repeat fixed;
   background-blend-mode:multiply;
 }
@@ -47,34 +51,55 @@ body{
 }
 
 /* HEADER */
-header{
+.site-header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
   z-index:1000;
 }
 
 .nav{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
+  min-height:86px;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  padding:16px 0;
+  gap:24px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
 
-.brand img{height:50px;}
+.brand img{
+  height:52px;
+  width:auto;
+  display:block;
+  filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
 
 .brand-name{
-  font-size:.9rem;
-  letter-spacing:2px;
+  font-size:.98rem;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
   color:var(--gold-soft);
+}
+
+.brand-tag{
+  font-family:Arial,sans-serif;
+  font-size:.76rem;
+  color:var(--muted);
+  letter-spacing:.9px;
+  margin-top:4px;
 }
 
 /* NAV LINKS */
@@ -83,29 +108,53 @@ header{
   justify-content:center;
   gap:22px;
   font-family:Arial,sans-serif;
+  font-size:.94rem;
   flex-wrap:wrap;
+  align-items:center;
 }
 
-.nav-links a{color:var(--muted);}
-.nav-links a:visited{color:var(--muted);}
-.nav-links a:hover{color:var(--gold-soft);}
+.nav-links a{
+  color:var(--muted);
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--gold-soft);
+}
 
 .nav-cta{
   padding:10px 16px;
-  border:1px solid var(--gold);
+  border:1px solid rgba(214,164,92,0.42);
   border-radius:999px;
-  color:var(--gold-soft);
+  background:rgba(255,255,255,0.02);
+  color:var(--gold-soft) !important;
+  white-space:nowrap;
+}
+
+.nav-cta:hover{
+  background:rgba(214,164,92,.08);
 }
 
 /* HERO */
 .hero{
-  padding:100px 0 60px;
+  padding:90px 0 54px;
   text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-family:Arial,sans-serif;
+  font-size:.82rem;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
 }
 
 .hero h1{
   font-size:clamp(2.5rem,5vw,4rem);
   margin-bottom:20px;
+  line-height:1.08;
 }
 
 .hero p{
@@ -113,12 +162,13 @@ header{
   color:var(--muted);
   max-width:700px;
   margin:auto;
-  line-height:1.7;
+  line-height:1.75;
+  font-size:1.05rem;
 }
 
 /* SECTION */
 .section{
-  padding:60px 0;
+  padding:30px 0 70px;
 }
 
 .grid{
@@ -130,36 +180,49 @@ header{
 /* CARDS */
 .card{
   padding:30px;
-  border-radius:20px;
+  border-radius:24px;
   border:1px solid var(--line);
   background:rgba(0,0,0,.45);
   backdrop-filter:blur(6px);
+  box-shadow:var(--shadow);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.2rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 /* CTA BAND */
 .band{
-  margin-top:40px;
+  margin-top:34px;
   padding:30px;
   text-align:center;
-  border-radius:20px;
+  border-radius:24px;
   border:1px solid var(--line);
   background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  box-shadow:var(--shadow);
 }
 
 .band h3{
   color:var(--gold-soft);
   margin-bottom:10px;
+  font-size:1.3rem;
+}
+
+.band p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:760px;
+  margin:auto;
 }
 
 /* FOOTER */
@@ -170,26 +233,45 @@ footer{
   color:var(--muted);
 }
 
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
 .footer-links{
   display:flex;
   gap:15px;
   flex-wrap:wrap;
-  margin-top:10px;
 }
 
-.footer-links a{color:var(--muted);}
-.footer-links a:visited{color:var(--muted);}
-.footer-links a:hover{color:var(--gold-soft);}
+.footer-links a{
+  color:var(--muted);
+}
+
+.footer-links a:hover{
+  color:var(--gold-soft);
+}
 
 /* MOBILE */
 @media(max-width:900px){
+  body{
+    background-attachment:scroll;
+  }
+
   .grid{
     grid-template-columns:1fr;
   }
 
   .nav{
-    grid-template-columns:1fr;
-    gap:10px;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:16px 0;
+  }
+
+  .hero{
+    padding:64px 0 44px;
   }
 }
 </style>
@@ -197,28 +279,30 @@ footer{
 
 <body>
 
-<header>
+<header class="site-header">
   <div class="container nav">
-    <div class="brand">
-      <img src="logo.png.WEBP">
-      <div class="brand-name">WEALTH ASSISTANCE</div>
-    </div>
+    <a href="index.html" class="brand">
+      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
+      <div class="brand-text">
+        <span class="brand-name">Wealth Assistance</span>
+        <span class="brand-tag">Private Wealth Strategy</span>
+      </div>
+    </a>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
+    <nav class="nav-links">
       <a href="about.html">About</a>
-      <a href="services.html">Services</a>
+      <a href="services.html" class="active">Services</a>
       <a href="blueprint.html">Blueprint</a>
       <a href="clients.html">Who We Work With</a>
       <a href="strategy.html">Strategy Lab</a>
-    </div>
-
-    <a href="contact.html" class="nav-cta">Private Consultation</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
+    <div class="eyebrow">Services</div>
     <h1>Strategic services built for control and continuity.</h1>
     <p>
       We focus on structuring wealth, strengthening legacy, and aligning
@@ -276,7 +360,7 @@ footer{
 </section>
 
 <footer>
-  <div class="container">
+  <div class="container footer-inner">
     <div>© 2026 Wealth Assistance</div>
     <div class="footer-links">
       <a href="index.html">Home</a>
