@@ -7,8 +7,6 @@
 
 <style>
 :root{
-  --bg:#06080d;
-  --bg2:#0b0f17;
   --gold:#d6a45c;
   --gold-soft:#f3d7a2;
   --text:#f7f3ee;
@@ -19,16 +17,11 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-a,
-a:visited,
-a:active{
+a,a:visited,a:active{
   color:var(--muted);
   text-decoration:none;
 }
-
-a:hover{
-  color:var(--gold-soft);
-}
+a:hover{color:var(--gold-soft);}
 
 body{
   font-family:Georgia, serif;
@@ -59,6 +52,7 @@ header{
   grid-template-columns:auto 1fr auto;
   align-items:center;
   padding:16px 0;
+  gap:16px;
 }
 
 .brand{
@@ -66,9 +60,7 @@ header{
   align-items:center;
   gap:12px;
 }
-
 .brand img{height:50px;}
-
 .brand-name{
   font-size:.9rem;
   letter-spacing:2px;
@@ -82,7 +74,6 @@ header{
   font-family:Arial,sans-serif;
   flex-wrap:wrap;
 }
-
 .nav-links a:hover{color:var(--gold-soft);}
 
 .nav-cta{
@@ -90,6 +81,7 @@ header{
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
+  white-space:nowrap;
 }
 
 /* HERO */
@@ -97,18 +89,21 @@ header{
   padding:30px 0 40px;
 }
 
-/* MUSEUM / MANSION FRAME */
+/* MASTERPIECE FRAME */
 .hero-shell{
   position:relative;
-  background:#111;
-  padding:28px;
-  border-radius:4px;
+  padding:34px;
+  background:
+    linear-gradient(145deg,#221b16 0%, #130f0c 18%, #050505 42%, #17120e 68%, #251d17 100%);
   box-shadow:
-    0 40px 100px rgba(0,0,0,.65),
-    0 18px 36px rgba(0,0,0,.45);
+    0 55px 120px rgba(0,0,0,.72),
+    0 18px 34px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 0 -14px 24px rgba(0,0,0,.75);
+  overflow:hidden;
 }
 
-/* outer carved frame body */
+/* outer carved rail */
 .hero-shell::before{
   content:"";
   position:absolute;
@@ -116,47 +111,84 @@ header{
   pointer-events:none;
   z-index:1;
   background:
-    linear-gradient(135deg, #2a241d 0%, #16120e 18%, #0a0908 42%, #1c1712 68%, #2b241d 100%);
+    linear-gradient(135deg, rgba(255,255,255,.055), transparent 18%, transparent 82%, rgba(0,0,0,.45)),
+    linear-gradient(145deg, #2e251f 0%, #18120e 22%, #090807 46%, #17120e 70%, #2b221b 100%);
+  clip-path:polygon(
+    0 0, 100% 0, 100% 100%, 0 100%,
+    0 0,
+    18px 18px, 18px calc(100% - 18px), calc(100% - 18px) calc(100% - 18px), calc(100% - 18px) 18px, 18px 18px
+  );
   box-shadow:
-    inset 0 2px 3px rgba(255,255,255,.05),
-    inset 0 -14px 20px rgba(0,0,0,.8),
-    inset 10px 0 18px rgba(255,255,255,.03),
-    inset -10px 0 18px rgba(0,0,0,.45);
+    inset 0 2px 2px rgba(255,255,255,.04),
+    inset 0 -10px 16px rgba(0,0,0,.65);
 }
 
-/* gold trim ring */
-.hero-shell::after{
-  content:"";
+/* carved middle bevel */
+.hero-rail{
   position:absolute;
-  inset:15px;
-  pointer-events:none;
+  inset:18px;
   z-index:2;
-  border:2px solid rgba(214,164,92,.55);
+  pointer-events:none;
+  background:
+    linear-gradient(145deg,#3a2f27 0%, #1d1713 22%, #0d0b0a 44%, #1b1612 70%, #362b23 100%);
   box-shadow:
-    0 0 0 2px rgba(70,52,26,.9) inset,
-    inset 0 0 12px rgba(214,164,92,.18),
+    inset 0 1px 1px rgba(255,255,255,.05),
+    inset 0 -8px 12px rgba(0,0,0,.65),
+    0 0 0 1px rgba(0,0,0,.35);
+  clip-path:polygon(
+    0 0,100% 0,100% 100%,0 100%,
+    0 0,
+    18px 18px,18px calc(100% - 18px),calc(100% - 18px) calc(100% - 18px),calc(100% - 18px) 18px,18px 18px
+  );
+}
+
+/* antique gold liner */
+.hero-liner{
+  position:absolute;
+  inset:34px;
+  z-index:3;
+  pointer-events:none;
+  border:2px solid rgba(214,164,92,.62);
+  box-shadow:
+    inset 0 0 0 1px rgba(83,58,28,.95),
+    inset 0 0 10px rgba(214,164,92,.22),
     0 0 8px rgba(214,164,92,.08);
+}
+
+/* inner wood rebate */
+.hero-rebate{
+  position:absolute;
+  inset:44px;
+  z-index:4;
+  pointer-events:none;
+  background:
+    linear-gradient(145deg,#181412 0%, #090909 48%, #1a1512 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,.03),
+    inset 0 -10px 18px rgba(0,0,0,.75);
 }
 
 /* image stage */
 .hero-stage{
   position:relative;
-  z-index:3;
-  margin:20px;
-  padding:12px;
+  z-index:5;
+  margin:44px;
+  padding:10px;
   background:
-    linear-gradient(145deg, #0c0c0c, #020202);
+    linear-gradient(145deg,#0a0a0a 0%, #020202 100%);
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.04),
-    inset 0 0 28px rgba(0,0,0,.7),
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 36px rgba(0,0,0,.72),
     0 10px 22px rgba(0,0,0,.55);
 }
 
+/* mounted image area */
 .hero-stage-inner{
   position:relative;
   overflow:hidden;
+  background:#040404;
   box-shadow:
-    inset 0 0 40px rgba(0,0,0,.45);
+    inset 0 0 40px rgba(0,0,0,.42);
 }
 
 .hero-stage-inner img{
@@ -177,13 +209,13 @@ header{
   padding:7vw 5vw 4vw;
   background:linear-gradient(
     to bottom,
-    rgba(6,8,13,.28) 0%,
-    rgba(6,8,13,.10) 24%,
-    rgba(6,8,13,.06) 48%,
-    rgba(6,8,13,.20) 70%,
-    rgba(6,8,13,.48) 100%
+    rgba(6,8,13,.26) 0%,
+    rgba(6,8,13,.08) 24%,
+    rgba(6,8,13,.05) 48%,
+    rgba(6,8,13,.18) 70%,
+    rgba(6,8,13,.42) 100%
   );
-  z-index:4;
+  z-index:6;
 }
 
 .hero-copy-inner{
@@ -207,19 +239,19 @@ header{
   text-shadow:0 4px 16px rgba(0,0,0,.45);
 }
 
-/* subtle light sweep */
+/* subtle gilded sweep */
 .frame-sweep{
   position:absolute;
   inset:-20%;
   pointer-events:none;
-  z-index:5;
+  z-index:7;
   background:linear-gradient(
     115deg,
-    transparent 35%,
-    rgba(255,255,255,.025) 45%,
-    rgba(214,164,92,.10) 50%,
-    rgba(255,255,255,.025) 55%,
-    transparent 65%
+    transparent 36%,
+    rgba(255,255,255,.018) 46%,
+    rgba(214,164,92,.08) 50%,
+    rgba(255,255,255,.018) 54%,
+    transparent 64%
   );
   transform:translateX(-120%) rotate(8deg);
   animation:frameSweep 8s linear infinite;
@@ -253,7 +285,6 @@ header{
   font-size:1.04rem;
 }
 
-/* GRID */
 .grid{
   margin-top:44px;
   display:grid;
@@ -281,7 +312,6 @@ header{
   line-height:1.75;
 }
 
-/* PROCESS */
 .process{
   margin-top:60px;
   display:grid;
@@ -310,7 +340,6 @@ header{
   line-height:1.65;
 }
 
-/* CTA */
 .cta{
   margin-top:60px;
   text-align:center;
@@ -345,7 +374,6 @@ header{
   display:inline-block;
 }
 
-/* FOOTER */
 footer{
   border-top:1px solid var(--line);
   padding:30px 0;
@@ -362,14 +390,16 @@ footer{
 
 .footer-links a:hover{color:var(--gold-soft);}
 
-/* MOBILE */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr;}
   .process{grid-template-columns:1fr;}
   .nav{grid-template-columns:1fr;gap:10px;}
   .hero-copy{padding:8vw 5vw 4vw;}
-  .hero-shell{padding:18px;}
-  .hero-stage{margin:14px;padding:8px;}
+  .hero-shell{padding:20px;}
+  .hero-rail{inset:12px;}
+  .hero-liner{inset:24px;}
+  .hero-rebate{inset:32px;}
+  .hero-stage{margin:32px 32px 32px 32px;padding:8px;}
 }
 </style>
 </head>
@@ -399,6 +429,10 @@ footer{
 <section class="hero">
   <div class="container">
     <div class="hero-shell">
+      <div class="hero-rail"></div>
+      <div class="hero-liner"></div>
+      <div class="hero-rebate"></div>
+
       <div class="hero-stage">
         <div class="hero-stage-inner">
           <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual">
@@ -413,6 +447,7 @@ footer{
           </div>
         </div>
       </div>
+
       <div class="frame-sweep"></div>
     </div>
   </div>
