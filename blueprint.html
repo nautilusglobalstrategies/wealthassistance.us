@@ -8,17 +8,17 @@
 <style>
 :root{
   --bg:#06080d;
+  --bg2:#0b0f17;
   --gold:#d6a45c;
   --gold-soft:#f3d7a2;
   --text:#f7f3ee;
   --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
+  --glass:rgba(0,0,0,.48);
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
-/* LINKS */
 a,
 a:visited,
 a:active{
@@ -30,20 +30,15 @@ a:hover{
   color:var(--gold-soft);
 }
 
-/* 🔥 BACKGROUND FIX (NO CROPPING) */
 body{
   font-family:Georgia, serif;
   color:var(--text);
   background:
-    linear-gradient(
-      rgba(6,8,13,.65),
-      rgba(6,8,13,.75)
-    ),
-    url("blueprint-hero.PNG") center center / contain no-repeat fixed;
-  background-color:#06080d;
+    radial-gradient(circle at 18% 10%, rgba(214,164,92,.07), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(50,120,255,.07), transparent 18%),
+    linear-gradient(180deg, #06080d 0%, #0b0f17 100%);
 }
 
-/* CONTAINER */
 .container{
   width:min(92%,1200px);
   margin:auto;
@@ -88,6 +83,7 @@ header{
   flex-wrap:wrap;
 }
 
+.nav-links a{color:var(--muted);}
 .nav-links a:hover{color:var(--gold-soft);}
 
 .nav-cta{
@@ -99,29 +95,70 @@ header{
 
 /* HERO */
 .hero{
-  padding:140px 0 120px;
+  position:relative;
+  padding:28px 0 30px;
+}
+
+.hero-shell{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow:hidden;
+  background:#05070b;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.hero-shell img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.hero-copy{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
   text-align:center;
+  padding:7vw 5vw 4vw;
+  background:linear-gradient(
+    to bottom,
+    rgba(6,8,13,.28) 0%,
+    rgba(6,8,13,.10) 24%,
+    rgba(6,8,13,.06) 48%,
+    rgba(6,8,13,.20) 70%,
+    rgba(6,8,13,.48) 100%
+  );
+}
+
+.hero-copy-inner{
+  max-width:980px;
 }
 
 .hero h1{
-  font-size:clamp(2.7rem,5vw,4.4rem);
-  margin-bottom:20px;
+  font-size:clamp(2.5rem,5.3vw,4.5rem);
+  line-height:1.06;
+  margin-bottom:18px;
+  text-shadow:0 8px 24px rgba(0,0,0,.45);
 }
 
 .hero p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  max-width:760px;
+  line-height:1.75;
+  font-size:clamp(.98rem,1.6vw,1.15rem);
+  max-width:850px;
   margin:auto;
-  line-height:1.7;
+  text-shadow:0 4px 16px rgba(0,0,0,.45);
 }
 
 /* SECTION */
 .section{
-  padding:70px 0;
+  padding:56px 0 70px;
 }
 
-/* INTRO */
 .intro{
   max-width:900px;
   margin:auto;
@@ -136,35 +173,36 @@ header{
 .intro p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
+  font-size:1.04rem;
 }
 
 /* GRID */
 .grid{
-  margin-top:50px;
+  margin-top:44px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:30px;
 }
 
-/* CARD */
 .card{
   padding:30px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.45);
+  background:var(--glass);
   backdrop-filter:blur(6px);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.45rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 /* PROCESS */
@@ -176,16 +214,24 @@ header{
 }
 
 .step{
-  padding:20px;
-  border-radius:14px;
+  padding:22px;
+  border-radius:16px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.42);
   text-align:center;
+  backdrop-filter:blur(6px);
 }
 
 .step h4{
   color:var(--gold-soft);
   margin-bottom:8px;
+  font-size:1.08rem;
+}
+
+.step p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  line-height:1.65;
 }
 
 /* CTA */
@@ -195,18 +241,24 @@ header{
   padding:40px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.55);
+  background:rgba(0,0,0,.50);
+  backdrop-filter:blur(6px);
 }
 
 .cta h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.6rem;
 }
 
 .cta p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  margin-bottom:20px;
+  margin-bottom:22px;
+  line-height:1.75;
+  max-width:860px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .cta a{
@@ -214,6 +266,7 @@ header{
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
+  display:inline-block;
 }
 
 /* FOOTER */
@@ -224,11 +277,23 @@ footer{
   color:var(--muted);
 }
 
+.footer-links{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.footer-links a:hover{color:var(--gold-soft);}
+
 /* MOBILE */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr;}
   .process{grid-template-columns:1fr;}
   .nav{grid-template-columns:1fr;gap:10px;}
+  .hero-copy{
+    padding:8vw 5vw 4vw;
+  }
 }
 </style>
 </head>
@@ -238,7 +303,7 @@ footer{
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP">
+      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -257,13 +322,106 @@ footer{
 
 <section class="hero">
   <div class="container">
-    <h1>A framework for wealth designed to endure.</h1>
-    <p>
-      The Legacy Blueprint is a structured system aligning ownership, control,
-      protection, and long-term continuity into one cohesive strategy.
-    </p>
+    <div class="hero-shell">
+      <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual">
+      <div class="hero-copy">
+        <div class="hero-copy-inner">
+          <h1>A framework for wealth designed to endure.</h1>
+          <p>
+            The Legacy Blueprint is not a collection of tactics. It is a structured system
+            that aligns ownership, control, protection, and long-term continuity into one cohesive strategy.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container intro">
+    <h2>Most wealth strategies are fragmented.</h2>
+    <p>
+      Advisors operate in silos. Strategies are layered without alignment. Over time,
+      complexity increases while clarity decreases. The Blueprint exists to organize
+      and unify everything into a structure that actually works together.
+    </p>
+  </div>
+
+  <div class="container grid">
+    <div class="card">
+      <h3>Foundation</h3>
+      <p>
+        Establishes ownership structures, entities, and control systems that everything else is built on.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Flow</h3>
+      <p>
+        Designs how capital moves, is accessed, and is leveraged across different layers of your financial system.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Protection</h3>
+      <p>
+        Creates separation and safeguards designed to reduce exposure while maintaining control.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Continuity</h3>
+      <p>
+        Aligns long-term planning with generational outcomes and ensures smooth transition across time.
+      </p>
+    </div>
+  </div>
+
+  <div class="container process">
+    <div class="step">
+      <h4>Assess</h4>
+      <p>Understand your current structure and identify the gaps.</p>
+    </div>
+
+    <div class="step">
+      <h4>Design</h4>
+      <p>Map the system around your goals, family, and financial priorities.</p>
+    </div>
+
+    <div class="step">
+      <h4>Structure</h4>
+      <p>Build the architecture intentionally so each component supports the whole.</p>
+    </div>
+
+    <div class="step">
+      <h4>Execute</h4>
+      <p>Align the plan into a working system built for continuity and control.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cta">
+      <h3>This is not a product. It is a system.</h3>
+      <p>
+        The Legacy Blueprint is designed for clients who want clarity, control,
+        and a structured approach to long-term wealth — not disconnected advice.
+      </p>
+      <a href="contact.html">Request Private Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Wealth Assistance</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
