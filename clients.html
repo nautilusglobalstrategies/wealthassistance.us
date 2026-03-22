@@ -12,7 +12,7 @@
   --text:#f7f3ee;
   --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
-  --glass:rgba(0,0,0,.55);
+  --glass:rgba(0,0,0,.65);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -23,15 +23,32 @@ a{
 }
 a:hover{color:var(--gold-soft);}
 
-/* 🔥 REAL ZIRICOTE BACKGROUND */
+/* 🔥 ZIRICOTE BACKGROUND (MATCHES YOUR FILE NAME EXACTLY) */
 body{
   font-family:Georgia, serif;
   color:var(--text);
 
   background:
-    linear-gradient(rgba(6,8,13,.82), rgba(6,8,13,.9)),
-    url("https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat fixed;
+    linear-gradient(rgba(6,8,13,.90), rgba(6,8,13,.94)),
+    url("ziricote.jpg.PNG");
 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* depth lighting */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255,255,255,.05), transparent 40%),
+    radial-gradient(circle at 80% 75%, rgba(0,0,0,.5), transparent 50%);
+
+  mix-blend-mode: soft-light;
 }
 
 /* container */
@@ -44,7 +61,7 @@ body{
 header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.7);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
   z-index:1000;
@@ -88,58 +105,81 @@ header{
 
 /* HERO */
 .hero{
-  padding:90px 0 70px;
+  padding:100px 0 70px;
   text-align:center;
 }
 
 .hero h1{
   font-size:clamp(2.5rem,5vw,4rem);
   margin-bottom:18px;
+  text-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
 .hero p{
-  max-width:750px;
+  max-width:760px;
   margin:auto;
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 /* GRID */
 .grid{
-  margin-top:50px;
+  margin-top:60px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:30px;
 }
 
 .card{
-  padding:30px;
+  padding:32px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:var(--glass);
-  backdrop-filter:blur(8px);
+
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.35rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 /* NOT FIT */
 .not-fit{
-  margin-top:70px;
-  padding:40px;
+  margin-top:80px;
+  padding:45px;
   border:1px solid var(--line);
   border-radius:20px;
-  background:rgba(0,0,0,.55);
+
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+
   text-align:center;
+}
+
+.not-fit h3{
+  color:var(--gold-soft);
+  margin-bottom:15px;
+}
+
+.not-fit p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  max-width:750px;
+  margin:auto;
+  line-height:1.75;
 }
 
 /* CTA */
@@ -149,24 +189,30 @@ header{
 }
 
 .cta a{
-  padding:12px 24px;
+  padding:14px 28px;
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
+  display:inline-block;
+
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(6px);
 }
 
 /* FOOTER */
 footer{
-  margin-top:80px;
+  margin-top:90px;
   border-top:1px solid var(--line);
   padding:30px 0;
   font-family:Arial,sans-serif;
   color:var(--muted);
+  background:rgba(0,0,0,.3);
 }
 
 /* MOBILE */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr;}
+  .nav{grid-template-columns:1fr;gap:10px;}
 }
 </style>
 </head>
@@ -239,7 +285,7 @@ footer{
 <section class="container not-fit">
   <h3>This is not a fit if:</h3>
   <p>
-    You are looking for quick wins or surface-level strategies.
+    You are looking for quick wins, one-off advice, or surface-level strategies.
   </p>
 </section>
 
