@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Who We Work With | Wealth Assistance</title>
+<meta name="description" content="Learn who Wealth Assistance works with, including families building legacy, founders, business owners, high-income earners, and strategic long-term thinkers." />
+<link rel="preload" as="image" href="ziricote.jpg.PNG" />
 
 <style>
 :root{
@@ -13,9 +15,11 @@
   --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
   --glass:rgba(0,0,0,.45);
+  --shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 a{
   color:var(--muted);
@@ -28,7 +32,7 @@ body{
   font-family:Georgia, serif;
   color:var(--text);
   background:
-    linear-gradient(rgba(6,8,13,.55), rgba(6,8,13,.65)),
+    linear-gradient(rgba(6,8,13,.55), rgba(6,8,13,.68)),
     url("ziricote.jpg.PNG");
   background-size: cover;
   background-position: center;
@@ -51,37 +55,60 @@ body::before{
 .container{
   width:min(92%,1200px);
   margin:auto;
+  position:relative;
+  z-index:1;
 }
 
 /* HEADER */
-header{
+.site-header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,.6);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
   z-index:1000;
 }
 
 .nav{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
+  min-height:86px;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  padding:16px 0;
+  gap:24px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
 
-.brand img{height:50px;}
+.brand img{
+  height:52px;
+  width:auto;
+  display:block;
+  filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
 
 .brand-name{
-  font-size:.9rem;
-  letter-spacing:2px;
+  font-size:.98rem;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
   color:var(--gold-soft);
+}
+
+.brand-tag{
+  font-family:Arial,sans-serif;
+  font-size:.76rem;
+  color:var(--muted);
+  letter-spacing:.9px;
+  margin-top:4px;
 }
 
 .nav-links{
@@ -90,25 +117,48 @@ header{
   gap:22px;
   font-family:Arial,sans-serif;
   flex-wrap:wrap;
+  align-items:center;
+  font-size:.94rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--gold-soft);
 }
 
 .nav-cta{
   padding:10px 16px;
-  border:1px solid var(--gold);
+  border:1px solid rgba(214,164,92,0.42);
   border-radius:999px;
   color:var(--gold-soft);
+  white-space:nowrap;
+  background:rgba(255,255,255,0.02);
+}
+.nav-cta:hover{
+  background:rgba(214,164,92,.08);
 }
 
 /* HERO */
 .hero{
-  padding:100px 0 40px;
+  padding:92px 0 34px;
   text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-family:Arial,sans-serif;
+  font-size:.82rem;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
 }
 
 .hero h1{
   font-size:clamp(2.5rem,5vw,4rem);
   margin-bottom:18px;
   text-shadow:0 10px 30px rgba(0,0,0,.4);
+  line-height:1.08;
 }
 
 .hero p{
@@ -116,13 +166,13 @@ header{
   margin:auto;
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.75;
+  line-height:1.8;
   font-size:1.02rem;
 }
 
 /* GRID */
 .grid{
-  margin-top:60px;
+  margin-top:46px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:34px;
@@ -154,13 +204,14 @@ header{
 
 /* NOT FIT */
 .not-fit{
-  margin-top:80px;
+  margin-top:70px;
   padding:45px;
   border:1px solid var(--line);
   border-radius:20px;
   background:rgba(0,0,0,.6);
   backdrop-filter:blur(8px);
   text-align:center;
+  box-shadow:var(--shadow);
 }
 
 .not-fit h3{
@@ -186,11 +237,15 @@ header{
 
 .cta a{
   padding:14px 28px;
-  border:1px solid var(--gold);
+  border:1px solid rgba(214,164,92,0.42);
   border-radius:999px;
   color:var(--gold-soft);
   display:inline-block;
   background:rgba(0,0,0,.3);
+}
+
+.cta a:hover{
+  background:rgba(214,164,92,.08);
 }
 
 /* FOOTER */
@@ -203,38 +258,72 @@ footer{
   background:rgba(0,0,0,.25);
 }
 
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.footer-links{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.footer-links a:hover{
+  color:var(--gold-soft);
+}
+
 /* MOBILE */
 @media(max-width:900px){
-  .grid{grid-template-columns:1fr;}
-  .nav{grid-template-columns:1fr;gap:10px;}
+  body{
+    background-attachment:scroll;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:16px 0;
+  }
+
+  .hero{
+    padding:66px 0 28px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
   <div class="container nav">
-    <div class="brand">
+    <a href="index.html" class="brand">
       <img src="logo.png.WEBP" alt="Wealth Assistance logo">
-      <div class="brand-name">WEALTH ASSISTANCE</div>
-    </div>
+      <div class="brand-text">
+        <span class="brand-name">Wealth Assistance</span>
+        <span class="brand-tag">Private Wealth Strategy</span>
+      </div>
+    </a>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
+    <nav class="nav-links">
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="blueprint.html">Blueprint</a>
-      <a href="clients.html">Who We Work With</a>
+      <a href="clients.html" class="active">Who We Work With</a>
       <a href="strategy.html">Strategy Lab</a>
-    </div>
-
-    <a href="contact.html" class="nav-cta">Private Consultation</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
+    <div class="eyebrow">Who We Work With</div>
     <h1>Designed for clients who think long-term.</h1>
     <p>
       The best client relationships are built on alignment, not persuasion.
@@ -287,8 +376,14 @@ footer{
 </section>
 
 <footer>
-  <div class="container">
-    © 2026 Wealth Assistance
+  <div class="container footer-inner">
+    <div>© 2026 Wealth Assistance</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </footer>
 
