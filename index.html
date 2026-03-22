@@ -2,135 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wealth Assistance | Private Wealth Strategy</title>
-  <meta name="description" content="Wealth Assistance helps affluent families, founders, and investors build private wealth systems designed for protection, leverage, and legacy." />
+
   <style>
-    :root{
-      --bg:#030303;
-      --bg2:#080808;
-      --bg3:#111111;
+    :root {
+      --bg-1:#030303;
+      --bg-2:#0a0a0a;
+      --bg-3:#111;
       --gold:#d6a45c;
       --gold-soft:#f3d7a2;
-      --gold-deep:#b9782f;
       --text:#f7f3ee;
-      --muted:#bfb5a7;
-      --line:rgba(214,164,92,.20);
-      --line-soft:rgba(255,255,255,.08);
-      --glass:rgba(255,255,255,.045);
-      --glass2:rgba(255,255,255,.025);
-      --shadow:0 24px 60px rgba(0,0,0,.45);
-      --radius-xl:34px;
-      --radius-lg:28px;
-      --radius-md:20px;
+      --muted:#cfc6b9;
+      --line:rgba(214,164,92,0.22);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
 
     body{
-      font-family:Georgia, serif;
+      font-family:Georgia,serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 12%, rgba(214,164,92,.11), transparent 18%),
-        radial-gradient(circle at 85% 18%, rgba(214,164,92,.08), transparent 16%),
-        radial-gradient(circle at 20% 85%, rgba(185,120,47,.08), transparent 18%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 45%, var(--bg3) 100%);
-      overflow-x:hidden;
-      position:relative;
+        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 25%),
+        linear-gradient(180deg,var(--bg-1),var(--bg-2),var(--bg-3));
     }
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
-      background-size:48px 48px;
-      mask-image:radial-gradient(circle at center, black 28%, transparent 85%);
-      opacity:.30;
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        linear-gradient(90deg, transparent 0%, rgba(214,164,92,.03) 50%, transparent 100%);
-      opacity:.6;
-      mix-blend-mode:screen;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+    a{color:inherit;text-decoration:none;}
 
     .container{
-      width:min(92%,1280px);
-      margin:0 auto;
-      position:relative;
-      z-index:1;
+      width:min(92%,1100px);
+      margin:auto;
     }
 
-    .ambient-orb{
-      position:absolute;
-      border-radius:999px;
-      filter:blur(55px);
-      pointer-events:none;
-      z-index:0;
-    }
-
-    .orb-1{
-      width:240px;
-      height:240px;
-      top:120px;
-      left:-60px;
-      background:rgba(214,164,92,.10);
-    }
-
-    .orb-2{
-      width:260px;
-      height:260px;
-      top:420px;
-      right:-90px;
-      background:rgba(214,164,92,.08);
-    }
-
-    .orb-3{
-      width:180px;
-      height:180px;
-      bottom:200px;
-      left:16%;
-      background:rgba(185,120,47,.08);
-    }
-
-    header{
+    /* HEADER */
+    .site-header{
+      background:rgba(3,3,3,.9);
+      border-bottom:1px solid var(--line);
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(4,4,4,.68);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-      box-shadow:0 10px 30px rgba(0,0,0,.24);
+      backdrop-filter:blur(10px);
     }
 
     .nav{
+      min-height:86px;
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:24px;
-      padding:16px 0;
     }
 
     .brand{
@@ -140,40 +59,38 @@
     }
 
     .brand img{
-      height:50px;
-      width:auto;
-      filter:drop-shadow(0 0 16px rgba(214,164,92,.30));
+      height:52px;
+      filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
     }
 
-    .brand-meta{
+    .brand-text{
       display:flex;
       flex-direction:column;
-      gap:4px;
       line-height:1.1;
     }
 
     .brand-name{
-      font-size:.95rem;
-      letter-spacing:2.7px;
+      font-size:.98rem;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
       color:var(--gold-soft);
     }
 
-    .brand-sub{
+    .brand-tag{
       font-family:Arial,sans-serif;
-      font-size:.70rem;
-      letter-spacing:1.7px;
-      text-transform:uppercase;
+      font-size:.76rem;
       color:var(--muted);
+      letter-spacing:.9px;
+      margin-top:4px;
     }
 
     .nav-links{
       display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
+      gap:22px;
       font-family:Arial,sans-serif;
-      font-size:.92rem;
       color:var(--muted);
+      font-size:.94rem;
+      align-items:center;
     }
 
     .nav-links a:hover{
@@ -183,627 +100,187 @@
     .nav-cta{
       padding:10px 16px;
       border-radius:999px;
-      border:1px solid rgba(214,164,92,.42);
+      border:1px solid rgba(214,164,92,0.42);
+      background:rgba(255,255,255,0.02);
       color:var(--gold-soft);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(214,164,92,.04));
-      box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.03),
-        0 0 18px rgba(214,164,92,.08);
     }
 
-    .signal-rail{
-      padding:24px 0 0;
+    /* HERO */
+    .hero{
+      padding:100px 0 80px;
     }
 
-    .rail-shell{
+    .hero h1{
+      font-size:clamp(3rem,6vw,5rem);
+      line-height:1.05;
+      margin-bottom:20px;
+      max-width:800px;
+    }
+
+    .hero p{
+      font-family:Arial,sans-serif;
+      color:var(--muted);
+      max-width:600px;
+      font-size:1.1rem;
+    }
+
+    /* GRID STRIP */
+    .strip{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:14px;
-      padding:14px;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(214,164,92,.04));
-      backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
+      margin-top:50px;
     }
 
-    .rail-card{
-      border:1px solid var(--line-soft);
+    .strip-card{
+      border:1px solid var(--line);
       border-radius:18px;
       padding:16px;
-      background:rgba(255,255,255,.02);
-      min-height:90px;
+      background:rgba(255,255,255,0.02);
     }
 
-    .rail-label{
-      font-family:Arial,sans-serif;
-      font-size:.72rem;
-      letter-spacing:1.9px;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:10px;
-    }
-
-    .rail-value{
-      font-family:Arial,sans-serif;
-      font-size:.96rem;
-      color:var(--text);
-      line-height:1.45;
-    }
-
-    .hero{
-      padding:26px 0 28px;
-    }
-
-    .hero-shell{
-      border:1px solid var(--line);
-      border-radius:var(--radius-xl);
-      background:linear-gradient(180deg, var(--glass), rgba(214,164,92,.04));
-      backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
-      padding:20px;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .hero-shell::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(214,164,92,.10), transparent 20%),
-        linear-gradient(135deg, rgba(255,255,255,.03), transparent 35%);
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1.1fr;
-      gap:20px;
-      align-items:stretch;
-      position:relative;
-      z-index:1;
-    }
-
-    .hero-copy,
-    .hero-visual{
-      border:1px solid var(--line-soft);
-      border-radius:var(--radius-lg);
-      background:rgba(255,255,255,.025);
-      overflow:hidden;
-      position:relative;
-      min-height:100%;
-    }
-
-    .hero-copy{
-      padding:40px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-family:Arial,sans-serif;
-      font-size:.76rem;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:18px;
-    }
-
-    .eyebrow::before{
-      content:"";
-      width:34px;
-      height:1px;
-      background:linear-gradient(90deg, var(--gold), transparent);
-    }
-
-    h1{
-      font-size:clamp(2.8rem, 5vw, 5.2rem);
-      line-height:.98;
-      margin-bottom:18px;
-      max-width:700px;
-    }
-
-    .hero-copy p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.76;
-      max-width:640px;
-      margin-bottom:28px;
-    }
-
-    .button-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:26px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:54px;
-      padding:0 24px;
-      border-radius:999px;
-      font-family:Arial,sans-serif;
-      font-size:.97rem;
-      font-weight:700;
-    }
-
-    .btn-gold{
-      background:linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-soft));
-      color:#111111;
-      box-shadow:0 0 24px rgba(214,164,92,.18);
-    }
-
-    .btn-outline{
-      border:1px solid rgba(214,164,92,.40);
+    .strip-card h4{
       color:var(--gold-soft);
-      background:rgba(255,255,255,.02);
-    }
-
-    .signal-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .signal{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(214,164,92,.16);
-      background:rgba(255,255,255,.03);
-      font-family:Arial,sans-serif;
-      font-size:.82rem;
-      color:var(--muted);
-    }
-
-    .hero-visual{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#020202;
-      padding:0;
-    }
-
-    .globe-wrap{
-      position:relative;
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .globe{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      position:relative;
-      z-index:2;
-      animation:float 8s ease-in-out infinite;
-    }
-
-    @keyframes float{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-      100%{transform:translateY(0);}
-    }
-
-    .glow{
-      position:absolute;
-      width:72%;
-      height:72%;
-      background:radial-gradient(circle, rgba(214,164,92,.28), transparent 70%);
-      filter:blur(65px);
-      z-index:1;
-      animation:pulse 4.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse{
-      0%{opacity:.38;}
-      50%{opacity:.78;}
-      100%{opacity:.38;}
-    }
-
-    .card-floating{
-      position:absolute;
-      z-index:3;
-      min-width:160px;
-      background:rgba(0,0,0,.56);
-      border:1px solid rgba(214,164,92,.38);
-      border-radius:16px;
-      padding:12px 14px;
-      backdrop-filter:blur(12px);
-      box-shadow:0 12px 30px rgba(0,0,0,.28);
-    }
-
-    .card-1{
-      top:14%;
-      right:8%;
-      animation:floatCard 6s ease-in-out infinite;
-    }
-
-    .card-2{
-      bottom:14%;
-      left:8%;
-      animation:floatCard 7s ease-in-out infinite;
-    }
-
-    @keyframes floatCard{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-7px);}
-      100%{transform:translateY(0);}
-    }
-
-    .card-title{
-      font-family:Arial,sans-serif;
-      font-size:.72rem;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      color:#b8aa92;
-      margin-bottom:6px;
-    }
-
-    .card-value{
-      font-family:Arial,sans-serif;
-      color:var(--gold-soft);
-      font-weight:700;
-      font-size:.95rem;
-    }
-
-    .section{
-      padding:24px 0 84px;
-    }
-
-    .modules{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      margin-top:20px;
-    }
-
-    .module{
-      border:1px solid var(--line);
-      border-radius:26px;
-      background:linear-gradient(180deg, var(--glass), rgba(214,164,92,.04));
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadow);
-      padding:26px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .module::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:linear-gradient(135deg, rgba(255,255,255,.04), transparent 38%);
-    }
-
-    .module-tag{
-      font-family:Arial,sans-serif;
-      font-size:.72rem;
+      font-size:.8rem;
       letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:12px;
-      position:relative;
-      z-index:1;
+      margin-bottom:6px;
+      font-family:Arial;
     }
 
-    .module h3{
-      color:var(--gold-soft);
-      margin-bottom:12px;
-      font-size:1.28rem;
-      position:relative;
-      z-index:1;
-    }
-
-    .module p{
-      font-family:Arial,sans-serif;
+    .strip-card p{
+      font-family:Arial;
       color:var(--muted);
-      line-height:1.72;
-      position:relative;
-      z-index:1;
+      font-size:.9rem;
     }
 
-    .split{
+    /* FEATURE SECTION */
+    .feature{
+      margin-top:80px;
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:20px;
-      margin-top:20px;
+      gap:30px;
+      align-items:center;
     }
 
-    .panel{
+    .feature h2{
+      font-size:3rem;
+      line-height:1.1;
+    }
+
+    .feature img{
+      width:100%;
+      border-radius:20px;
       border:1px solid var(--line);
-      border-radius:30px;
-      background:linear-gradient(180deg, var(--glass), rgba(214,164,92,.04));
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadow);
-      padding:30px;
-      position:relative;
-      overflow:hidden;
     }
 
-    .panel::before{
-      content:"";
-      position:absolute;
-      right:-40px;
-      bottom:-40px;
-      width:160px;
-      height:160px;
-      border-radius:999px;
-      background:radial-gradient(circle, rgba(214,164,92,.10), transparent 72%);
-      filter:blur(10px);
-      pointer-events:none;
-    }
-
-    .panel h3{
-      color:var(--gold-soft);
-      margin-bottom:12px;
-      font-size:1.42rem;
-      position:relative;
-      z-index:1;
-    }
-
-    .panel p,
-    .panel ul{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      line-height:1.78;
-      position:relative;
-      z-index:1;
-    }
-
-    .panel ul{
-      padding-left:18px;
-      margin-top:12px;
-    }
-
-    .footer-bar{
+    /* FOOTER */
+    .footer{
+      margin-top:80px;
+      padding:30px 0;
       border-top:1px solid var(--line);
-      padding:28px 0 34px;
-      background:rgba(5,5,5,.35);
-      backdrop-filter:blur(8px);
-      position:relative;
-      z-index:1;
+      font-family:Arial;
+      color:var(--muted);
+      font-size:.9rem;
     }
 
     .footer-inner{
       display:flex;
       justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      align-items:center;
-      font-family:Arial,sans-serif;
-      color:#a69b8d;
-      font-size:.9rem;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:12px;
       flex-wrap:wrap;
     }
 
-    .footer-links a:hover{
-      color:var(--gold-soft);
-    }
-
-    @media (max-width: 980px){
-      .rail-shell,
-      .hero-grid,
-      .modules,
-      .split{
-        grid-template-columns:1fr;
-      }
-
+    @media(max-width:900px){
       .nav{
         flex-direction:column;
         align-items:flex-start;
+        padding:16px 0;
       }
 
-      .card-1,
-      .card-2{
-        position:relative;
-        top:auto;
-        right:auto;
-        bottom:auto;
-        left:auto;
-        margin:10px 14px;
+      .strip{
+        grid-template-columns:1fr;
       }
 
-      .globe-wrap{
-        flex-direction:column;
-        align-items:stretch;
-      }
-    }
-
-    @media (max-width: 640px){
-      .hero-copy,
-      .module,
-      .panel,
-      .rail-card{
-        padding:22px;
-      }
-
-      h1{
-        font-size:2.35rem;
-      }
-
-      .brand img{
-        height:44px;
+      .feature{
+        grid-template-columns:1fr;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="ambient-orb orb-1"></div>
-  <div class="ambient-orb orb-2"></div>
-  <div class="ambient-orb orb-3"></div>
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="logo.png.WEBP" />
+      <div class="brand-text">
+        <span class="brand-name">Wealth Assistance</span>
+        <span class="brand-tag">Private Wealth Strategy</span>
+      </div>
+    </a>
 
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="logo.png.WEBP" alt="Wealth Assistance logo">
-        <div class="brand-meta">
-          <div class="brand-name">WEALTH ASSISTANCE</div>
-          <div class="brand-sub">Private Wealth Strategy</div>
-        </div>
-      </a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blueprint.html">Blueprint</a>
+      <a href="clients.html">Who We Work With</a>
+      <a href="strategy.html">Strategy Lab</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </nav>
+  </div>
+</header>
 
-      <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="blueprint.html">Blueprint</a>
-        <a href="clients.html">Clients</a>
-        <a href="strategy.html">Strategy Lab</a>
-        <a href="contact.html" class="nav-cta">Private Consultation</a>
+<section class="hero">
+  <div class="container">
+    <h1>Global perspective. Private strategy. Structured legacy.</h1>
+    <p>
+      Wealth Assistance is built for individuals and families who understand that
+      wealth is not created through activity alone, but through positioning,
+      structure, and long-term coordination.
+    </p>
+
+    <div class="strip">
+      <div class="strip-card">
+        <h4>PLANNING LENS</h4>
+        <p>Structure before tactics</p>
+      </div>
+      <div class="strip-card">
+        <h4>CLIENT PROFILE</h4>
+        <p>Families, founders, investors</p>
+      </div>
+      <div class="strip-card">
+        <h4>EXPERIENCE</h4>
+        <p>Private, strategic, long-range</p>
+      </div>
+      <div class="strip-card">
+        <h4>PRIMARY FOCUS</h4>
+        <p>Control, leverage, continuity</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="signal-rail">
-    <div class="container">
-      <div class="rail-shell">
-        <div class="rail-card">
-          <div class="rail-label">Planning Lens</div>
-          <div class="rail-value">Structure before tactics</div>
-        </div>
-        <div class="rail-card">
-          <div class="rail-label">Client Profile</div>
-          <div class="rail-value">Families, founders, investors</div>
-        </div>
-        <div class="rail-card">
-          <div class="rail-label">Experience</div>
-          <div class="rail-value">Private, strategic, long-range</div>
-        </div>
-        <div class="rail-card">
-          <div class="rail-label">Primary Focus</div>
-          <div class="rail-value">Control, leverage, continuity</div>
-        </div>
-      </div>
+<section class="feature">
+  <div>
+    <h2>Positioning determines outcome.</h2>
+    <p style="font-family:Arial;color:#cfc6b9;margin-top:10px;">
+      Most people focus on effort. Strategy focuses on alignment.  
+      The right structure changes everything.
+    </p>
+  </div>
+
+  <img src="global-image.PNG">
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2026 Wealth Assistance</div>
+    <div>
+      <a href="about.html">About</a> ·
+      <a href="services.html">Services</a>
     </div>
-  </section>
-
-  <section class="hero">
-    <div class="container hero-shell">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Private Wealth Interface</div>
-          <h1>Global perspective. Private strategy. Structured legacy.</h1>
-          <p>
-            Wealth Assistance helps affluent families, founders, and investors design more intentional systems around protection, leverage, continuity, and long-term control.
-          </p>
-
-          <div class="button-row">
-            <a href="contact.html" class="btn btn-gold">Request Private Consultation</a>
-            <a href="strategy.html" class="btn btn-outline">Enter Strategy Lab</a>
-          </div>
-
-          <div class="signal-row">
-            <div class="signal">Global Perspective</div>
-            <div class="signal">Wealth Structure</div>
-            <div class="signal">Legacy Architecture</div>
-            <div class="signal">Private Coordination</div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="globe-wrap">
-            <div class="glow"></div>
-            <img src="hero-globe.png" alt="Global wealth interface visual" class="globe">
-
-            <div class="card-floating card-1">
-              <div class="card-title">Global Positioning</div>
-              <div class="card-value">Active</div>
-            </div>
-
-            <div class="card-floating card-2">
-              <div class="card-title">Capital Flow</div>
-              <div class="card-value">Optimized</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container modules">
-      <div class="module">
-        <div class="module-tag">01 / Structure</div>
-        <h3>Wealth Structure</h3>
-        <p>
-          Build a more intentional framework around ownership, entities, protection, and long-term wealth control.
-        </p>
-      </div>
-
-      <div class="module">
-        <div class="module-tag">02 / Legacy</div>
-        <h3>Legacy Planning</h3>
-        <p>
-          Create continuity beyond one generation with systems designed for stewardship, family alignment, and endurance.
-        </p>
-      </div>
-
-      <div class="module">
-        <div class="module-tag">03 / Coordination</div>
-        <h3>Strategic Coordination</h3>
-        <p>
-          Bring clarity to the moving parts of your financial life so your planning conversations work together.
-        </p>
-      </div>
-    </div>
-
-    <div class="container split">
-      <div class="panel">
-        <h3>Why this approach matters</h3>
-        <p>
-          Significant wealth is rarely protected by isolated tactics alone. Real resilience comes from architecture:
-          how structures, protections, liquidity, leverage, and planning priorities are arranged into a cohesive system.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h3>Built for serious clients</h3>
-        <p>
-          Wealth Assistance is designed for qualified households, founders, and investors who value privacy,
-          strategic depth, and a more deliberate relationship to wealth and legacy.
-        </p>
-        <ul>
-          <li>Private consultation-first model</li>
-          <li>Long-horizon planning conversations</li>
-          <li>Future-facing structure and coordination</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer-bar">
-    <div class="container footer-inner">
-      <div>© 2026 Wealth Assistance</div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="blueprint.html">Blueprint</a>
-        <a href="strategy.html">Strategy Lab</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
