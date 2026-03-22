@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legacy Blueprint | Wealth Assistance</title>
+<meta name="description" content="Explore the Legacy Blueprint, a structured framework for ownership, control, protection, and long-term continuity." />
+<link rel="preload" as="image" href="blueprint-hero.PNG" />
 
 <style>
 :root{
@@ -13,9 +15,11 @@
   --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
   --glass:rgba(0,0,0,.48);
+  --shadow:0 20px 50px rgba(0,0,0,.45);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 a,a:visited,a:active{
   color:var(--muted);
@@ -38,33 +42,55 @@ body{
 }
 
 /* HEADER */
-header{
+.site-header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
   z-index:1000;
 }
 
 .nav{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
+  min-height:86px;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  padding:16px 0;
-  gap:16px;
+  gap:24px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
-.brand img{height:50px;}
+
+.brand img{
+  height:52px;
+  width:auto;
+  display:block;
+  filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
 .brand-name{
-  font-size:.9rem;
-  letter-spacing:2px;
+  font-size:.98rem;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
   color:var(--gold-soft);
+}
+
+.brand-tag{
+  font-family:Arial,sans-serif;
+  font-size:.76rem;
+  color:var(--muted);
+  letter-spacing:.9px;
+  margin-top:4px;
 }
 
 .nav-links{
@@ -73,15 +99,22 @@ header{
   gap:22px;
   font-family:Arial,sans-serif;
   flex-wrap:wrap;
+  align-items:center;
+  font-size:.94rem;
 }
-.nav-links a:hover{color:var(--gold-soft);}
+.nav-links a:hover,
+.nav-links a.active{color:var(--gold-soft);}
 
 .nav-cta{
   padding:10px 16px;
-  border:1px solid var(--gold);
+  border:1px solid rgba(214,164,92,0.42);
   border-radius:999px;
   color:var(--gold-soft);
   white-space:nowrap;
+  background:rgba(255,255,255,0.02);
+}
+.nav-cta:hover{
+  background:rgba(214,164,92,.08);
 }
 
 /* HERO */
@@ -101,6 +134,7 @@ header{
     inset 0 1px 0 rgba(255,255,255,.05),
     inset 0 -14px 24px rgba(0,0,0,.75);
   overflow:hidden;
+  border-radius:10px;
 }
 
 /* outer carved rail */
@@ -298,6 +332,7 @@ header{
   border:1px solid var(--line);
   background:var(--glass);
   backdrop-filter:blur(6px);
+  box-shadow:var(--shadow);
 }
 
 .card h3{
@@ -326,6 +361,7 @@ header{
   background:rgba(0,0,0,.42);
   text-align:center;
   backdrop-filter:blur(6px);
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
 }
 
 .step h4{
@@ -348,6 +384,7 @@ header{
   border:1px solid var(--line);
   background:rgba(0,0,0,.50);
   backdrop-filter:blur(6px);
+  box-shadow:var(--shadow);
 }
 
 .cta h3{
@@ -368,10 +405,15 @@ header{
 
 .cta a{
   padding:12px 22px;
-  border:1px solid var(--gold);
+  border:1px solid rgba(214,164,92,0.42);
   border-radius:999px;
   color:var(--gold-soft);
   display:inline-block;
+  background:rgba(255,255,255,0.02);
+}
+
+.cta a:hover{
+  background:rgba(214,164,92,.08);
 }
 
 footer{
@@ -381,11 +423,17 @@ footer{
   color:var(--muted);
 }
 
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
 .footer-links{
   display:flex;
   gap:15px;
   flex-wrap:wrap;
-  margin-top:10px;
 }
 
 .footer-links a:hover{color:var(--gold-soft);}
@@ -393,36 +441,41 @@ footer{
 @media(max-width:900px){
   .grid{grid-template-columns:1fr;}
   .process{grid-template-columns:1fr;}
-  .nav{grid-template-columns:1fr;gap:10px;}
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:16px 0;
+  }
   .hero-copy{padding:8vw 5vw 4vw;}
   .hero-shell{padding:20px;}
   .hero-rail{inset:12px;}
   .hero-liner{inset:24px;}
   .hero-rebate{inset:32px;}
-  .hero-stage{margin:32px 32px 32px 32px;padding:8px;}
+  .hero-stage{margin:32px;padding:8px;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
   <div class="container nav">
-    <div class="brand">
+    <a href="index.html" class="brand">
       <img src="logo.png.WEBP" alt="Wealth Assistance logo">
-      <div class="brand-name">WEALTH ASSISTANCE</div>
-    </div>
+      <div class="brand-text">
+        <span class="brand-name">Wealth Assistance</span>
+        <span class="brand-tag">Private Wealth Strategy</span>
+      </div>
+    </a>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
+    <nav class="nav-links">
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="blueprint.html">Blueprint</a>
+      <a href="blueprint.html" class="active">Blueprint</a>
       <a href="clients.html">Who We Work With</a>
       <a href="strategy.html">Strategy Lab</a>
-    </div>
-
-    <a href="contact.html" class="nav-cta">Private Consultation</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </nav>
   </div>
 </header>
 
@@ -435,7 +488,7 @@ footer{
 
       <div class="hero-stage">
         <div class="hero-stage-inner">
-          <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual">
+          <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual" loading="eager" fetchpriority="high">
           <div class="hero-copy">
             <div class="hero-copy-inner">
               <h1>A framework for wealth designed to endure.</h1>
@@ -528,7 +581,7 @@ footer{
 </section>
 
 <footer>
-  <div class="container">
+  <div class="container footer-inner">
     <div>© 2026 Wealth Assistance</div>
     <div class="footer-links">
       <a href="index.html">Home</a>
