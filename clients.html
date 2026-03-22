@@ -12,108 +12,39 @@
   --text:#f7f3ee;
   --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
-  --glass:rgba(0,0,0,.50);
+  --glass:rgba(0,0,0,.55);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-a,
-a:visited,
-a:active{
+a{
   color:var(--muted);
   text-decoration:none;
 }
+a:hover{color:var(--gold-soft);}
 
-a:hover{
-  color:var(--gold-soft);
-}
-
-/* ZIRICOTE-INSPIRED BACKGROUND */
+/* 🔥 REAL ZIRICOTE BACKGROUND */
 body{
   font-family:Georgia, serif;
   color:var(--text);
+
   background:
-    radial-gradient(circle at 14% 18%, rgba(214,164,92,.06), transparent 16%),
-    radial-gradient(circle at 82% 14%, rgba(76,110,180,.05), transparent 16%),
-    linear-gradient(180deg, rgba(6,8,13,.92), rgba(6,8,13,.95)),
-    linear-gradient(102deg,
-      #0b0a0a 0%,
-      #171210 8%,
-      #0d0b0b 14%,
-      #211913 22%,
-      #0a0909 28%,
-      #2a2018 36%,
-      #0c0a0a 43%,
-      #17110d 51%,
-      #0a0909 58%,
-      #251b14 66%,
-      #0b0a0a 73%,
-      #1b140f 82%,
-      #090909 90%,
-      #130f0d 100%);
-  background-attachment: fixed;
-  position:relative;
-  overflow-x:hidden;
+    linear-gradient(rgba(6,8,13,.82), rgba(6,8,13,.9)),
+    url("https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat fixed;
+
 }
 
-/* subtle wood movement / figuring */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    repeating-linear-gradient(
-      97deg,
-      rgba(255,255,255,.018) 0px,
-      rgba(255,255,255,.018) 1px,
-      transparent 1px,
-      transparent 12px
-    ),
-    repeating-linear-gradient(
-      101deg,
-      rgba(0,0,0,.12) 0px,
-      rgba(0,0,0,.12) 2px,
-      transparent 2px,
-      transparent 18px
-    ),
-    radial-gradient(ellipse at 28% 54%, rgba(88,56,34,.18), transparent 22%),
-    radial-gradient(ellipse at 64% 32%, rgba(110,72,38,.14), transparent 24%),
-    radial-gradient(ellipse at 78% 68%, rgba(84,50,28,.12), transparent 18%);
-  mix-blend-mode: soft-light;
-  opacity:.38;
-}
-
-/* low-opacity grain haze */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(90deg,
-      rgba(255,255,255,.02) 0%,
-      transparent 12%,
-      rgba(255,255,255,.015) 28%,
-      transparent 46%,
-      rgba(255,255,255,.018) 66%,
-      transparent 82%,
-      rgba(255,255,255,.012) 100%);
-  opacity:.28;
-}
-
+/* container */
 .container{
   width:min(92%,1200px);
   margin:auto;
-  position:relative;
-  z-index:2;
 }
 
 /* HEADER */
 header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,.62);
+  background:rgba(0,0,0,.65);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
   z-index:1000;
@@ -123,7 +54,6 @@ header{
   display:grid;
   grid-template-columns:auto 1fr auto;
   align-items:center;
-  gap:16px;
   padding:16px 0;
 }
 
@@ -149,16 +79,11 @@ header{
   flex-wrap:wrap;
 }
 
-.nav-links a:hover{
-  color:var(--gold-soft);
-}
-
 .nav-cta{
   padding:10px 16px;
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
-  white-space:nowrap;
 }
 
 /* HERO */
@@ -170,32 +95,11 @@ header{
 .hero h1{
   font-size:clamp(2.5rem,5vw,4rem);
   margin-bottom:18px;
-  text-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
 .hero p{
-  max-width:760px;
+  max-width:750px;
   margin:auto;
-  font-family:Arial,sans-serif;
-  color:var(--muted);
-  line-height:1.75;
-  text-shadow:0 4px 16px rgba(0,0,0,.28);
-}
-
-/* FILTER SECTION */
-.filter{
-  margin-top:10px;
-  text-align:center;
-}
-
-.filter h2{
-  font-size:1.6rem;
-  color:var(--gold-soft);
-  margin-bottom:16px;
-  text-shadow:0 6px 18px rgba(0,0,0,.25);
-}
-
-.filter p{
   font-family:Arial,sans-serif;
   color:var(--muted);
   line-height:1.7;
@@ -214,47 +118,28 @@ header{
   border-radius:20px;
   border:1px solid var(--line);
   background:var(--glass);
-  backdrop-filter:blur(6px);
-  box-shadow:
-    0 12px 28px rgba(0,0,0,.20),
-    inset 0 1px 0 rgba(255,255,255,.03);
+  backdrop-filter:blur(8px);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
-  font-size:1.35rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.75;
+  line-height:1.7;
 }
 
-/* NOT A FIT */
+/* NOT FIT */
 .not-fit{
   margin-top:70px;
   padding:40px;
   border:1px solid var(--line);
   border-radius:20px;
-  background:rgba(0,0,0,.42);
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,.55);
   text-align:center;
-}
-
-.not-fit h3{
-  color:var(--gold-soft);
-  margin-bottom:15px;
-  font-size:1.45rem;
-}
-
-.not-fit p{
-  font-family:Arial,sans-serif;
-  color:var(--muted);
-  max-width:760px;
-  margin:auto;
-  line-height:1.75;
 }
 
 /* CTA */
@@ -268,9 +153,6 @@ header{
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
-  display:inline-block;
-  background:rgba(0,0,0,.25);
-  backdrop-filter:blur(4px);
 }
 
 /* FOOTER */
@@ -280,24 +162,11 @@ footer{
   padding:30px 0;
   font-family:Arial,sans-serif;
   color:var(--muted);
-  background:rgba(0,0,0,.12);
-}
-
-.footer-links{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.footer-links a:hover{
-  color:var(--gold-soft);
 }
 
 /* MOBILE */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr;}
-  .nav{grid-template-columns:1fr;gap:10px;}
 }
 </style>
 </head>
@@ -307,7 +176,7 @@ footer{
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
+      <img src="logo.png.WEBP">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -335,47 +204,33 @@ footer{
   </div>
 </section>
 
-<section class="filter">
-  <div class="container">
-    <h2>This is a fit if you are:</h2>
-    <p>
-      The best client relationships are built on alignment, not persuasion.
-      We work best with people who value thoughtful structure over financial noise.
-    </p>
-  </div>
-</section>
-
 <section class="container grid">
 
   <div class="card">
     <h3>Families Building Legacy</h3>
     <p>
-      You are focused on long-term continuity, protection, and ensuring that
-      what you build today carries forward across generations.
+      Focused on continuity, protection, and generational outcomes.
     </p>
   </div>
 
   <div class="card">
     <h3>Founders & Business Owners</h3>
     <p>
-      You are thinking beyond income and into ownership, structure, and how
-      your business integrates into your broader wealth strategy.
+      Thinking beyond income into ownership and structured wealth.
     </p>
   </div>
 
   <div class="card">
     <h3>High-Income Earners</h3>
     <p>
-      You have strong cash flow but want a more intentional system around
-      how that capital is deployed, protected, and leveraged.
+      Seeking better control and leverage of capital.
     </p>
   </div>
 
   <div class="card">
     <h3>Strategic Thinkers</h3>
     <p>
-      You value structure over shortcuts and are willing to take a deliberate,
-      long-range approach to building and managing wealth.
+      Value long-term structure over short-term tactics.
     </p>
   </div>
 
@@ -384,9 +239,7 @@ footer{
 <section class="container not-fit">
   <h3>This is not a fit if:</h3>
   <p>
-    You are looking for quick wins, one-off advice, or surface-level strategies.
-    The work we do is structured, intentional, and built for long-term outcomes —
-    not short-term tactics.
+    You are looking for quick wins or surface-level strategies.
   </p>
 </section>
 
@@ -396,14 +249,7 @@ footer{
 
 <footer>
   <div class="container">
-    <div>© 2026 Wealth Assistance</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="blueprint.html">Blueprint</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    © 2026 Wealth Assistance
   </div>
 </footer>
 
