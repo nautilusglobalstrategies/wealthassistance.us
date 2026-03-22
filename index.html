@@ -1,210 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wealth Assistance | Private Wealth Strategy</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wealth Assistance | Private Wealth Strategy</title>
 
-  <style>
-    :root {
-      --bg-1:#030303;
-      --bg-2:#0a0a0a;
-      --bg-3:#111;
-      --gold:#d6a45c;
-      --gold-soft:#f3d7a2;
-      --text:#f7f3ee;
-      --muted:#cfc6b9;
-      --line:rgba(214,164,92,0.22);
-    }
+<style>
+:root{
+  --bg-1:#030303;
+  --bg-2:#0a0a0a;
+  --gold:#d6a45c;
+  --gold-soft:#f3d7a2;
+  --text:#f7f3ee;
+  --muted:#cfc6b9;
+  --line:rgba(214,164,92,0.22);
+}
 
-    *{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body{
-      font-family:Georgia,serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 25%),
-        linear-gradient(180deg,var(--bg-1),var(--bg-2),var(--bg-3));
-    }
+body{
+  font-family:Georgia,serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
 
-    a{color:inherit;text-decoration:none;}
+a{color:inherit;text-decoration:none;}
 
-    .container{
-      width:min(92%,1100px);
-      margin:auto;
-    }
+.container{
+  width:min(92%,1100px);
+  margin:auto;
+}
 
-    /* HEADER */
-    .site-header{
-      background:rgba(3,3,3,.9);
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(10px);
-    }
+/* HEADER */
+.site-header{
+  background:rgba(3,3,3,.85);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
 
-    .nav{
-      min-height:86px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:24px;
-    }
+.nav{
+  min-height:86px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
 
-    .brand img{
-      height:52px;
-      filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
-    }
+.brand img{
+  height:52px;
+}
 
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
+.brand-text{
+  display:flex;
+  flex-direction:column;
+}
 
-    .brand-name{
-      font-size:.98rem;
-      letter-spacing:2.2px;
-      text-transform:uppercase;
-      color:var(--gold-soft);
-    }
+.brand-name{
+  font-size:.98rem;
+  letter-spacing:2px;
+  color:var(--gold-soft);
+}
 
-    .brand-tag{
-      font-family:Arial,sans-serif;
-      font-size:.76rem;
-      color:var(--muted);
-      letter-spacing:.9px;
-      margin-top:4px;
-    }
+.brand-tag{
+  font-family:Arial;
+  font-size:.75rem;
+  color:var(--muted);
+}
 
-    .nav-links{
-      display:flex;
-      gap:22px;
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      font-size:.94rem;
-      align-items:center;
-    }
+.nav-links{
+  display:flex;
+  gap:22px;
+  font-family:Arial;
+  color:var(--muted);
+}
 
-    .nav-links a:hover{
-      color:var(--gold-soft);
-    }
+.nav-links a:hover{color:var(--gold-soft);}
 
-    .nav-cta{
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid rgba(214,164,92,0.42);
-      background:rgba(255,255,255,0.02);
-      color:var(--gold-soft);
-    }
+.nav-cta{
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid var(--gold);
+  color:var(--gold-soft);
+}
 
-    /* HERO */
-    .hero{
-      padding:100px 0 80px;
-    }
+/* HERO BACKGROUND */
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.85)),
+    url("strategy-lab-hero.PNG") center/cover no-repeat;
+}
 
-    .hero h1{
-      font-size:clamp(3rem,6vw,5rem);
-      line-height:1.05;
-      margin-bottom:20px;
-      max-width:800px;
-    }
+.hero-content{
+  max-width:700px;
+}
 
-    .hero p{
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      max-width:600px;
-      font-size:1.1rem;
-    }
+.hero h1{
+  font-size:clamp(3rem,6vw,5rem);
+  line-height:1.05;
+  margin-bottom:20px;
+}
 
-    /* GRID STRIP */
-    .strip{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:50px;
-    }
+.hero p{
+  font-family:Arial;
+  color:var(--muted);
+  font-size:1.1rem;
+}
 
-    .strip-card{
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px;
-      background:rgba(255,255,255,0.02);
-    }
+/* STRIP */
+.strip{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
 
-    .strip-card h4{
-      color:var(--gold-soft);
-      font-size:.8rem;
-      letter-spacing:2px;
-      margin-bottom:6px;
-      font-family:Arial;
-    }
+.strip-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  background:rgba(255,255,255,0.03);
+}
 
-    .strip-card p{
-      font-family:Arial;
-      color:var(--muted);
-      font-size:.9rem;
-    }
+.strip-card h4{
+  font-size:.75rem;
+  letter-spacing:2px;
+  color:var(--gold-soft);
+  margin-bottom:6px;
+}
 
-    /* FEATURE SECTION */
-    .feature{
-      margin-top:80px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-      align-items:center;
-    }
+.strip-card p{
+  font-family:Arial;
+  color:var(--muted);
+  font-size:.9rem;
+}
 
-    .feature h2{
-      font-size:3rem;
-      line-height:1.1;
-    }
+/* FOOTER */
+.footer{
+  padding:30px 0;
+  border-top:1px solid var(--line);
+  font-family:Arial;
+  color:var(--muted);
+  text-align:center;
+}
 
-    .feature img{
-      width:100%;
-      border-radius:20px;
-      border:1px solid var(--line);
-    }
-
-    /* FOOTER */
-    .footer{
-      margin-top:80px;
-      padding:30px 0;
-      border-top:1px solid var(--line);
-      font-family:Arial;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-
-    @media(max-width:900px){
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
-        padding:16px 0;
-      }
-
-      .strip{
-        grid-template-columns:1fr;
-      }
-
-      .feature{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .nav{flex-direction:column;align-items:flex-start;padding:16px 0;}
+  .strip{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
@@ -212,7 +167,7 @@
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="logo.png.WEBP" />
+      <img src="logo.png.WEBP">
       <div class="brand-text">
         <span class="brand-name">Wealth Assistance</span>
         <span class="brand-tag">Private Wealth Strategy</span>
@@ -231,12 +186,11 @@
 </header>
 
 <section class="hero">
-  <div class="container">
+  <div class="container hero-content">
     <h1>Global perspective. Private strategy. Structured legacy.</h1>
     <p>
-      Wealth Assistance is built for individuals and families who understand that
-      wealth is not created through activity alone, but through positioning,
-      structure, and long-term coordination.
+      Wealth is not created through effort alone. It is built through structure,
+      positioning, and long-term coordination.
     </p>
 
     <div class="strip">
@@ -260,26 +214,8 @@
   </div>
 </section>
 
-<section class="feature">
-  <div>
-    <h2>Positioning determines outcome.</h2>
-    <p style="font-family:Arial;color:#cfc6b9;margin-top:10px;">
-      Most people focus on effort. Strategy focuses on alignment.  
-      The right structure changes everything.
-    </p>
-  </div>
-
-  <img src="global-image.PNG">
-</section>
-
 <footer class="footer">
-  <div class="container footer-inner">
-    <div>© 2026 Wealth Assistance</div>
-    <div>
-      <a href="about.html">About</a> ·
-      <a href="services.html">Services</a>
-    </div>
-  </div>
+  © 2026 Wealth Assistance
 </footer>
 
 </body>
