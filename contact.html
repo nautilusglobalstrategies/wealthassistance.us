@@ -4,271 +4,274 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Private Consultation | Wealth Assistance</title>
-  <meta name="description" content="Request a private consultation with Wealth Assistance to explore fit, priorities, and next steps for wealth structure, legacy planning, and strategic coordination." />
+
   <style>
     :root {
-      --bg-1: #030303;
-      --bg-2: #0a0a0a;
-      --bg-3: #111111;
-      --gold: #d6a45c;
-      --gold-soft: #f3d7a2;
-      --text: #f7f3ee;
-      --muted: #cfc6b9;
-      --line: rgba(214,164,92,0.22);
-      --panel: rgba(255,255,255,0.03);
-      --panel-2: rgba(214,164,92,0.05);
+      --bg-1:#030303;
+      --bg-2:#0a0a0a;
+      --bg-3:#111;
+      --gold:#d6a45c;
+      --gold-soft:#f3d7a2;
+      --text:#f7f3ee;
+      --muted:#cfc6b9;
+      --line:rgba(214,164,92,0.22);
+      --panel:rgba(255,255,255,0.03);
+      --panel-2:rgba(214,164,92,0.05);
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:Georgia,serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top, rgba(214,164,92,0.10), transparent 25%),
-        linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
-      line-height:1.7;
+        radial-gradient(circle at top, rgba(214,164,92,0.1), transparent 25%),
+        linear-gradient(180deg,var(--bg-1),var(--bg-2),var(--bg-3));
     }
 
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(92%,1000px); margin:0 auto; }
+    a{color:inherit;text-decoration:none;}
 
-    .site-header {
-      background: rgba(3,3,3,0.9);
-      border-bottom:1px solid var(--line);
-      position: sticky;
+    .container{width:min(92%,900px);margin:auto;}
+
+    /* HEADER */
+    .site-header{
+      position:sticky;
       top:0;
-      z-index:1000;
-      backdrop-filter: blur(10px);
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,.8);
+      border-bottom:1px solid var(--line);
     }
 
-    .nav {
-      min-height:86px;
+    .nav{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:24px;
+      padding:18px 0;
     }
 
-    .brand { display:flex; align-items:center; gap:14px; }
+    .brand{display:flex;align-items:center;gap:12px;}
 
-    .brand img {
-      height:52px;
-      filter: drop-shadow(0 0 14px rgba(214,164,92,0.24));
-    }
+    .brand img{height:50px;}
 
-    .brand-text {
+    .nav-links{
       display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-
-    .brand-name {
-      font-size:.98rem;
-      letter-spacing:2.2px;
-      text-transform:uppercase;
-      color:var(--gold-soft);
-    }
-
-    .brand-tag {
-      font-family:Arial,sans-serif;
-      font-size:.76rem;
+      gap:18px;
+      font-family:Arial;
       color:var(--muted);
-      letter-spacing:.9px;
-      margin-top:4px;
     }
 
-    .nav-links {
-      display:flex;
-      gap:22px;
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      font-size:.94rem;
-      flex-wrap:wrap;
-    }
-
-    .nav-links a:hover { color:var(--gold-soft); }
-
-    .nav-cta {
-      padding:10px 16px;
+    .nav-cta{
+      padding:8px 14px;
+      border:1px solid var(--gold);
       border-radius:999px;
-      border:1px solid rgba(214,164,92,0.42);
-      background:rgba(255,255,255,0.02);
       color:var(--gold-soft);
     }
 
-    .page-hero {
-      padding:90px 0 50px;
+    /* HERO */
+    .hero{
       text-align:center;
+      padding:80px 0 40px;
     }
 
-    .eyebrow {
-      display:inline-block;
-      font-family:Arial,sans-serif;
-      font-size:.82rem;
-      letter-spacing:3px;
-      text-transform:uppercase;
+    .eyebrow{
       color:var(--gold);
-      margin-bottom:18px;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height:1.08;
+      letter-spacing:3px;
+      font-size:.8rem;
       margin-bottom:16px;
     }
 
-    .intro {
-      max-width:760px;
-      margin:0 auto;
-      font-family:Arial,sans-serif;
-      color:var(--muted);
-      font-size:1.04rem;
-    }
-
-    .section {
-      padding:40px 0 90px;
-    }
-
-    .panel {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:40px 32px;
-      text-align:center;
-    }
-
-    .panel h2 {
-      color:var(--gold-soft);
+    h1{
+      font-size:clamp(2.4rem,5vw,4rem);
       margin-bottom:14px;
-      font-size:1.7rem;
     }
 
-    .panel p {
-      max-width:720px;
-      margin:0 auto 18px;
-      font-family:Arial,sans-serif;
+    .intro{
+      max-width:700px;
+      margin:auto;
       color:var(--muted);
+      font-family:Arial;
     }
 
-    .contact-links {
-      display:grid;
-      gap:16px;
-      margin-top:26px;
-    }
-
-    .contact-card {
+    /* PANEL */
+    .panel{
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:22px;
-      background: rgba(255,255,255,0.02);
+      border-radius:28px;
+      padding:36px 28px;
+      margin-top:30px;
     }
 
-    .contact-card h3 {
+    .panel h2{
+      text-align:center;
+      margin-bottom:10px;
       color:var(--gold-soft);
-      margin-bottom:8px;
-      font-size:1.15rem;
     }
 
-    .contact-card p, .contact-card a {
-      font-family:Arial,sans-serif;
+    .panel p{
+      text-align:center;
+      font-family:Arial;
       color:var(--muted);
-      font-size:1rem;
+      margin-bottom:20px;
     }
 
-    .footer {
-      padding:28px 0 36px;
-      border-top:1px solid rgba(214,164,92,0.18);
-      font-family:Arial,sans-serif;
-      color:#a89d8e;
-      font-size:.92rem;
+    /* FORM */
+    form{
+      display:grid;
+      gap:14px;
     }
 
-    .footer-inner {
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+    input, select, textarea{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:#111;
+      color:#fff;
+      font-family:Arial;
     }
 
-    @media (max-width: 900px) {
-      .nav { flex-direction:column; align-items:flex-start; padding:16px 0; }
+    textarea{min-height:100px;}
+
+    button{
+      margin-top:10px;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(135deg,#d6a45c,#f3d7a2);
+      color:#111;
+      font-weight:bold;
+      cursor:pointer;
     }
+
+    /* THANK YOU */
+    .thank-you{
+      display:none;
+      text-align:center;
+      padding:30px;
+    }
+
+    .thank-you h2{
+      color:var(--gold-soft);
+      margin-bottom:10px;
+    }
+
+    .thank-you p{
+      font-family:Arial;
+      color:var(--muted);
+    }
+
   </style>
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="brand">
-      <img src="logo.png.WEBP" alt="Wealth Assistance logo" />
-      <div class="brand-text">
-        <span class="brand-name">Wealth Assistance</span>
-        <span class="brand-tag">Private Wealth Strategy</span>
-      </div>
-    </a>
+    <div class="brand">
+      <img src="logo.png.WEBP">
+      <div>Wealth Assistance</div>
+    </div>
 
-    <nav class="nav-links">
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="blueprint.html">Blueprint</a>
-  <a href="clients.html">Who We Work With</a>
-  <a href="strategy.html">Strategy Lab</a>
-  <a href="contact.html" class="nav-cta">Private Consultation</a>
-</nav>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blueprint.html">Blueprint</a>
+      <a href="clients.html">Who We Work With</a>
+      <a href="strategy.html">Strategy Lab</a>
+      <a href="contact.html" class="nav-cta">Private Consultation</a>
+    </div>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="hero">
   <div class="container">
     <div class="eyebrow">Private Consultation</div>
     <h1>Begin with a confidential conversation.</h1>
     <p class="intro">
-      We work best with clients who value thoughtful planning, privacy, and a long-range approach to wealth and legacy.
-      Start with a private consultation to explore fit and next steps.
+      This is a private intake process for individuals seeking strategic alignment,
+      capital restructuring, and long-term wealth positioning.
     </p>
   </div>
 </section>
 
-<section class="section">
+<section>
   <div class="container">
-    <div class="panel">
-      <h2>Connect with Wealth Assistance</h2>
-      <p>
-        Use the contact information below to begin the conversation. This is the best starting point for serious inquiries and qualified clients.
-      </p>
 
-      <div class="contact-links">
-        <div class="contact-card">
-          <h3>Email</h3>
-          <p><a href="mailto:info@wealthassistance.us">info@wealthassistance.us</a></p>
-        </div>
+    <div class="panel" id="formPanel">
+      <h2>Request Private Consultation</h2>
+      <p>Submit your information below to begin the process.</p>
 
-        <div class="contact-card">
-          <h3>Phone</h3>
-          <p><a href="tel:+17652510535">(765) 251-0535</a></p>
-        </div>
+      <form id="consultForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number">
 
-        <div class="contact-card">
-          <h3>Consultation Focus</h3>
-          <p>
-            Private wealth structure, legacy planning, strategic coordination, and fit for the Legacy Stacking Blueprint.
-          </p>
-        </div>
-      </div>
+        <select>
+          <option>Primary Focus</option>
+          <option>Debt Elimination</option>
+          <option>Capital Expansion</option>
+          <option>Wealth Architecture</option>
+          <option>Legacy Blueprint</option>
+        </select>
+
+        <textarea placeholder="What are you looking to accomplish?"></textarea>
+
+        <select>
+          <option>Preferred Contact Method</option>
+          <option>Email</option>
+          <option>Phone</option>
+          <option>Either</option>
+        </select>
+
+        <button type="submit">Request Private Consultation</button>
+      </form>
     </div>
+
+    <div class="panel thank-you" id="thankYou">
+      <h2>Thank you.</h2>
+      <p>
+        Your inquiry has been received.  
+        If aligned, you will be contacted shortly with next steps.
+      </p>
+    </div>
+
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>© 2026 Wealth Assistance. All rights reserved.</div>
-    <div>
-      <a href="index.html">Home</a> ·
-      <a href="services.html">Services</a> ·
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</footer>
+<script>
+const form = document.getElementById("consultForm");
+const formPanel = document.getElementById("formPanel");
+const thankYou = document.getElementById("thankYou");
+
+// 🔥 ADD YOUR WEBHOOK HERE LATER
+const WEBHOOK_URL = "";
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const data = {
+    name: form[0].value,
+    email: form[1].value,
+    phone: form[2].value,
+    focus: form[3].value,
+    goals: form[4].value,
+    contact: form[5].value
+  };
+
+  if(WEBHOOK_URL){
+    try{
+      await fetch(WEBHOOK_URL,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(data)
+      });
+    }catch(err){}
+  }
+
+  formPanel.style.display = "none";
+  thankYou.style.display = "block";
+});
+</script>
 
 </body>
 </html>
