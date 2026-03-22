@@ -30,21 +30,17 @@ a:hover{
   color:var(--gold-soft);
 }
 
-/* BACKGROUND */
+/* 🔥 BACKGROUND FIX (NO CROPPING) */
 body{
   font-family:Georgia, serif;
   color:var(--text);
   background:
     linear-gradient(
-      to bottom,
-      rgba(6,8,13,.72) 0%,
-      rgba(6,8,13,.58) 24%,
-      rgba(6,8,13,.46) 48%,
-      rgba(6,8,13,.54) 72%,
-      rgba(6,8,13,.68) 100%
+      rgba(6,8,13,.65),
+      rgba(6,8,13,.75)
     ),
-    url("blueprint-hero.PNG") center 82% / cover no-repeat fixed;
-  background-blend-mode:multiply;
+    url("blueprint-hero.PNG") center center / contain no-repeat fixed;
+  background-color:#06080d;
 }
 
 /* CONTAINER */
@@ -92,7 +88,6 @@ header{
   flex-wrap:wrap;
 }
 
-.nav-links a{color:var(--muted);}
 .nav-links a:hover{color:var(--gold-soft);}
 
 .nav-cta{
@@ -104,15 +99,13 @@ header{
 
 /* HERO */
 .hero{
-  padding:140px 0 150px;
+  padding:140px 0 120px;
   text-align:center;
 }
 
 .hero h1{
   font-size:clamp(2.7rem,5vw,4.4rem);
-  line-height:1.08;
-  margin-bottom:22px;
-  text-shadow:0 8px 28px rgba(0,0,0,.45);
+  margin-bottom:20px;
 }
 
 .hero p{
@@ -120,9 +113,7 @@ header{
   color:var(--muted);
   max-width:760px;
   margin:auto;
-  line-height:1.75;
-  font-size:1.08rem;
-  text-shadow:0 4px 18px rgba(0,0,0,.45);
+  line-height:1.7;
 }
 
 /* SECTION */
@@ -140,15 +131,12 @@ header{
 .intro h2{
   font-size:clamp(2rem,4vw,3rem);
   margin-bottom:18px;
-  text-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
 .intro p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.75;
-  font-size:1.04rem;
-  text-shadow:0 4px 18px rgba(0,0,0,.35);
+  line-height:1.7;
 }
 
 /* GRID */
@@ -164,20 +152,19 @@ header{
   padding:30px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.42);
+  background:rgba(0,0,0,.45);
   backdrop-filter:blur(6px);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
-  font-size:1.45rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.75;
+  line-height:1.7;
 }
 
 /* PROCESS */
@@ -189,24 +176,16 @@ header{
 }
 
 .step{
-  padding:22px;
-  border-radius:16px;
+  padding:20px;
+  border-radius:14px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.42);
+  background:rgba(0,0,0,.45);
   text-align:center;
-  backdrop-filter:blur(6px);
 }
 
 .step h4{
   color:var(--gold-soft);
   margin-bottom:8px;
-  font-size:1.1rem;
-}
-
-.step p{
-  font-family:Arial,sans-serif;
-  color:var(--muted);
-  line-height:1.65;
 }
 
 /* CTA */
@@ -216,21 +195,18 @@ header{
   padding:40px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.50);
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,.55);
 }
 
 .cta h3{
   color:var(--gold-soft);
   margin-bottom:12px;
-  font-size:1.6rem;
 }
 
 .cta p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  margin-bottom:22px;
-  line-height:1.75;
+  margin-bottom:20px;
 }
 
 .cta a{
@@ -238,7 +214,6 @@ header{
   border:1px solid var(--gold);
   border-radius:999px;
   color:var(--gold-soft);
-  display:inline-block;
 }
 
 /* FOOTER */
@@ -247,50 +222,13 @@ footer{
   padding:30px 0;
   font-family:Arial,sans-serif;
   color:var(--muted);
-  background:rgba(0,0,0,.18);
 }
-
-.footer-links{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.footer-links a:hover{color:var(--gold-soft);}
 
 /* MOBILE */
 @media(max-width:900px){
-  body{
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(6,8,13,.76) 0%,
-        rgba(6,8,13,.60) 26%,
-        rgba(6,8,13,.50) 50%,
-        rgba(6,8,13,.60) 74%,
-        rgba(6,8,13,.72) 100%
-      ),
-      url("blueprint-hero.PNG") center 78% / cover no-repeat fixed;
-    background-blend-mode:multiply;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .process{
-    grid-template-columns:1fr;
-  }
-
-  .nav{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .hero{
-    padding:110px 0 120px;
-  }
+  .grid{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr;}
+  .nav{grid-template-columns:1fr;gap:10px;}
 }
 </style>
 </head>
@@ -300,7 +238,7 @@ footer{
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
+      <img src="logo.png.WEBP">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -321,97 +259,11 @@ footer{
   <div class="container">
     <h1>A framework for wealth designed to endure.</h1>
     <p>
-      The Legacy Blueprint is not a collection of tactics. It is a structured system
-      that aligns ownership, control, protection, and long-term continuity into one cohesive strategy.
+      The Legacy Blueprint is a structured system aligning ownership, control,
+      protection, and long-term continuity into one cohesive strategy.
     </p>
   </div>
 </section>
-
-<section class="section">
-  <div class="container intro">
-    <h2>Most wealth strategies are fragmented.</h2>
-    <p>
-      Advisors operate in silos. Strategies are layered without alignment. Over time,
-      complexity increases while clarity decreases. The Blueprint exists to organize
-      and unify everything into a structure that actually works together.
-    </p>
-  </div>
-
-  <div class="container grid">
-    <div class="card">
-      <h3>Foundation</h3>
-      <p>
-        Establishes ownership structures, entities, and control systems that everything else is built on.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Flow</h3>
-      <p>
-        Designs how capital moves, is accessed, and is leveraged across different layers of your financial system.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Protection</h3>
-      <p>
-        Creates separation and safeguards designed to reduce exposure while maintaining control.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Continuity</h3>
-      <p>
-        Aligns long-term planning with generational outcomes and ensures smooth transition across time.
-      </p>
-    </div>
-  </div>
-
-  <div class="container process">
-    <div class="step">
-      <h4>Assess</h4>
-      <p>Understand your current structure and identify the gaps.</p>
-    </div>
-
-    <div class="step">
-      <h4>Design</h4>
-      <p>Map the system around your goals, family, and financial priorities.</p>
-    </div>
-
-    <div class="step">
-      <h4>Structure</h4>
-      <p>Build the architecture intentionally so each component supports the whole.</p>
-    </div>
-
-    <div class="step">
-      <h4>Execute</h4>
-      <p>Align the plan into a working system built for continuity and control.</p>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="cta">
-      <h3>This is not a product. It is a system.</h3>
-      <p>
-        The Legacy Blueprint is designed for clients who want clarity, control,
-        and a structured approach to long-term wealth — not disconnected advice.
-      </p>
-      <a href="contact.html">Request Private Consultation</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div>© 2026 Wealth Assistance</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="clients.html">Clients</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
