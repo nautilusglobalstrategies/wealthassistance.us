@@ -11,14 +11,14 @@
   --gold:#d6a45c;
   --gold-soft:#f3d7a2;
   --text:#f7f3ee;
-  --muted:#bfb5a7;
+  --muted:#d0c7bc;
   --line:rgba(214,164,92,.18);
 }
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
-/* LINKS (NO PURPLE) */
+/* LINKS */
 a,
 a:visited,
 a:active{
@@ -35,8 +35,15 @@ body{
   font-family:Georgia, serif;
   color:var(--text);
   background:
-    linear-gradient(rgba(6,8,13,.55), rgba(6,8,13,.75)),
-    url("blueprint-hero.PNG") center/cover no-repeat fixed;
+    linear-gradient(
+      to bottom,
+      rgba(6,8,13,.72) 0%,
+      rgba(6,8,13,.58) 24%,
+      rgba(6,8,13,.46) 48%,
+      rgba(6,8,13,.54) 72%,
+      rgba(6,8,13,.68) 100%
+    ),
+    url("blueprint-hero.PNG") center 82% / cover no-repeat fixed;
   background-blend-mode:multiply;
 }
 
@@ -97,22 +104,25 @@ header{
 
 /* HERO */
 .hero{
-  padding:110px 0 70px;
+  padding:140px 0 150px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(2.7rem,5vw,4.2rem);
-  margin-bottom:20px;
+  font-size:clamp(2.7rem,5vw,4.4rem);
+  line-height:1.08;
+  margin-bottom:22px;
+  text-shadow:0 8px 28px rgba(0,0,0,.45);
 }
 
 .hero p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  max-width:720px;
+  max-width:760px;
   margin:auto;
-  line-height:1.7;
-  font-size:1.05rem;
+  line-height:1.75;
+  font-size:1.08rem;
+  text-shadow:0 4px 18px rgba(0,0,0,.45);
 }
 
 /* SECTION */
@@ -120,9 +130,9 @@ header{
   padding:70px 0;
 }
 
-/* INTRO BLOCK */
+/* INTRO */
 .intro{
-  max-width:850px;
+  max-width:900px;
   margin:auto;
   text-align:center;
 }
@@ -130,12 +140,15 @@ header{
 .intro h2{
   font-size:clamp(2rem,4vw,3rem);
   margin-bottom:18px;
+  text-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
 .intro p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
+  font-size:1.04rem;
+  text-shadow:0 4px 18px rgba(0,0,0,.35);
 }
 
 /* GRID */
@@ -151,19 +164,20 @@ header{
   padding:30px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.42);
   backdrop-filter:blur(6px);
 }
 
 .card h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.45rem;
 }
 
 .card p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  line-height:1.7;
+  line-height:1.75;
 }
 
 /* PROCESS */
@@ -175,16 +189,24 @@ header{
 }
 
 .step{
-  padding:20px;
-  border-radius:14px;
+  padding:22px;
+  border-radius:16px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.42);
   text-align:center;
+  backdrop-filter:blur(6px);
 }
 
 .step h4{
   color:var(--gold-soft);
   margin-bottom:8px;
+  font-size:1.1rem;
+}
+
+.step p{
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  line-height:1.65;
 }
 
 /* CTA */
@@ -194,18 +216,21 @@ header{
   padding:40px;
   border-radius:20px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.55);
+  background:rgba(0,0,0,.50);
+  backdrop-filter:blur(6px);
 }
 
 .cta h3{
   color:var(--gold-soft);
   margin-bottom:12px;
+  font-size:1.6rem;
 }
 
 .cta p{
   font-family:Arial,sans-serif;
   color:var(--muted);
-  margin-bottom:20px;
+  margin-bottom:22px;
+  line-height:1.75;
 }
 
 .cta a{
@@ -222,6 +247,7 @@ footer{
   padding:30px 0;
   font-family:Arial,sans-serif;
   color:var(--muted);
+  background:rgba(0,0,0,.18);
 }
 
 .footer-links{
@@ -235,6 +261,20 @@ footer{
 
 /* MOBILE */
 @media(max-width:900px){
+  body{
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(6,8,13,.76) 0%,
+        rgba(6,8,13,.60) 26%,
+        rgba(6,8,13,.50) 50%,
+        rgba(6,8,13,.60) 74%,
+        rgba(6,8,13,.72) 100%
+      ),
+      url("blueprint-hero.PNG") center 78% / cover no-repeat fixed;
+    background-blend-mode:multiply;
+  }
+
   .grid{
     grid-template-columns:1fr;
   }
@@ -247,6 +287,10 @@ footer{
     grid-template-columns:1fr;
     gap:10px;
   }
+
+  .hero{
+    padding:110px 0 120px;
+  }
 }
 </style>
 </head>
@@ -256,7 +300,7 @@ footer{
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="logo.png.WEBP">
+      <img src="logo.png.WEBP" alt="Wealth Assistance logo">
       <div class="brand-name">WEALTH ASSISTANCE</div>
     </div>
 
@@ -294,7 +338,6 @@ footer{
   </div>
 
   <div class="container grid">
-
     <div class="card">
       <h3>Foundation</h3>
       <p>
@@ -322,31 +365,28 @@ footer{
         Aligns long-term planning with generational outcomes and ensures smooth transition across time.
       </p>
     </div>
-
   </div>
 
   <div class="container process">
-
     <div class="step">
       <h4>Assess</h4>
-      <p>Understand your current structure and gaps.</p>
+      <p>Understand your current structure and identify the gaps.</p>
     </div>
 
     <div class="step">
       <h4>Design</h4>
-      <p>Map the system based on your objectives.</p>
+      <p>Map the system around your goals, family, and financial priorities.</p>
     </div>
 
     <div class="step">
       <h4>Structure</h4>
-      <p>Implement the architecture intentionally.</p>
+      <p>Build the architecture intentionally so each component supports the whole.</p>
     </div>
 
     <div class="step">
       <h4>Execute</h4>
-      <p>Align all components into a working system.</p>
+      <p>Align the plan into a working system built for continuity and control.</p>
     </div>
-
   </div>
 
   <div class="container">
@@ -354,7 +394,7 @@ footer{
       <h3>This is not a product. It is a system.</h3>
       <p>
         The Legacy Blueprint is designed for clients who want clarity, control,
-        and a structured approach to long-term wealth—not disconnected advice.
+        and a structured approach to long-term wealth — not disconnected advice.
       </p>
       <a href="contact.html">Request Private Consultation</a>
     </div>
