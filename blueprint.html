@@ -97,62 +97,69 @@ header{
   padding:30px 0 40px;
 }
 
-/* MUSEUM FRAME */
+/* MUSEUM / MANSION FRAME */
 .hero-shell{
   position:relative;
-  border-radius:0;
-  background:#0a0a0a;
-  padding:22px;
+  background:#111;
+  padding:28px;
+  border-radius:4px;
   box-shadow:
     0 40px 100px rgba(0,0,0,.65),
-    0 10px 30px rgba(0,0,0,.5);
+    0 18px 36px rgba(0,0,0,.45);
 }
 
-/* FRAME BODY */
+/* outer carved frame body */
 .hero-shell::before{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  background:linear-gradient(
-    145deg,
-    #1a1a1a 0%,
-    #0f0f0f 40%,
-    #050505 100%
-  );
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,.05),
-    inset 0 -8px 18px rgba(0,0,0,.9);
   z-index:1;
+  background:
+    linear-gradient(135deg, #2a241d 0%, #16120e 18%, #0a0908 42%, #1c1712 68%, #2b241d 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.05),
+    inset 0 -14px 20px rgba(0,0,0,.8),
+    inset 10px 0 18px rgba(255,255,255,.03),
+    inset -10px 0 18px rgba(0,0,0,.45);
 }
 
-/* GOLD INNER TRIM */
+/* gold trim ring */
 .hero-shell::after{
   content:"";
   position:absolute;
-  inset:14px;
+  inset:15px;
   pointer-events:none;
-  border:1px solid rgba(214,164,92,.55);
-  box-shadow:
-    inset 0 0 8px rgba(214,164,92,.25),
-    0 0 6px rgba(214,164,92,.12);
   z-index:2;
+  border:2px solid rgba(214,164,92,.55);
+  box-shadow:
+    0 0 0 2px rgba(70,52,26,.9) inset,
+    inset 0 0 12px rgba(214,164,92,.18),
+    0 0 8px rgba(214,164,92,.08);
 }
 
-/* INNER IMAGE STAGE */
+/* image stage */
 .hero-stage{
   position:relative;
   z-index:3;
-  margin:18px;
-  background:#05070b;
+  margin:20px;
+  padding:12px;
+  background:
+    linear-gradient(145deg, #0c0c0c, #020202);
   box-shadow:
-    inset 0 0 30px rgba(0,0,0,.6),
-    0 6px 18px rgba(0,0,0,.6);
-  overflow:hidden;
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    inset 0 0 28px rgba(0,0,0,.7),
+    0 10px 22px rgba(0,0,0,.55);
 }
 
-/* IMAGE */
-.hero-stage img{
+.hero-stage-inner{
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    inset 0 0 40px rgba(0,0,0,.45);
+}
+
+.hero-stage-inner img{
   width:100%;
   height:auto;
   display:block;
@@ -200,7 +207,7 @@ header{
   text-shadow:0 4px 16px rgba(0,0,0,.45);
 }
 
-/* SUBTLE HIGHLIGHT SWEEP */
+/* subtle light sweep */
 .frame-sweep{
   position:absolute;
   inset:-20%;
@@ -209,9 +216,9 @@ header{
   background:linear-gradient(
     115deg,
     transparent 35%,
-    rgba(255,255,255,.03) 45%,
-    rgba(214,164,92,.14) 50%,
-    rgba(255,255,255,.03) 55%,
+    rgba(255,255,255,.025) 45%,
+    rgba(214,164,92,.10) 50%,
+    rgba(255,255,255,.025) 55%,
     transparent 65%
   );
   transform:translateX(-120%) rotate(8deg);
@@ -361,8 +368,8 @@ footer{
   .process{grid-template-columns:1fr;}
   .nav{grid-template-columns:1fr;gap:10px;}
   .hero-copy{padding:8vw 5vw 4vw;}
-  .hero-shell{padding:16px;}
-  .hero-stage{margin:14px;}
+  .hero-shell{padding:18px;}
+  .hero-stage{margin:14px;padding:8px;}
 }
 </style>
 </head>
@@ -393,14 +400,16 @@ footer{
   <div class="container">
     <div class="hero-shell">
       <div class="hero-stage">
-        <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual">
-        <div class="hero-copy">
-          <div class="hero-copy-inner">
-            <h1>A framework for wealth designed to endure.</h1>
-            <p>
-              The Legacy Blueprint is not a collection of tactics. It is a structured system
-              that aligns ownership, control, protection, and long-term continuity into one cohesive strategy.
-            </p>
+        <div class="hero-stage-inner">
+          <img src="blueprint-hero.PNG" alt="Legacy Blueprint visual">
+          <div class="hero-copy">
+            <div class="hero-copy-inner">
+              <h1>A framework for wealth designed to endure.</h1>
+              <p>
+                The Legacy Blueprint is not a collection of tactics. It is a structured system
+                that aligns ownership, control, protection, and long-term continuity into one cohesive strategy.
+              </p>
+            </div>
           </div>
         </div>
       </div>
