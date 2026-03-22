@@ -1,495 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Strategy Lab | Wealth Assistance</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Lab | Wealth Assistance</title>
 
-  <style>
-    :root{
-      --bg:#06080d;
-      --panel:rgba(8,12,18,.78);
-      --panel-2:rgba(12,17,24,.88);
-      --line:rgba(214,164,92,.18);
-      --gold:#d6a45c;
-      --gold-soft:#f3d7a2;
-      --text:#f7f3ee;
-      --muted:#bfc7d4;
-      --muted-2:#919cad;
-      --shadow:0 20px 55px rgba(0,0,0,.45);
-    }
+<style>
+:root{
+  --bg:#06080d;
+  --panel:rgba(8,12,18,.82);
+  --panel-2:rgba(12,17,24,.9);
+  --line:rgba(214,164,92,.18);
+  --gold:#d6a45c;
+  --gold-soft:#f3d7a2;
+  --text:#f7f3ee;
+  --muted:#bfc7d4;
+  --shadow:0 20px 55px rgba(0,0,0,.45);
+}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:system-ui;
+  background:#06080d;
+  color:var(--text);
+}
 
-    body{
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      background:
-        linear-gradient(rgba(6,8,13,.55), rgba(6,8,13,.82)),
-        url("strategy-lab-hero.PNG") center/cover no-repeat fixed;
-      color:var(--text);
-      padding:20px;
-      min-height:100vh;
-    }
+/* NAVBAR */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+  border-bottom:1px solid var(--line);
+  background:#06080d;
+}
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-      background-size:56px 56px;
-      mask-image:radial-gradient(circle at center, black 35%, transparent 85%);
-      opacity:.18;
-    }
+.nav-links a{
+  margin-left:18px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.9rem;
+}
 
-    .container{
-      max-width:1120px;
-      margin:auto;
-      position:relative;
-      z-index:1;
-    }
+.nav-links a:hover{color:var(--gold-soft)}
 
-    .hero{
-      min-height:540px;
-      display:flex;
-      align-items:flex-end;
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      margin-bottom:24px;
-      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.72) 100%);
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
 
-    .hero-inner{
-      width:100%;
-      padding:34px;
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:24px;
-      flex-wrap:wrap;
-    }
+/* HERO */
+.hero{
+  height:380px;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:25px;
+  position:relative;
+  border:1px solid var(--line);
+}
 
-    .eyebrow{
-      color:var(--gold);
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:.78rem;
-      font-weight:800;
-      margin-bottom:12px;
-    }
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.85;
+}
 
-    .hero-copy h1{
-      font-family:Georgia,serif;
-      font-size:clamp(2.3rem,4.8vw,4.3rem);
-      line-height:1.02;
-      margin-bottom:14px;
-      max-width:760px;
-    }
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.8));
+  display:flex;
+  align-items:flex-end;
+}
 
-    .hero-copy p{
-      max-width:700px;
-      color:var(--muted);
-      line-height:1.72;
-      font-size:1rem;
-    }
+.hero-content{
+  padding:24px;
+}
 
-    .hero-side{
-      width:320px;
-      max-width:100%;
-      padding:18px;
-      border-radius:18px;
-      background:rgba(7,10,14,.46);
-      border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(10px);
-    }
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
 
-    .hero-side h3{
-      color:var(--gold-soft);
-      font-family:Georgia,serif;
-      font-size:1.05rem;
-      margin-bottom:8px;
-    }
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+}
 
-    .hero-side p{
-      color:var(--muted);
-      line-height:1.6;
-      font-size:.92rem;
-    }
+/* SECTIONS */
+.section{
+  background:var(--panel);
+  padding:20px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  margin-bottom:20px;
+}
 
-    .section{
-      margin-top:22px;
-      padding:24px;
-      border-radius:22px;
-      background:var(--panel);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(8px);
-    }
+.section h2{
+  font-family:Georgia,serif;
+  margin-bottom:10px;
+}
 
-    .section h2{
-      font-family:Georgia,serif;
-      font-size:1.65rem;
-      margin-bottom:10px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+  margin-top:15px;
+}
 
-    .section > p{
-      color:var(--muted-2);
-      line-height:1.65;
-      max-width:780px;
-      margin-bottom:18px;
-    }
+.card{
+  padding:14px;
+  border-radius:12px;
+  background:var(--panel-2);
+  border:1px solid var(--line);
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-      margin-top:14px;
-    }
+.card h3{
+  color:var(--gold-soft);
+  margin-bottom:6px;
+}
 
-    .card{
-      padding:18px;
-      border-radius:16px;
-      background:var(--panel-2);
-      border:1px solid var(--line);
-      min-height:150px;
-    }
+.card p{
+  color:var(--muted);
+  font-size:.9rem;
+}
 
-    .card h3{
-      color:var(--gold-soft);
-      font-family:Georgia,serif;
-      margin-bottom:10px;
-      font-size:1.12rem;
-    }
+/* MODULES */
+.module{
+  padding:14px;
+  border-radius:12px;
+  background:var(--panel-2);
+  border:1px solid var(--line);
+  position:relative;
+}
 
-    .card p{
-      color:var(--muted);
-      font-size:.94rem;
-      line-height:1.7;
-    }
+.locked{opacity:.5}
 
-    .module{
-      padding:18px;
-      border-radius:16px;
-      background:var(--panel-2);
-      border:1px solid var(--line);
-      min-height:190px;
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
+.lock{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:.7rem;
+  color:#aaa;
+}
 
-    .module h3{
-      color:var(--gold-soft);
-      font-family:Georgia,serif;
-      margin-bottom:8px;
-      font-size:1.08rem;
-    }
+/* BUTTON */
+.btn{
+  display:block;
+  text-align:center;
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  background:linear-gradient(135deg,#d6a45c,#f3d7a2);
+  color:#111;
+}
 
-    .module p{
-      color:var(--muted);
-      font-size:.93rem;
-      line-height:1.65;
-      margin-bottom:14px;
-    }
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:25px;
+}
 
-    .module .status{
-      display:inline-block;
-      font-size:.72rem;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:12px;
-    }
+.cta a{
+  padding:14px 18px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#d6a45c,#f3d7a2);
+  color:#111;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .module.locked{
-      opacity:.55;
-    }
-
-    .lock{
-      position:absolute;
-      top:14px;
-      right:14px;
-      font-size:.72rem;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#b3bac6;
-    }
-
-    .btn{
-      display:block;
-      text-align:center;
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:800;
-      transition:transform .15s ease, filter .15s ease;
-    }
-
-    .btn:hover{filter:brightness(1.03)}
-    .btn:active{transform:scale(.992)}
-
-    .btn-primary{
-      background:linear-gradient(135deg,#d6a45c,#f3d7a2);
-      color:#111;
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(214,164,92,.24);
-      color:var(--gold-soft);
-    }
-
-    .cta{
-      text-align:center;
-      margin-top:28px;
-      padding:6px 0 2px;
-    }
-
-    .cta h2{
-      font-family:Georgia,serif;
-      font-size:clamp(1.8rem,3.4vw,2.6rem);
-      margin-bottom:10px;
-    }
-
-    .cta p{
-      color:var(--muted);
-      line-height:1.7;
-      max-width:720px;
-      margin:0 auto 18px;
-    }
-
-    .footer-note{
-      text-align:center;
-      color:var(--muted-2);
-      font-size:.82rem;
-      margin-top:16px;
-    }
-
-    @media(max-width:960px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    @media(max-width:700px){
-      body{padding:14px}
-      .hero{min-height:460px}
-      .hero-inner,.section{padding:18px}
-      .hero-copy h1{font-size:2.35rem}
-    }
-  </style>
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
+
+<!-- NAV -->
+<div class="nav">
+  <div><strong>Wealth Assistance</strong></div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/strategy.html">Strategy Lab</a>
+    <a href="https://nautilusglobalstrategies.github.io/capital-recapture-model/">Calculator</a>
+    <a href="https://wealthassistance.us/contact.html">Consultation</a>
+  </div>
+</div>
 
 <div class="container">
 
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">Strategy Lab</div>
-        <h1>Forward movement without correct positioning is inefficient.</h1>
-        <p>
-          Most people are moving. Very few are structured correctly. The difference is not effort — it is positioning, capital flow, and system design. Strategy Lab exists for people who recognize that momentum alone is not enough.
-        </p>
-      </div>
-
-      <div class="hero-side">
-        <h3>Access is layered.</h3>
-        <p>
-          Some models are available for evaluation. Others are reserved for individuals and families who are ready to move from interest to implementation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Strategic Paths</h2>
-    <p>
-      Each path represents a different level of positioning. Most people focus on activity. Strategy focuses on alignment.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Debt Elimination</h3>
-        <p>
-          Reposition cash flow and capital deployment to reduce drag, compress payoff timelines, and regain control over long-term obligations.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Capital Expansion</h3>
-        <p>
-          Build layers of liquidity, recapture efficiency, and structure capital so it can work repeatedly instead of remaining idle.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Wealth Architecture</h3>
-        <p>
-          Align entities, trusts, tax posture, and capital systems into a structure designed for continuity rather than improvisation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Models & Access</h2>
-    <p>
-      Strategy Lab is intentionally tiered. Some tools are visible. Some are usable. Others require deeper engagement because the variables become more consequential.
-    </p>
-
-    <div class="grid">
-      <div class="module" data-track="capital-recapture-model">
-        <div>
-          <div class="status">Available</div>
-          <h3>Capital Recapture Model</h3>
-          <p>
-            Compare a standard payoff path against a structured capital recapture system designed to accelerate debt elimination.
-          </p>
-        </div>
-        <a href="https://nautilusglobalstrategies.github.io/capital-recapture-model/" class="btn btn-primary track-link" data-track="open-capital-recapture-model">
-          Open Model
-        </a>
-      </div>
-
-      <div class="module locked" data-track="advanced-cycle-modeling">
-        <div class="lock">Restricted</div>
-        <div>
-          <div class="status">Private Access</div>
-          <h3>Advanced Cycle Modeling</h3>
-          <p>
-            Multi-layer capital cycle scenarios for individuals whose positioning extends beyond a single capital layer.
-          </p>
-        </div>
-        <a href="https://wealthassistance.us/contact.html" class="btn btn-secondary track-link" data-track="request-advanced-cycle-modeling">
-          Request Access
-        </a>
-      </div>
-
-      <div class="module locked" data-track="liquidity-stack">
-        <div class="lock">Restricted</div>
-        <div>
-          <div class="status">Private Access</div>
-          <h3>Liquidity Stack</h3>
-          <p>
-            Model how layered liquidity reserves, cash-equivalent positioning, and capital efficiency interact over time.
-          </p>
-        </div>
-        <a href="https://wealthassistance.us/contact.html" class="btn btn-secondary track-link" data-track="request-liquidity-stack">
-          Request Access
-        </a>
-      </div>
-
-      <div class="module locked" data-track="private-lending-engine">
-        <div class="lock">Restricted</div>
-        <div>
-          <div class="status">Private Access</div>
-          <h3>Private Lending Engine</h3>
-          <p>
-            Explore controlled capital deployment scenarios and evaluate structural yield opportunities.
-          </p>
-        </div>
-        <a href="https://wealthassistance.us/contact.html" class="btn btn-secondary track-link" data-track="request-private-lending-engine">
-          Request Access
-        </a>
-      </div>
-
-      <div class="module locked" data-track="tax-shield-framework">
-        <div class="lock">Restricted</div>
-        <div>
-          <div class="status">Private Access</div>
-          <h3>Tax Shield Framework</h3>
-          <p>
-            Advanced positioning strategies built to protect margin, improve structural efficiency, and reduce leakage.
-          </p>
-        </div>
-        <a href="https://wealthassistance.us/contact.html" class="btn btn-secondary track-link" data-track="request-tax-shield-framework">
-          Request Access
-        </a>
-      </div>
-
-      <div class="module locked" data-track="legacy-blueprint">
-        <div class="lock">Restricted</div>
-        <div>
-          <div class="status">Private Access</div>
-          <h3>Legacy Blueprint</h3>
-          <p>
-            A full architecture layer for individuals and families seeking entity, trust, tax, and capital alignment.
-          </p>
-        </div>
-        <a href="https://wealthassistance.us/contact.html" class="btn btn-secondary track-link" data-track="request-legacy-blueprint">
-          Request Access
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="cta">
-      <h2>Seeing the path is not the same as being positioned on it.</h2>
+<!-- HERO -->
+<div class="hero">
+  <img src="strategy-lab-hero.PNG">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Forward movement without correct positioning leads nowhere.</h1>
       <p>
-        If you are ready to move beyond surface-level tools and into full strategic alignment, the next step is a private strategy session.
+        Most people are moving. Very few are structured correctly.  
+        The difference is not effort—it’s positioning.
       </p>
-      <a href="https://wealthassistance.us/contact.html" class="btn btn-primary track-link" data-track="request-private-strategy-session">
-        Request Private Strategy Session
-      </a>
     </div>
-    <div class="footer-note">
-      Wealth Assistance · Strategy Lab
-    </div>
-  </section>
-
+  </div>
 </div>
 
-<script>
-(function () {
-  const WEBHOOK_URL = "PASTE_YOUR_WEBHOOK_URL_HERE";
+<!-- PATHS -->
+<div class="section">
+  <h2>Strategic Paths</h2>
 
-  async function trackEvent(eventName, extraData = {}) {
-    if (!WEBHOOK_URL || WEBHOOK_URL === "PASTE_YOUR_WEBHOOK_URL_HERE") return;
+  <div class="grid">
+    <div class="card">
+      <h3>Debt Elimination</h3>
+      <p>Reposition cash flow to accelerate payoff.</p>
+    </div>
 
-    const payload = {
-      event: eventName,
-      page: "strategy_lab",
-      timestamp: new Date().toISOString(),
-      url: window.location.href,
-      userAgent: navigator.userAgent,
-      ...extraData
-    };
+    <div class="card">
+      <h3>Capital Expansion</h3>
+      <p>Build systems that allow capital to grow.</p>
+    </div>
 
-    try {
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) {
-      // silent fail
-    }
-  }
+    <div class="card">
+      <h3>Wealth Architecture</h3>
+      <p>Structure long-term financial positioning.</p>
+    </div>
+  </div>
+</div>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    trackEvent("strategy-lab-page-view");
+<!-- MODULES -->
+<div class="section">
+  <h2>Models & Access</h2>
 
-    document.querySelectorAll(".track-link").forEach(link => {
-      link.addEventListener("click", function () {
-        const trackName = this.getAttribute("data-track") || "strategy-lab-link-click";
-        trackEvent(trackName, {
-          destination: this.href,
-          label: this.textContent.trim()
-        });
-      });
-    });
-  });
-})();
-</script>
+  <div class="grid">
+
+    <div class="module">
+      <h3>Capital Recapture Model</h3>
+      <p>Compare standard vs structured payoff strategies.</p>
+      <a href="https://nautilusglobalstrategies.github.io/capital-recapture-model/" class="btn">
+        Open Model
+      </a>
+    </div>
+
+    <div class="module locked">
+      <div class="lock">Restricted</div>
+      <h3>Advanced Cycle Modeling</h3>
+      <p>Multi-layer capital strategies.</p>
+      <a href="https://wealthassistance.us/contact.html" class="btn">
+        Request Access
+      </a>
+    </div>
+
+    <div class="module locked">
+      <div class="lock">Restricted</div>
+      <h3>Liquidity Stack</h3>
+      <p>Layered capital positioning.</p>
+      <a href="https://wealthassistance.us/contact.html" class="btn">
+        Request Access
+      </a>
+    </div>
+
+    <div class="module locked">
+      <div class="lock">Restricted</div>
+      <h3>Private Lending Engine</h3>
+      <p>Capital deployment systems.</p>
+      <a href="https://wealthassistance.us/contact.html" class="btn">
+        Request Access
+      </a>
+    </div>
+
+    <div class="module locked">
+      <div class="lock">Restricted</div>
+      <h3>Tax Shield Framework</h3>
+      <p>Advanced structuring strategies.</p>
+      <a href="https://wealthassistance.us/contact.html" class="btn">
+        Request Access
+      </a>
+    </div>
+
+    <div class="module locked">
+      <div class="lock">Restricted</div>
+      <h3>Legacy Blueprint</h3>
+      <p>Full generational system.</p>
+      <a href="https://wealthassistance.us/contact.html" class="btn">
+        Request Access
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <a href="https://wealthassistance.us/contact.html">
+    Request Private Strategy Session
+  </a>
+</div>
+
+</div>
 
 </body>
 </html>
