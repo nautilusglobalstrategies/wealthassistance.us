@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wealth Assistance | Private Wealth Strategy</title>
 
 <style>
 :root{
-  --bg-1:#030303;
-  --bg-2:#0a0a0a;
+  --bg:#030303;
   --gold:#d6a45c;
   --gold-soft:#f3d7a2;
   --text:#f7f3ee;
@@ -21,10 +20,10 @@
 body{
   font-family:Georgia,serif;
   color:var(--text);
-  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  background:#030303;
 }
 
-a{color:inherit;text-decoration:none;}
+a{text-decoration:none;color:inherit;}
 
 .container{
   width:min(92%,1100px);
@@ -33,19 +32,19 @@ a{color:inherit;text-decoration:none;}
 
 /* HEADER */
 .site-header{
-  background:rgba(3,3,3,.85);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:1000;
+  background:rgba(0,0,0,.85);
   backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav{
-  min-height:86px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  min-height:86px;
 }
 
 .brand{
@@ -54,17 +53,11 @@ a{color:inherit;text-decoration:none;}
   gap:14px;
 }
 
-.brand img{
-  height:52px;
-}
+.brand img{height:52px;}
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-}
+.brand-text{display:flex;flex-direction:column;}
 
 .brand-name{
-  font-size:.98rem;
   letter-spacing:2px;
   color:var(--gold-soft);
 }
@@ -91,19 +84,42 @@ a{color:inherit;text-decoration:none;}
   color:var(--gold-soft);
 }
 
-/* HERO BACKGROUND */
+/* HERO */
 .hero{
-  min-height:90vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   position:relative;
-  background:
-    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.85)),
-    url("strategy-lab-hero.PNG") center/cover no-repeat;
+  overflow:hidden;
+}
+
+/* BACKGROUND IMAGE */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("hero-globe.png") right center/cover no-repeat;
+  opacity:.9;
+}
+
+/* DARK OVERLAY */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.85) 0%,
+    rgba(0,0,0,.75) 40%,
+    rgba(0,0,0,.4) 70%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .hero-content{
-  max-width:700px;
+  position:relative;
+  z-index:2;
+  max-width:600px;
 }
 
 .hero h1{
@@ -116,6 +132,26 @@ a{color:inherit;text-decoration:none;}
   font-family:Arial;
   color:var(--muted);
   font-size:1.1rem;
+  margin-bottom:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:999px;
+  font-family:Arial;
+  font-weight:bold;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#d6a45c,#f3d7a2);
+  color:#111;
+  margin-right:12px;
+}
+
+.btn-secondary{
+  border:1px solid var(--gold);
+  color:var(--gold-soft);
 }
 
 /* STRIP */
@@ -137,27 +173,26 @@ a{color:inherit;text-decoration:none;}
   font-size:.75rem;
   letter-spacing:2px;
   color:var(--gold-soft);
-  margin-bottom:6px;
 }
 
 .strip-card p{
   font-family:Arial;
   color:var(--muted);
-  font-size:.9rem;
 }
 
 /* FOOTER */
 .footer{
-  padding:30px 0;
+  text-align:center;
+  padding:30px;
   border-top:1px solid var(--line);
   font-family:Arial;
   color:var(--muted);
-  text-align:center;
 }
 
 @media(max-width:900px){
   .nav{flex-direction:column;align-items:flex-start;padding:16px 0;}
   .strip{grid-template-columns:1fr;}
+  .hero::before{background-position:center;}
 }
 </style>
 </head>
@@ -189,9 +224,12 @@ a{color:inherit;text-decoration:none;}
   <div class="container hero-content">
     <h1>Global perspective. Private strategy. Structured legacy.</h1>
     <p>
-      Wealth is not created through effort alone. It is built through structure,
-      positioning, and long-term coordination.
+      Wealth Assistance helps affluent families, founders, and investors design
+      more intentional systems around protection, leverage, continuity, and long-term control.
     </p>
+
+    <a href="contact.html" class="btn btn-primary">Request Private Consultation</a>
+    <a href="strategy.html" class="btn btn-secondary">Enter Strategy Lab</a>
 
     <div class="strip">
       <div class="strip-card">
