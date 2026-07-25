@@ -204,22 +204,22 @@
       <p>Submit your information below to begin the process.</p>
 
       <form id="consultForm">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
 
-        <select>
-          <option>Primary Focus</option>
+        <select name="primary_focus">
+          <option value="">Primary Focus</option>
           <option>Debt Elimination</option>
           <option>Capital Expansion</option>
           <option>Wealth Architecture</option>
           <option>Legacy Blueprint</option>
         </select>
 
-        <textarea placeholder="What are you looking to accomplish?"></textarea>
+        <textarea name="goals" placeholder="What are you looking to accomplish?"></textarea>
 
-        <select>
-          <option>Preferred Contact Method</option>
+        <select name="preferred_contact_method">
+          <option value="">Preferred Contact Method</option>
           <option>Email</option>
           <option>Phone</option>
           <option>Either</option>
@@ -245,31 +245,46 @@ const form = document.getElementById("consultForm");
 const formPanel = document.getElementById("formPanel");
 const thankYou = document.getElementById("thankYou");
 
-// 🔥 ADD YOUR WEBHOOK HERE LATER
-const WEBHOOK_URL = "";
+// HubSpot Forms API endpoint
+const PORTAL_ID = "245125363";
+const FORM_ID = "44bb78cc-cae5-47a9-bbf2-21d151b95f61";
+const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`;
 
 form.addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const data = {
-    name: form[0].value,
-    email: form[1].value,
-    phone: form[2].value,
-    focus: form[3].value,
-    goals: form[4].value,
-    contact: form[5].value
-  };
+  // Split "Full Name" into first and last name for HubSpot
+  const fullName = form.elements["fullname"].value.trim();
+  const nameParts = fullName.split(/\s+/);
+  const firstname = nameParts[0] || "";
+  const lastname = nameParts.slice(1).join(" ") || "";
 
-  if(WEBHOOK_URL){
-    try{
-      await fetch(WEBHOOK_URL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(data)
-      });
-    }catch(err){}
+  // Build the fields array in HubSpot's expected format
+  const fields = [
+    { name: "firstname", value: firstname },
+    { name: "lastname", value: lastname },
+    { name: "email", value: form.elements["email"].value },
+    { name: "phone", value: form.elements["phone"].value },
+    { name: "primary_focus", value: form.elements["primary_focus"].value },
+    { name: "what_are_you_looking_to_accomplish", value: form.elements["goals"].value },
+    { name: "preferred_contact_method", value: form.elements["preferred_contact_method"].value }
+  ];
+
+  try {
+    const response = await fetch(HUBSPOT_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fields: fields })
+    });
+
+    if (!response.ok) {
+      console.error("HubSpot submission failed:", response.status, response.statusText);
+    }
+  } catch(err) {
+    console.error("Submission error:", err);
   }
 
+  // Show thank you message regardless (don't expose errors to the user)
   formPanel.style.display = "none";
   thankYou.style.display = "block";
 });
