@@ -216,7 +216,7 @@
           <option>Legacy Blueprint</option>
         </select>
 
-        <textarea name="goals" placeholder="What are you looking to accomplish?"></textarea>
+        <textarea name="what_are_you_looking_to_accomplish" placeholder="What are you looking to accomplish?"></textarea>
 
         <select name="preferred_contact_method">
           <option value="">Preferred Contact Method</option>
@@ -266,7 +266,7 @@ form.addEventListener("submit", async function(e){
     { name: "email", value: form.elements["email"].value },
     { name: "phone", value: form.elements["phone"].value },
     { name: "primary_focus", value: form.elements["primary_focus"].value },
-    { name: "what_are_you_looking_to_accomplish", value: form.elements["goals"].value },
+    { name: "what_are_you_looking_to_accomplish", value: form.elements["what_are_you_looking_to_accomplish"].value },
     { name: "preferred_contact_method", value: form.elements["preferred_contact_method"].value }
   ];
 
