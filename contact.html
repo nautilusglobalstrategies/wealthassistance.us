@@ -211,6 +211,7 @@
       <p>Submit your information below to begin the process.</p>
 
       <form id="consultForm">
+        <input type="hidden" name="source_website" value="wealthassistance.us">
         <input type="text" name="fullname" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone Number">
@@ -268,6 +269,7 @@ form.addEventListener("submit", async function(e){
 
   // Build the fields array in HubSpot's expected format
   const fields = [
+    { name: "source_website", value: "wealthassistance.us" },
     { name: "firstname", value: firstname },
     { name: "lastname", value: lastname },
     { name: "email", value: form.elements["email"].value },
