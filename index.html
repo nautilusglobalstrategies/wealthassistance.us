@@ -1,224 +1,182 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get Rich, Quit Routine: an educational Wealth Assistance experience for learning how to recognize and use the resources you already have with intention.">
-  <meta name="theme-color" content="#07181f">
-  <title>Get Rich, Quit Routine | Wealth Assistance</title>
-  <style>
-    :root {
-      --ink: #07181f;
-      --ink-2: #0b2730;
-      --paper: #f6f4ed;
-      --cream: #fffdf7;
-      --teal: #1d9c98;
-      --teal-soft: #88e0d7;
-      --blue: #5aaeff;
-      --gold: #e6b85f;
-      --gold-pale: #f6dfad;
-      --muted: #607177;
-      --line: rgba(7, 24, 31, .14);
-      --white-line: rgba(255, 255, 255, .16);
-      --shadow: 0 24px 70px rgba(3, 18, 24, .18);
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Get Rich, Quit Routine by Wealth Assistance. Learn to identify and use your resources with more clarity and intention.">
+<meta name="theme-color" content="#07181f">
+<title>Get Rich, Quit Routine | Wealth Assistance</title>
+<style>
+:root{--ink:#07181f;--paper:#f6f4ed;--cream:#fffdf7;--teal:#1d9c98;--soft:#88e0d7;--gold:#e6b85f;--goldp:#f6dfad;--muted:#607177;--line:rgba(7,24,31,.14);--white:rgba(255,255,255,.16);--shadow:0 24px 70px rgba(3,18,24,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1140px,calc(100% - 40px));margin:auto}.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.73rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.eyebrow:before{content:"";width:30px;height:2px;background:currentColor}.btn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 23px;border:1px solid transparent;border-radius:999px;font-size:.9rem;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{color:#19262a;background:linear-gradient(105deg,#f0c66f,#dca94c);box-shadow:0 12px 26px rgba(224,173,78,.23)}.secondary{color:#fffdf7;border-color:rgba(255,255,255,.45)}.secondary:hover{background:rgba(255,255,255,.1)}
+header{position:absolute;z-index:5;inset:0 0 auto;padding:22px 0;color:var(--cream)}nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}.mark{display:grid;place-items:center;width:37px;height:37px;border:1px solid rgba(255,255,255,.6);border-radius:50%;color:var(--goldp);font:1.4rem Georgia,serif}.links{display:flex;align-items:center;gap:22px;font-size:.85rem;font-weight:700}.login{padding:8px 14px;border:1px solid rgba(255,255,255,.55);border-radius:999px}
+.hero{position:relative;overflow:hidden;padding:160px 0 108px;min-height:760px;color:var(--cream);background:radial-gradient(circle at 75% 15%,rgba(90,174,255,.25),transparent 18rem),radial-gradient(circle at 80% 80%,rgba(29,156,152,.42),transparent 25rem),linear-gradient(130deg,#06161d,#092c35 54%,#0c5154)}.hero:after{content:"";position:absolute;right:-15vw;bottom:-30vw;width:min(70vw,850px);aspect-ratio:1;border:1px solid rgba(255,255,255,.15);border-radius:50%;box-shadow:0 0 0 52px rgba(255,255,255,.035),0 0 0 104px rgba(255,255,255,.02)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:68px}.hero .eyebrow{color:var(--soft)}h1{max-width:720px;margin:18px 0 22px;font:400 clamp(3.5rem,7vw,6.5rem)/.9 Georgia,serif;letter-spacing:-.075em}h1 em{color:var(--goldp)}.hero p{max-width:630px;margin:0;color:rgba(255,253,247,.82);font-size:1.12rem}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.note{margin-top:17px!important;color:rgba(255,253,247,.6)!important;font-size:.79rem!important}.card{padding:29px;border:1px solid rgba(255,255,255,.18);border-radius:19px;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.04));box-shadow:var(--shadow);backdrop-filter:blur(12px)}.card small{color:var(--soft);font-weight:800;letter-spacing:.14em;text-transform:uppercase}.card h2{margin:9px 0 20px;color:var(--cream);font:400 2rem/1.1 Georgia,serif}.card ul{display:grid;gap:12px;margin:0;padding:0;list-style:none;color:rgba(255,253,247,.78);font-size:.9rem}.card li:before{content:"✦";margin-right:10px;color:var(--goldp)}
+.strip{background:var(--cream);border-bottom:1px solid var(--line)}.strip-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:20px;align-items:center;padding:27px 0}.strip p{margin:0;color:var(--muted);font-size:.85rem}.metric{padding-left:22px;border-left:1px solid var(--line)}.metric b{display:block;color:var(--teal);font:400 1.3rem Georgia,serif}.metric span{color:var(--muted);font-size:.76rem}
+section{padding:100px 0}h2{margin:14px 0 17px;font:400 clamp(2.3rem,4.4vw,3.9rem)/1.03 Georgia,serif;letter-spacing:-.06em}.lead{max-width:650px;margin:0;color:var(--muted);font-size:1.05rem}.reframe-grid,.next-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:78px;align-items:center}.reframe .eyebrow,.paths .eyebrow,.next .eyebrow{color:var(--teal)}.quote{padding:34px;border-radius:18px;background:var(--ink);color:var(--cream);box-shadow:var(--shadow)}.quote small{color:var(--soft);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.quote p{margin:14px 0;color:var(--cream);font:400 clamp(1.55rem,2.5vw,2.1rem)/1.18 Georgia,serif}.quote span{color:rgba(255,253,247,.68);font-size:.9rem}
+.leverage{color:var(--cream);background:linear-gradient(145deg,#071a21,#0b3b40)}.leverage .eyebrow{color:var(--goldp)}.leverage .lead{color:rgba(255,253,247,.72)}.leverage-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:70px}.assets{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.asset{min-height:160px;padding:23px;border:1px solid rgba(255,255,255,.15);border-radius:15px;background:rgba(255,255,255,.055)}.asset b{display:block;margin-bottom:25px;color:var(--goldp);font:1.2rem Georgia,serif}.asset h3{margin:0 0 7px;font-size:1rem}.asset p{margin:0;color:rgba(255,253,247,.66);font-size:.85rem}.fine{margin-top:38px!important;padding-top:16px;border-top:1px solid var(--white);color:rgba(255,253,247,.58)!important;font-size:.79rem!important}
+.paths{background:var(--cream)}.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.path{display:flex;flex-direction:column;min-height:330px;padding:28px;border:1px solid var(--line);border-radius:16px;background:#fffefa}.path b{display:block;margin-bottom:50px;color:var(--gold);font:1.4rem Georgia,serif}.path h3{margin:0 0 11px;font-size:1.2rem}.path p{margin:0;color:var(--muted);font-size:.91rem}.path a{margin-top:auto;padding-top:25px;color:var(--teal);font-size:.88rem;font-weight:800}.path a:after{content:"  →"}
+.steps{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}.steps li{display:grid;grid-template-columns:43px 1fr;gap:15px;padding:22px 0;border-bottom:1px solid var(--line)}.steps b{color:var(--gold);font:1.2rem Georgia,serif}.steps strong{display:block;margin-bottom:3px}.steps span{color:var(--muted);font-size:.89rem}
+.cta{padding:92px 0;background:var(--cream)}.cta-box{position:relative;overflow:hidden;padding:clamp(40px,6vw,75px);border-radius:22px;color:var(--cream);background:linear-gradient(125deg,#071d24,#0d5255 60%,#126c68);box-shadow:var(--shadow)}.cta-box:after{content:"";position:absolute;right:-110px;bottom:-205px;width:470px;height:470px;border:1px solid rgba(255,255,255,.18);border-radius:50%;box-shadow:0 0 0 50px rgba(255,255,255,.04)}.cta-content{position:relative;z-index:1;max-width:700px}.cta .eyebrow{color:var(--goldp)}.cta p{max-width:600px;color:rgba(255,253,247,.75);font-size:1.03rem}.cta .actions{margin-top:27px}.cta small{display:block;margin-top:18px;color:rgba(255,253,247,.57);font-size:.78rem}
+footer{padding:38px 0 50px;background:#05161b;color:rgba(255,253,247,.68)}.footer-grid{display:flex;justify-content:space-between;gap:30px}.footer-copy{max-width:670px;margin:17px 0 0;font-size:.78rem;line-height:1.65}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:16px;font-size:.82rem}
+@media(max-width:900px){.hero{min-height:auto;padding-bottom:80px}.hero-grid,.reframe-grid,.leverage-grid,.next-grid{grid-template-columns:1fr;gap:43px}.card{max-width:540px}.strip-grid{grid-template-columns:1fr 1fr}.strip p{grid-column:1/-1}.metric:first-of-type{padding-left:0;border-left:0}.path-grid{grid-template-columns:1fr}.path{min-height:240px}.path b{margin-bottom:27px}}
+@media(max-width:620px){.wrap{width:min(100% - 30px,1140px)}header{padding-top:17px}.brand{font-size:.86rem}.links a:not(.login){display:none}.login{padding:8px 11px;font-size:.75rem}.hero{padding-top:126px}.hero h1{font-size:3.55rem}.actions{display:grid}.actions .btn{width:100%}.strip-grid,.assets{grid-template-columns:1fr}.metric,.metric:first-of-type{padding:14px 0 0;border-left:0;border-top:1px solid var(--line)}section{padding:72px 0}.cta{padding:72px 0}.footer-grid{flex-direction:column}.footer-links{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top"><span class="mark">W</span><span>Wealth Assistance</span></a>
+      <div class="links">
+        <a href="#leverage">How it works</a>
+        <a href="#starting-point">Your starting point</a>
+        <a class="login" href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Private consultation</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-width: 320px;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-    }
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Wealth Assistance presents</span>
+        <h1>Get rich.<br><em>Quit the routine.</em></h1>
+        <p>A clearer way to see the resources, relationships, skills, income, and assets already around you—and learn how to use them with more intention.</p>
+        <div class="actions">
+          <a class="btn primary" href="#starting-point">Discover your next move</a>
+          <a class="btn secondary" href="#leverage">How leverage works</a>
+        </div>
+        <p class="note">Education and strategy guidance for people ready to move beyond financial noise. No guaranteed outcomes. No shortcuts.</p>
+      </div>
+      <aside class="card">
+        <small>The signal beneath the noise</small>
+        <h2>Most people do not need more information. They need a better lens.</h2>
+        <ul>
+          <li>See the resources you may be overlooking</li>
+          <li>Identify the financial stage you are actually in</li>
+          <li>Choose a next move that fits your real life</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
 
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+  <section class="strip">
+    <div class="wrap strip-grid">
+      <p>This is a practical starting point for turning financial pressure into clearer, more intentional decisions.</p>
+      <div class="metric"><b>See clearly</b><span>Start with an honest view of where you are</span></div>
+      <div class="metric"><b>Use wisely</b><span>Understand what each resource can and cannot do</span></div>
+      <div class="metric"><b>Move steadily</b><span>Build momentum through better next steps</span></div>
+    </div>
+  </section>
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .73rem;
-      font-weight: 850;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
+  <section class="reframe">
+    <div class="wrap reframe-grid">
+      <div>
+        <span class="eyebrow">The reframe</span>
+        <h2>Working hard is valuable. Working without a strategy can become a loop.</h2>
+        <p class="lead">The goal is not to chase a flashy definition of wealth. It is to understand your position, protect what matters, recognize available options, and take informed action over time.</p>
+      </div>
+      <div class="quote">
+        <small>Get rich, quit routine</small>
+        <p>“Quit the routine” means leaving behind the habit of reacting to every financial decision without a clear direction.</p>
+        <span>It does not mean quitting work, avoiding responsibility, or expecting instant results. It means making space for a more deliberate wealth-building rhythm.</span>
+      </div>
+    </div>
+  </section>
 
-    .eyebrow::before { content: ""; width: 32px; height: 2px; background: currentColor; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-size: .93rem;
-      font-weight: 800;
-      letter-spacing: .01em;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
+  <section class="leverage" id="leverage">
+    <div class="wrap leverage-grid">
+      <div>
+        <span class="eyebrow">How leverage works</span>
+        <h2>Leverage begins with what you already have.</h2>
+        <p class="lead">In plain language, leverage is using a resource thoughtfully to create more options or support a goal. It is not a promise of profit, and it is not the same as taking unnecessary risk.</p>
+        <p class="fine">Examples below are educational categories, not recommendations. The right strategy depends on your circumstances and may require qualified legal, tax, lending, insurance, or investment professionals.</p>
+      </div>
+      <div class="assets">
+        <article class="asset"><b>01</b><h3>Income &amp; cash flow</h3><p>Understand what comes in, what goes out, and what can be directed with purpose.</p></article>
+        <article class="asset"><b>02</b><h3>Cash reserves</h3><p>Protect flexibility and prepare for goals before making larger commitments.</p></article>
+        <article class="asset"><b>03</b><h3>Equity &amp; property</h3><p>Learn the questions to ask when evaluating ownership, equity, and real-estate opportunities.</p></article>
+        <article class="asset"><b>04</b><h3>Skills &amp; business</h3><p>Recognize how expertise, earning power, or an enterprise can create future choices.</p></article>
+        <article class="asset"><b>05</b><h3>Knowledge &amp; relationships</h3><p>Build informed networks and ask better questions before taking the next step.</p></article>
+        <article class="asset"><b>06</b><h3>Time &amp; consistency</h3><p>Create a repeatable review rhythm so important decisions do not remain on pause.</p></article>
+      </div>
+    </div>
+  </section>
 
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { background: linear-gradient(105deg, #f0c66f, #dca94c); color: #19262a; box-shadow: 0 12px 26px rgba(224, 173, 78, .23); }
-    .button-primary:hover { background: linear-gradient(105deg, #f6d486, #e6b85f); }
-    .button-secondary { border-color: rgba(255, 255, 255, .42); color: #fffdf7; }
-    .button-secondary:hover { background: rgba(255, 255, 255, .1); }
-    .button-dark { background: var(--ink); color: var(--cream); }
+  <section class="paths" id="starting-point">
+    <div class="wrap">
+      <span class="eyebrow">Choose your starting point</span>
+      <h2>Where are you in your journey right now?</h2>
+      <p class="lead">There is no single right place to begin. Choose the statement that feels closest to your current reality, then request a private consultation to explore a practical next step.</p>
+      <div class="path-grid">
+        <article class="path">
+          <b>01</b>
+          <h3>Build stability</h3>
+          <p>I want to better understand my cash flow, priorities, financial habits, and immediate foundation before pursuing bigger opportunities.</p>
+          <a href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Explore this starting point</a>
+        </article>
+        <article class="path">
+          <b>02</b>
+          <h3>Activate assets</h3>
+          <p>I have income, savings, equity, a business, or professional momentum—and I want a clearer way to evaluate my options.</p>
+          <a href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Explore this starting point</a>
+        </article>
+        <article class="path">
+          <b>03</b>
+          <h3>Build a bigger plan</h3>
+          <p>I am ready to organize a more intentional wealth strategy and learn about appropriate educational pathways, including real-estate or private-lending topics.</p>
+          <a href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Explore this starting point</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    .site-header {
-      position: absolute;
-      z-index: 5;
-      inset: 0 0 auto;
-      padding: 24px 0;
-      color: var(--cream);
-    }
+  <section class="next">
+    <div class="wrap next-grid">
+      <div>
+        <span class="eyebrow">What happens next</span>
+        <h2>A conversation should leave you with more clarity than you started with.</h2>
+        <p class="lead">Your consultation request is an opportunity to share where you are, what you are trying to build, and what feels unclear—not a commitment to a product or strategy.</p>
+      </div>
+      <ol class="steps">
+        <li><b>01</b><div><strong>Share your starting point</strong><span>Use the private consultation request form to tell us a little about your current focus.</span></div></li>
+        <li><b>02</b><div><strong>Receive confirmation</strong><span>You will receive the existing Wealth Assistance follow-up communication after your request is submitted.</span></div></li>
+        <li><b>03</b><div><strong>Explore a practical direction</strong><span>We will help identify an appropriate educational or strategic next conversation based on your stated goals.</span></div></li>
+      </ol>
+    </div>
+  </section>
 
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: .95rem; font-weight: 850; letter-spacing: -.025em; }
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(255, 255, 255, .6);
-      border-radius: 50%;
-      color: var(--gold-pale);
-      font-family: Georgia, serif;
-      font-size: 1.4rem;
-    }
+  <section class="cta">
+    <div class="wrap">
+      <div class="cta-box">
+        <div class="cta-content">
+          <span class="eyebrow">Private consultation request</span>
+          <h2>Ready to see your next move with more clarity?</h2>
+          <p>Start with a private request. Tell us what you are working toward, what resources or questions are on your mind, and where you would like more direction.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Request a private consultation</a>
+            <a class="btn secondary" href="#leverage">Review how leverage works</a>
+          </div>
+          <small>The consultation request opens a HubSpot-hosted form. Submission does not create a client relationship or guarantee a particular outcome.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-    .nav-links { display: flex; align-items: center; gap: 25px; font-size: .87rem; font-weight: 700; }
-    .nav-links > a:not(.nav-cta) { opacity: .84; }
-    .nav-cta { padding: 9px 15px; border: 1px solid rgba(255, 255, 255, .55); border-radius: 999px; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 790px;
-      padding: 165px 0 112px;
-      color: var(--cream);
-      background:
-        radial-gradient(circle at 75% 15%, rgba(90, 174, 255, .25), transparent 17rem),
-        radial-gradient(circle at 78% 79%, rgba(29, 156, 152, .4), transparent 25rem),
-        radial-gradient(circle at 11% 82%, rgba(230, 184, 95, .14), transparent 22rem),
-        linear-gradient(128deg, #06161d 0%, #092c35 53%, #0c5154 100%);
-    }
-
-    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
-    .hero::before {
-      width: min(68vw, 840px);
-      aspect-ratio: 1;
-      right: -18vw;
-      bottom: -30vw;
-      border: 1px solid rgba(255, 255, 255, .15);
-      box-shadow: 0 0 0 52px rgba(255, 255, 255, .035), 0 0 0 104px rgba(255, 255, 255, .022);
-    }
-
-    .hero::after {
-      width: 250px;
-      height: 250px;
-      right: 16%;
-      top: 22%;
-      border: 1px solid rgba(230, 184, 95, .34);
-      box-shadow: 0 0 70px rgba(90, 174, 255, .22);
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(310px, .85fr);
-      align-items: center;
-      gap: 70px;
-    }
-
-    .hero .eyebrow { color: var(--teal-soft); }
-    .hero h1 {
-      max-width: 760px;
-      margin: 19px 0 23px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.6rem, 7vw, 6.75rem);
-      font-weight: 400;
-      letter-spacing: -.075em;
-      line-height: .9;
-    }
-
-    .hero h1 em { color: var(--gold-pale); font-style: italic; }
-    .hero-copy { max-width: 640px; margin: 0; color: rgba(255, 253, 247, .82); font-size: clamp(1.05rem, 1.6vw, 1.2rem); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 33px; }
-    .hero-note { max-width: 540px; margin: 18px 0 0; color: rgba(255, 253, 247, .6); font-size: .8rem; }
-
-    .signal-card {
-      position: relative;
-      overflow: hidden;
-      padding: 30px;
-      border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: 20px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .04));
-      box-shadow: 0 24px 72px rgba(0, 0, 0, .2);
-      backdrop-filter: blur(12px);
-    }
-
-    .signal-card::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      top: -86px;
-      right: -74px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(230, 184, 95, .33), transparent 68%);
-    }
-
-    .signal-label { position: relative; margin: 0; color: var(--teal-soft); font-size: .74rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
-    .signal-card h2 { position: relative; margin: 9px 0 23px; font-family: Georgia, serif; font-size: 2rem; font-weight: 400; letter-spacing: -.04em; line-height: 1.08; }
-    .signal-list { position: relative; display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
-    .signal-list li { display: flex; gap: 11px; align-items: flex-start; color: rgba(255, 253, 247, .78); font-size: .91rem; }
-    .signal-list li::before { content: "✦"; color: var(--gold-pale); }
-
-    .intro-strip { background: var(--cream); border-bottom: 1px solid var(--line); }
-    .intro-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 20px; align-items: center; padding: 27px 0; }
-    .intro-copy { color: var(--muted); font-size: .85rem; }
-    .metric { padding-left: 24px; border-left: 1px solid var(--line); }
-    .metric strong { display: block; color: var(--teal); font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; }
-    .metric span { color: var(--muted); font-size: .76rem; }
-
-    section { padding: 105px 0; }
-    h2 { margin: 15px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.4rem, 4.4vw, 4rem); font-weight: 400; letter-spacing: -.06em; line-height: 1.02; }
-    .lead { max-width: 660px; margin: 0; color: var(--muted); font-size: 1.07rem; }
-
-    .reframe { background: var(--paper); }
-    .reframe-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
-    .reframe-copy .eyebrow { color: var(--teal); }
-    .reframe-panel { padding: 34px; border-radius: 18px; background: var(--ink); color: var(--cream); box-shadow: var(--shadow); }
-    .reframe-panel small { color: var(--teal-soft); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .reframe-panel p { margin: 14px 0 0; font-family: Georgia, serif; font-size: clamp(1.55rem, 2.5vw, 2.15rem); letter-spacing: -.04em; line-height: 1.18; }
-    .reframe-panel hr { margin: 27px 0; border: 0; border-top: 1px solid var(--white-line); }
-    .reframe-panel span { color: rgba(255, 253, 247, .68); font-size: .91rem; }
-
-    .leverage { color: var(--cream); background: linear-gradient(145deg, #071a21, #0b3b40); }
-    .leverage .eyebrow { color: var(--gold-pale); }
-    .leverage .lead { color: rgba(255, 253, 247, .72); }
-    .leverage-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
-    .asset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .asset-card { min-height: 170px; padding: 24px; border: 1px solid rgba(255, 255, 255, .15); border-radius: 15px; background: rgba(255, 255, 255, .055); }
-    .asset-card:nth-child(2), .asset-card:nth-child(3) { transform: translateY(28px); }
-    .asset-number { display: block; margin-bottom: 29px; color: var(--gold-pale); font-family: Georgia, serif; font-size: 1.25rem; }
-    .asset-card h3 { margin: 0 0 7px; font-size: 1rem; letter-spacing: -.02em; }
-    .asset-card p { margin: 0; color: rgba(255, 253, 247, .66); font-size: .86rem; }
-    .education-note { margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--white-line); color: rgba(255, 253, 247, .58); font-size: .79rem; }
-
-    .paths { background: var(--cream); }
-    .paths .eyebrow { color: var(--teal); }
-    .path-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
-    .path-card { position: relative; display: flex; min-height: 350px; flex-direction: column; padding: 29px; border: 1px solid var(--line); border-radius: 16px; background: #fffefa; transition: transform .2s ease, box-shadow .2s ease; }
-    .path-card:hover { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(7, 24, 31, .11); }
-    .path-index { display: block; margin-bottom: 54px; color: var(--gold); font-family: Georgia, serif; font-size: 1.45rem; }
-    .path-card h3 { margin: 0 0 12px; font-size: 1.23rem; letter-spacing: -.035em; }
-    .path-card p { margin: 0; color: var(--muted); font-size: .92rem; }
-    .path-card a { margin-top: auto; padding-top: 27px; color: v
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top"><span class="mark">W</span><span>Wealth Assistance</span></a>
+      <p class="footer-copy">This page is for educational and informational purposes only. It is not individualized financial, investment, legal, tax, lending, or insurance advice, and it does not offer or solicit securities. Decisions about money, credit, property, investing, and business should be made only after considering your circumstances and consulting appropriate qualified professionals. Wealth Assistance does not promise or guarantee results.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#top">Top</a>
+      <a href="#leverage">How it works</a>
+      <a href="https://41xvxv.share-na2.hsforms.com/2RLt4zMrlR6m78iHRUblfYQ">Consultation request</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
