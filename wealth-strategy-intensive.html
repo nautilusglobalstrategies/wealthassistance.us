@@ -7,15 +7,17 @@
   <title>Wealth Strategy Intensive | Wealth Assistance</title>
   <style>
     :root {
-      --ink: #10281f;
-      --forest: #174c3c;
-      --green: #2d765b;
-      --cream: #f7f3ea;
-      --gold: #c79442;
-      --white: #ffffff;
-      --muted: #5f6d66;
-      --line: rgba(16, 40, 31, 0.14);
-      --shadow: 0 18px 55px rgba(16, 40, 31, 0.12);
+      --page: #05070d;
+      --panel: #0b101d;
+      --panel-soft: #10182a;
+      --ink: #f6f8ff;
+      --muted: #b8c1d6;
+      --line: rgba(255, 255, 255, 0.14);
+      --blue: #3184ff;
+      --blue-bright: #64a5ff;
+      --violet: #8057ff;
+      --cyan: #4bd7ff;
+      --shadow: 0 18px 55px rgba(0, 0, 0, 0.38);
     }
 
     * { box-sizing: border-box; }
@@ -23,50 +25,65 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      background: var(--page);
       color: var(--ink);
-      background: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
 
     a { color: inherit; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(247, 243, 234, 0.96);
+      z-index: 30;
+      background: rgba(5, 7, 13, 0.91);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
     }
 
     .header-inner {
-      min-height: 76px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand { display: inline-flex; align-items: center; text-decoration: none; }
 
     .brand img {
       display: block;
-      width: 190px;
-      max-height: 48px;
+      width: 205px;
       height: auto;
+      max-height: 55px;
       object-fit: contain;
       object-position: left center;
     }
 
     .header-label {
-      color: var(--forest);
-      font-size: 0.82rem;
+      color: var(--blue-bright);
+      font-size: 0.76rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue-bright);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin-top: 0; line-height: 1.1; }
+    h1 { margin-bottom: 22px; font-size: clamp(2.35rem, 5.35vw, 4.65rem); letter-spacing: -0.045em; }
+    h2 { margin-bottom: 17px; font-size: clamp(1.9rem, 3.4vw, 3.05rem); letter-spacing: -0.035em; }
+    h3 { margin-bottom: 10px; font-size: 1.18rem; }
+    p { margin-top: 0; }
 
     .btn {
       display: inline-flex;
@@ -74,76 +91,73 @@
       justify-content: center;
       min-height: 52px;
       padding: 14px 23px;
-      border: 2px solid var(--forest);
-      border-radius: 4px;
-      background: var(--forest);
-      color: var(--white);
+      border: 1px solid var(--blue);
+      border-radius: 5px;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 12px 30px rgba(49, 132, 255, 0.24);
+      color: #fff;
       cursor: pointer;
       font-weight: 800;
       text-decoration: none;
-      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      background: var(--green);
-      box-shadow: 0 10px 22px rgba(23, 76, 60, 0.2);
+      box-shadow: 0 16px 35px rgba(49, 132, 255, 0.36);
+      filter: brightness(1.08);
     }
 
-    .btn-secondary {
-      border-color: rgba(255, 255, 255, 0.72);
-      background: transparent;
-      color: var(--white);
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: none;
     }
 
-    .btn-secondary:hover {
-      background: var(--white);
-      color: var(--forest);
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 { margin-top: 0; line-height: 1.12; }
-    h1 { margin-bottom: 20px; font-size: clamp(2.35rem, 5.5vw, 4.65rem); letter-spacing: -0.045em; }
-    h2 { margin-bottom: 16px; font-size: clamp(1.9rem, 3.5vw, 3.1rem); letter-spacing: -0.035em; }
-    h3 { margin-bottom: 9px; font-size: 1.18rem; }
-    p { margin-top: 0; }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
 
     .hero {
+      position: relative;
       overflow: hidden;
-      padding: 86px 0 74px;
-      color: var(--white);
+      padding: 94px 0 84px;
       background:
-        radial-gradient(circle at 86% 12%, rgba(199, 148, 66, 0.31), transparent 28%),
-        linear-gradient(125deg, #0b2019, #174c3c 60%, #1f5b48);
+        radial-gradient(circle at 84% 11%, rgba(75, 215, 255, 0.21), transparent 23%),
+        radial-gradient(circle at 58% 66%, rgba(128, 87, 255, 0.24), transparent 32%),
+        linear-gradient(145deg, #05070d 18%, #0a142b 62%, #071225);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -45% 36%;
+      height: 360px;
+      border: 1px solid rgba(100, 165, 255, 0.17);
+      border-radius: 50%;
+      transform: rotate(-12deg);
+      pointer-events: none;
     }
 
     .hero-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: 1fr 0.98fr;
-      gap: 54px;
+      grid-template-columns: 1fr 0.94fr;
+      gap: 58px;
       align-items: center;
     }
 
     .hero-copy p:not(.eyebrow) {
-      max-width: 630px;
-      color: rgba(255, 255, 255, 0.87);
+      max-width: 650px;
+      color: var(--muted);
       font-size: 1.14rem;
     }
 
     .hero-points {
       display: grid;
       gap: 10px;
-      margin: 25px 0 29px;
+      margin: 27px 0 31px;
       padding: 0;
-      color: rgba(255, 255, 255, 0.92);
+      color: #e8edfa;
       list-style: none;
     }
 
@@ -153,22 +167,17 @@
       content: "✓";
       position: absolute;
       left: 0;
-      color: #f2c978;
+      color: var(--cyan);
       font-weight: 900;
     }
 
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
-    .vsl-card {
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+    .vsl-shell {
+      padding: 1px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.13);
-      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.22);
+      background: linear-gradient(135deg, rgba(100, 165, 255, 0.75), rgba(128, 87, 255, 0.45), rgba(75, 215, 255, 0.5));
+      box-shadow: var(--shadow);
     }
 
     .vsl-placeholder {
@@ -180,8 +189,10 @@
       justify-content: center;
       overflow: hidden;
       padding: 42px;
-      border-radius: 7px;
-      background: linear-gradient(145deg, rgba(9, 31, 24, 0.98), rgba(43, 114, 86, 0.92));
+      border-radius: 11px;
+      background:
+        radial-gradient(circle at 75% 20%, rgba(75, 215, 255, 0.2), transparent 22%),
+        linear-gradient(145deg, #0a1222, #111e38);
       text-align: center;
     }
 
@@ -189,12 +200,12 @@
     .vsl-placeholder::after {
       content: "";
       position: absolute;
+      border: 1px solid rgba(100, 165, 255, 0.16);
       border-radius: 50%;
-      background: rgba(199, 148, 66, 0.2);
     }
 
-    .vsl-placeholder::before { width: 255px; height: 255px; top: -100px; right: -82px; }
-    .vsl-placeholder::after { width: 190px; height: 190px; bottom: -104px; left: -82px; }
+    .vsl-placeholder::before { width: 280px; height: 280px; right: -116px; top: -125px; }
+    .vsl-placeholder::after { width: 210px; height: 210px; bottom: -115px; left: -80px; }
     .vsl-placeholder > * { position: relative; z-index: 1; }
 
     .play {
@@ -204,91 +215,68 @@
       place-items: center;
       margin-bottom: 20px;
       padding-left: 5px;
-      border: 2px solid rgba(255, 255, 255, 0.84);
+      border: 1px solid var(--cyan);
       border-radius: 50%;
-      color: var(--white);
+      box-shadow: 0 0 0 9px rgba(75, 215, 255, 0.08);
+      color: #fff;
       font-size: 1.75rem;
     }
 
-    .vsl-placeholder strong {
-      max-width: 395px;
-      font-size: 1.35rem;
-      line-height: 1.28;
-    }
+    .vsl-placeholder strong { max-width: 390px; font-size: 1.36rem; line-height: 1.28; }
+    .vsl-placeholder span { max-width: 390px; margin-top: 11px; color: var(--muted); font-size: 0.96rem; }
 
-    .vsl-placeholder span {
-      max-width: 390px;
-      margin-top: 11px;
-      color: rgba(255, 255, 255, 0.77);
-      font-size: 0.96rem;
-    }
+    section { padding: 84px 0; }
+    .intro { max-width: 810px; }
+    .intro p { color: var(--muted); font-size: 1.13rem; }
 
-    section { padding: 82px 0; }
-    .intro { max-width: 790px; }
-
-    .intro p {
-      color: var(--muted);
-      font-size: 1.13rem;
-    }
-
-    .problem { background: var(--white); }
+    .problem { background: #080c15; }
 
     .problem-grid {
       display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 52px;
+      grid-template-columns: 1fr 0.88fr;
+      gap: 54px;
       align-items: center;
     }
 
     .quote-card {
-      padding: 30px;
-      border-left: 5px solid var(--gold);
-      border-radius: 0 10px 10px 0;
-      background: var(--cream);
+      padding: 33px;
+      border: 1px solid rgba(100, 165, 255, 0.28);
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(49, 132, 255, 0.12), rgba(128, 87, 255, 0.1));
     }
 
     .quote-card p {
       margin: 0;
-      color: var(--forest);
-      font-size: 1.42rem;
+      color: #e8efff;
+      font-size: 1.38rem;
       font-weight: 700;
-      line-height: 1.35;
+      line-height: 1.38;
     }
 
-    .framework { background: #e7f0eb; }
+    .framework { background: var(--panel); }
 
     .framework-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       margin-top: 37px;
     }
 
     .framework-card {
-      min-height: 235px;
-      padding: 24px 20px;
+      min-height: 252px;
+      padding: 26px 22px;
       border: 1px solid var(--line);
       border-radius: 9px;
-      background: var(--white);
-      box-shadow: 0 12px 25px rgba(16, 40, 31, 0.05);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
     }
 
-    .framework-number {
-      margin-bottom: 15px;
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .framework-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
+    .framework-number { margin-bottom: 15px; color: var(--cyan); font-size: 0.8rem; font-weight: 900; letter-spacing: 0.08em; }
+    .framework-card p { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
 
     .offer {
-      color: var(--white);
-      background: var(--forest);
+      background:
+        radial-gradient(circle at 88% 10%, rgba(75, 215, 255, 0.16), transparent 24%),
+        linear-gradient(135deg, #122e61, #211a5b 68%, #111a3c);
     }
 
     .offer-grid {
@@ -298,21 +286,17 @@
       align-items: start;
     }
 
-    .offer p { color: rgba(255, 255, 255, 0.84); }
+    .offer p { color: #d3ddf3; }
 
     .price {
       margin: 18px 0 4px;
-      color: #f4cd86;
+      color: var(--cyan);
       font-size: clamp(2.2rem, 4vw, 3.35rem);
       font-weight: 900;
       line-height: 1;
     }
 
-    .price-note {
-      margin-bottom: 24px;
-      font-size: 0.92rem;
-    }
-
+    .price-note { margin-bottom: 24px; font-size: 0.92rem; }
     .process { display: grid; gap: 13px; }
 
     .process-row {
@@ -332,27 +316,15 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: var(--gold);
-      color: var(--ink);
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #071225;
       font-weight: 900;
     }
 
     .process-row h3 { margin: 0 0 4px; font-size: 1.04rem; }
     .process-row p { margin-bottom: 0; font-size: 0.95rem; }
 
-    .offer .btn {
-      margin-top: 18px;
-      border-color: #f3c876;
-      background: #f3c876;
-      color: var(--ink);
-    }
-
-    .offer .btn:hover {
-      border-color: #f8d894;
-      background: #f8d894;
-    }
-
-    .outcomes { background: var(--white); }
+    .outcomes { background: #080c15; }
 
     .outcomes-grid {
       display: grid;
@@ -365,17 +337,13 @@
       padding: 29px 25px;
       border: 1px solid var(--line);
       border-radius: 9px;
-      background: linear-gradient(165deg, #fff, #fafbf8);
+      background: var(--panel-soft);
     }
 
-    .outcome-card h3 { color: var(--forest); }
+    .outcome-card h3 { color: var(--blue-bright); }
+    .outcome-card p { margin-bottom: 0; color: var(--muted); }
 
-    .outcome-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .fit { background: var(--cream); }
+    .fit { background: var(--panel); }
 
     .fit-grid {
       display: grid;
@@ -388,17 +356,15 @@
       padding: 31px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.035);
     }
 
     .fit-card.featured {
-      border-color: transparent;
-      background: linear-gradient(140deg, #174c3c, #23664f);
-      color: var(--white);
+      border-color: rgba(75, 215, 255, 0.42);
+      background: linear-gradient(145deg, rgba(49, 132, 255, 0.22), rgba(128, 87, 255, 0.2));
     }
 
     .fit-card p { color: var(--muted); }
-    .fit-card.featured p { color: rgba(255, 255, 255, 0.84); }
 
     .fit-list {
       display: grid;
@@ -408,23 +374,17 @@
       list-style: none;
     }
 
-    .fit-list li {
-      position: relative;
-      padding-left: 25px;
-      color: #31463d;
-    }
+    .fit-list li { position: relative; padding-left: 25px; color: #e1e9fa; }
 
     .fit-list li::before {
       content: "✓";
       position: absolute;
       left: 0;
-      color: var(--gold);
+      color: var(--cyan);
       font-weight: 900;
     }
 
-    .fit-card.featured .fit-list li { color: rgba(255, 255, 255, 0.9); }
-
-    .why { background: var(--white); }
+    .why { background: #080c15; }
 
     .why-grid {
       display: grid;
@@ -435,26 +395,23 @@
 
     .why-panel {
       padding: 34px;
+      border: 1px solid rgba(100, 165, 255, 0.32);
       border-radius: 10px;
-      background: linear-gradient(150deg, #1b4c3c, #0c241c);
-      color: var(--white);
+      background: linear-gradient(150deg, #10284d, #171338);
     }
 
-    .why-panel p { color: rgba(255, 255, 255, 0.83); }
-    .why-panel strong { color: #f2c978; }
+    .why-panel p { color: #c7d3eb; }
+    .why-panel strong { color: var(--cyan); }
 
-    .faq { background: #e7f0eb; }
+    .faq { background: var(--panel); }
     .faq-list { max-width: 850px; margin-top: 34px; }
 
-    details {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(16, 40, 31, 0.18);
-    }
+    details { padding: 20px 0; border-bottom: 1px solid var(--line); }
 
     summary {
       position: relative;
       padding-right: 34px;
-      color: var(--forest);
+      color: #eef3ff;
       cursor: pointer;
       font-weight: 800;
       list-style: none;
@@ -467,57 +424,39 @@
       position: absolute;
       top: -9px;
       right: 4px;
+      color: var(--cyan);
       font-size: 1.75rem;
       font-weight: 400;
     }
 
     details[open] summary::after { content: "–"; }
+    details p { max-width: 760px; margin: 15px 0 0; color: var(--muted); }
 
-    details p {
-      max-width: 760px;
-      margin: 15px 0 0;
-      color: var(--muted);
+    .apply {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(75, 215, 255, 0.2), transparent 21%),
+        linear-gradient(135deg, #102c63, #24196a 76%);
     }
-
-    .apply { background: linear-gradient(135deg, #c18d3e, #e4bb73); }
 
     .apply-card {
       max-width: 800px;
       margin: 0 auto;
       padding: 48px;
+      border: 1px solid rgba(100, 165, 255, 0.5);
       border-radius: 12px;
-      background: #133c2f;
-      color: var(--white);
+      background: rgba(5, 7, 13, 0.68);
       text-align: center;
       box-shadow: var(--shadow);
     }
 
-    .apply-card p {
-      color: rgba(255, 255, 255, 0.83);
-      font-size: 1.08rem;
-    }
-
-    .apply-card .btn {
-      margin-top: 10px;
-      border-color: #f3c876;
-      background: #f3c876;
-      color: var(--ink);
-    }
-
-    .apply-card .btn:hover {
-      border-color: #f8d894;
-      background: #f8d894;
-    }
-
-    .small-note {
-      margin-top: 17px !important;
-      font-size: 0.87rem !important;
-    }
+    .apply-card p { color: #c8d3e9; font-size: 1.08rem; }
+    .small-note { margin-top: 17px !important; font-size: 0.87rem !important; }
 
     footer {
       padding: 38px 0;
-      background: #0b2019;
-      color: rgba(255, 255, 255, 0.72);
+      border-top: 1px solid var(--line);
+      background: #05070d;
+      color: #9facbf;
     }
 
     .footer-grid {
@@ -528,19 +467,13 @@
     }
 
     .footer-logo {
-      width: 180px;
-      max-height: 46px;
+      width: 190px;
+      max-height: 50px;
       object-fit: contain;
       object-position: left center;
-      filter: brightness(0) invert(1);
-      opacity: 0.93;
     }
 
-    footer p {
-      margin: 0;
-      font-size: 0.83rem;
-      line-height: 1.6;
-    }
+    footer p { margin: 0; font-size: 0.83rem; line-height: 1.65; }
 
     .footer-links {
       display: flex;
@@ -550,25 +483,22 @@
       font-size: 0.86rem;
     }
 
-    .footer-links a {
-      color: #f2c978;
-      text-decoration: none;
-    }
+    .footer-links a { color: var(--blue-bright); text-decoration: none; }
 
     @media (max-width: 920px) {
       .hero-grid,
       .problem-grid,
       .offer-grid,
       .why-grid { grid-template-columns: 1fr; }
-      .framework-grid { grid-template-columns: repeat(3, 1fr); }
+      .framework-grid { grid-template-columns: repeat(2, 1fr); }
       .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
       .hero { padding-top: 68px; }
     }
 
     @media (max-width: 620px) {
-      .container { width: min(100% - 30px, 1120px); }
+      .container { width: min(100% - 30px, 1160px); }
       .header-inner { min-height: 64px; }
-      .brand img { width: 148px; }
+      .brand img { width: 156px; }
       .header-label { display: none; }
       .hero { padding: 58px 0 56px; }
       section { padding: 62px 0; }
@@ -608,11 +538,11 @@
           </ul>
           <div class="hero-cta">
             <a class="btn" href="#apply">Apply for a Wealth Strategy Intensive</a>
-            <a class="btn btn-secondary" href="#framework">See the framework</a>
+            <a class="btn btn-outline" href="#framework">See the framework</a>
           </div>
         </div>
 
-        <div class="vsl-card">
+        <div class="vsl-shell">
           <!-- COACHMATIC VSL EMBED: Replace the placeholder below with Coachmatic's video embed code when the mini-masterclass is ready. -->
           <div class="vsl-placeholder" role="img" aria-label="Video placeholder for the Wealth Strategy Mini-Masterclass">
             <div class="play" aria-hidden="true">▶</div>
@@ -632,7 +562,6 @@
           <p>You may have a career, a business, assets, equity, credit, cash flow, or investment opportunities—yet still feel like the pieces are not working together. Taxes, debt, business decisions, investments, protection planning, and long-term goals can all compete for attention.</p>
           <p>The issue is often not a lack of information. It is the lack of a clear order of operations: what to do now, what to prepare for, what to defer, and which questions belong with the right professionals.</p>
         </div>
-
         <div class="quote-card">
           <p>“You do not need another disconnected strategy. You need to know how the decisions in front of you work together.”</p>
         </div>
@@ -644,9 +573,8 @@
         <div class="intro">
           <p class="eyebrow">The Wealth Coordination Framework</p>
           <h2>A simple process for bringing your financial decisions into one plan.</h2>
-          <p>We begin with the full picture, then create a practical sequence for your next moves. It is not about forcing every strategy into your life. It is about determining what fits now, what needs more proof, and what can wait.</p>
+          <p>We begin with the full picture, then create a practical sequence for your next moves. It is not about forcing every strategy into your life. It is about determining what fits now, what needs to be clarified before you act, and what can wait.</p>
         </div>
-
         <div class="framework-grid">
           <article class="framework-card">
             <div class="framework-number">01 — POSITION</div>
@@ -661,17 +589,12 @@
           <article class="framework-card">
             <div class="framework-number">03 — PATH</div>
             <h3>Which moves may fit now?</h3>
-            <p>Consider appropriate paths such as reserves, debt strategy, business reinvestment, real estate, leverage, or preparation for future opportunities.</p>
+            <p>Consider appropriate paths such as reserves, debt strategy, business reinvestment, real estate, leverage, or preparation for future opportunities. Identify the key questions and information that should be confirmed with the right professionals before acting.</p>
           </article>
           <article class="framework-card">
-            <div class="framework-number">04 — PROOF</div>
-            <h3>What needs to be verified?</h3>
-            <p>Identify assumptions, risks, and questions to take to your CPA, attorney, lender, insurance professional, or other qualified specialist.</p>
-          </article>
-          <article class="framework-card">
-            <div class="framework-number">05 — PLAN</div>
-            <h3>What happens in the next 90 days?</h3>
-            <p>Create a clear order of operations: act now, prepare next, defer, or decide not to pursue a move at this time.</p>
+            <div class="framework-number">04 — PLAN</div>
+            <h3>What happens next?</h3>
+            <p>Create a clear order of operations: act now, prepare next, defer, or decide not to pursue a move at this time. Outline the next steps and the professional conversations needed to move forward.</p>
           </article>
         </div>
       </div>
@@ -687,35 +610,22 @@
           <p class="price-note">Founding rate for qualified applicants. The Intensive covers one primary financial or strategic situation.</p>
           <a class="btn" href="#apply">Apply for the Intensive</a>
         </div>
-
         <div class="process">
           <div class="process-row">
             <div class="process-step">1</div>
-            <div>
-              <h3>Apply</h3>
-              <p>Share your current position, goals, primary concern, and the decisions competing for your attention.</p>
-            </div>
+            <div><h3>Apply</h3><p>Share your current position, goals, primary concern, and the decisions competing for your attention.</p></div>
           </div>
           <div class="process-row">
             <div class="process-step">2</div>
-            <div>
-              <h3>Complete focused pre-work</h3>
-              <p>If the Intensive is a fit, you organize the relevant context so we can use the session productively.</p>
-            </div>
+            <div><h3>Complete focused pre-work</h3><p>If the Intensive is a fit, you organize the relevant context so we can use the session productively.</p></div>
           </div>
           <div class="process-row">
             <div class="process-step">3</div>
-            <div>
-              <h3>Meet for a 90-minute strategy session</h3>
-              <p>We organize your position, priorities, possible paths, assumptions, risks, and next decisions.</p>
-            </div>
+            <div><h3>Meet for a 90-minute strategy session</h3><p>We organize your position, priorities, possible paths, assumptions, risks, and next decisions.</p></div>
           </div>
           <div class="process-row">
             <div class="process-step">4</div>
-            <div>
-              <h3>Receive your Strategic Wealth Blueprint</h3>
-              <p>Within three business days, you receive a written plan for what to focus on, what to validate, and what to do next.</p>
-            </div>
+            <div><h3>Receive your Strategic Wealth Blueprint</h3><p>Within three business days, you receive a written plan for what to focus on, what to validate, and what to do next.</p></div>
           </div>
         </div>
       </div>
@@ -728,7 +638,6 @@
           <h2>You leave with a clearer direction and a practical plan.</h2>
           <p>Your Strategic Wealth Blueprint gives you a written reference point for your next moves and for more productive conversations with the qualified professionals on your team.</p>
         </div>
-
         <div class="outcomes-grid">
           <article class="outcome-card">
             <h3>Clear strategic direction</h3>
@@ -753,7 +662,6 @@
           <h2>For people with resources, opportunities, and a need for better coordination.</h2>
           <p>This is not generic financial motivation. It is for people who are ready to look at the full picture and make intentional next decisions.</p>
         </div>
-
         <div class="fit-grid">
           <article class="fit-card">
             <h3>Professionals and business owners</h3>
@@ -764,7 +672,6 @@
               <li>You are evaluating business, debt, real-estate, or investment decisions</li>
             </ul>
           </article>
-
           <article class="fit-card featured">
             <h3>Investors and long-term wealth builders</h3>
             <p>You already have investments, capital, property, business interests, or ideas—but need a disciplined order of operations rather than another isolated strategy.</p>
@@ -786,7 +693,6 @@
           <p>Wealth Assistance is built on the belief that income, credit, assets, debt, business decisions, cash flow, and opportunities should work together. The goal is not to push one tactic. The goal is to help you see the full picture and make better decisions in the right order.</p>
           <p>Our approach draws from real-estate experience, creative deal structure, leverage and cash-flow education, and a commitment to helping clients prepare better questions for the professionals who execute specialized work.</p>
         </div>
-
         <aside class="why-panel">
           <h3>What you can expect</h3>
           <p><strong>Clear thinking.</strong> We start with your actual position and goals, not a one-size-fits-all script.</p>
@@ -802,7 +708,6 @@
           <p class="eyebrow">Frequently asked questions</p>
           <h2>Questions before you apply.</h2>
         </div>
-
         <div class="faq-list">
           <details>
             <summary>Is this tax, legal, or investment advice?</summary>
