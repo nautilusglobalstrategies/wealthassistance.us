@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wealth Assistance helps real-estate investors make more disciplined decisions about capital, financing, properties, and opportunities.">
+  <title>Investor Strategy Intensive | Wealth Assistance</title>
+  <style>
+    :root {
+      --ink: #10281f;
+      --forest: #174c3c;
+      --green: #2d765b;
+      --cream: #f7f3ea;
+      --gold: #c79442;
+      --white: #ffffff;
+      --muted: #5f6d66;
+      --line: rgba(16, 40, 31, 0.14);
+      --shadow: 0 18px 55px rgba(16, 40, 31, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 243, 234, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+
+    .brand img {
+      display: block;
+      width: 190px;
+      max-height: 48px;
+      height: auto;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .header-label {
+      color: var(--forest);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 23px;
+      border: 2px solid var(--forest);
+      border-radius: 4px;
+      background: var(--forest);
+      color: var(--white);
+      cursor: pointer;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--green);
+      box-shadow: 0 10px 22px rgba(23, 76, 60, 0.2);
+    }
+
+    .btn-light {
+      border-color: var(--forest);
+      background: transparent;
+      color: var(--forest);
+    }
+
+    .btn-light:hover {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin-top: 0; line-height: 1.12; }
+    h1 { margin-bottom: 20px; font-size: clamp(2.35rem, 5.5vw, 4.7rem); letter-spacing: -0.045em; }
+    h2 { margin-bottom: 16px; font-size: clamp(1.9rem, 3.5vw, 3.1rem); letter-spacing: -0.035em; }
+    h3 { margin-bottom: 10px; font-size: 1.25rem; }
+    p { margin-top: 0; }
+
+    .hero {
+      overflow: hidden;
+      padding: 88px 0 78px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 86% 12%, rgba(199, 148, 66, 0.31), transparent 28%),
+        linear-gradient(125deg, #0b2019, #174c3c 60%, #1f5b48);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.98fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1.15rem;
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 10px;
+      margin: 26px 0 30px;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.91);
+      list-style: none;
+    }
+
+    .hero-points li { position: relative; padding-left: 26px; }
+
+    .hero-points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #f2c978;
+      font-weight: 900;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-cta .btn-light {
+      border-color: rgba(255, 255, 255, 0.68);
+      color: var(--white);
+    }
+
+    .hero-cta .btn-light:hover {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .vsl-card {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.13);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.22);
+    }
+
+    .vsl-placeholder {
+      position: relative;
+      min-height: 365px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 7px;
+      background: linear-gradient(145deg, rgba(9, 31, 24, 0.98), rgba(43, 114, 86, 0.92));
+      text-align: center;
+    }
+
+    .vsl-placeholder::before,
+    .vsl-placeholder::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(199, 148, 66, 0.2);
+    }
+
+    .vsl-placeholder::before { width: 255px; height: 255px; top: -100px; right: -82px; }
+    .vsl-placeholder::after { width: 190px; height: 190px; bottom: -104px; left: -82px; }
+    .vsl-placeholder > * { position: relative; z-index: 1; }
+
+    .play {
+      width: 78px;
+      height: 78px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      padding-left: 5px;
+      border: 2px solid rgba(255, 255, 255, 0.84);
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.75rem;
+    }
+
+    .vsl-placeholder strong {
+      max-width: 390px;
+      font-size: 1.36rem;
+      line-height: 1.28;
+    }
+
+    .vsl-placeholder span {
+      max-width: 390px;
+      margin-top: 11px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.96rem;
+    }
+
+    section { padding: 86px 0; }
+    .intro { max-width: 790px; }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.14rem;
+    }
+
+    .problem { background: var(--white); }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 46px;
+      align-items: start;
+    }
+
+    .quote-card {
+      padding: 30px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      background: var(--cream);
+    }
+
+    .quote-card p {
+      margin: 0;
+      color: var(--forest);
+      font-size: 1.42rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 29px;
+      color: #31463d;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .framework { background: #e7f0eb; }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .framework-card {
+      min-height: 230px;
+      padding: 25px 21px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--white);
+      box-shadow: 0 12px 25px rgba(16, 40, 31, 0.05);
+    }
+
+    .framework-number {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .framework-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .offer {
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .offer p { color: rgba(255, 255, 255, 0.83); }
+
+    .price {
+      margin: 18px 0 4px;
+      color: #f4cd86;
+      font-size: clamp(2.2rem, 4vw, 3.35rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price-note {
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+    }
+
+    .process { display: grid; gap: 13px; }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 15px;
+      align-items: start;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .process-row:last-child { border-bottom: 0; }
+
+    .process-step {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .process-row h3 {
+      margin: 0 0 4px;
+      font-size: 1.05rem;
+    }
+
+    .process-row p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .offer .btn {
+      margin-top: 18px;
+      border-color: #f3c876;
+      background: #f3c876;
+      color: var(--ink);
+    }
+
+    .offer .btn:hover {
+      border-color: #f8d894;
+      background: #f8d894;
+    }
+
+    .deliverables { background: var(--white); }
+
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .deliverable {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(165deg, #fff, #fafbf8);
+    }
+
+    .deliverable h3 { color: var(--forest); }
+
+    .deliverable p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .paths { background: var(--cream); }
+
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 38px;
+    }
+
+    .path-card {
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+    }
+
+    .path-card.featured {
+      border-color: transparent;
+      background: linear-gradient(140deg, #174c3c, #23664f);
+      color: var(--white);
+    }
+
+    .path-card p { color: var(--muted); }
+    .path-card.featured p { color: rgba(255, 255, 255, 0.82); }
+    .path-card .check-list { margin-top: 20px; }
+    .path-card .check-list li { font-size: 0.95rem; }
+
+    .why { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .why-panel {
+      padding: 35px;
+      border-radius: 10px;
+      background: linear-gradient(150deg, #1b4c3c, #0c241c);
+      color: var(--white);
+    }
+
+    .why-panel p { color: rgba(255, 255, 255, 0.82); }
+    .why-panel strong { color: #f2c978; }
+
+    .faq { background: #e7f0eb; }
+    .faq-list { max-width: 850px; margin-top: 35px; }
+
+    details {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(16, 40, 31, 0.18);
+    }
+
+    summary {
+      position: relative;
+      padding-right: 34px;
+      color: var(--forest);
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      top: -9px;
+      right: 4px;
+      font-size: 1.75rem;
+      font-weight: 400;
+    }
+
+    details[open] summary::after { content: "–"; }
+
+    details p {
+      max-width: 760px;
+      margin: 15px 0 0;
+      color: var(--muted);
+    }
+
+    .apply { background: linear-gradient(135deg, #c18d3e, #e4bb73); }
+
+    .apply-card {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px;
+      border-radius: 12px;
+      background: #133c2f;
+      color: var(--white);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .apply-card p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.08rem;
+    }
+
+    .apply-card .btn {
+      margin-top: 10px;
+      border-color: #f3c876;
+      background: #f3c876;
+      color: var(--ink);
+    }
+
+    .apply-card .btn:hover {
+      border-color: #f8d894;
+      background: #f8d894;
+    }
+
+    .small-note {
+      margin-top: 17px !important;
+      font-size: 0.87rem !important;
+    }
+
+    footer {
+      padding: 38px 0;
+      background: #0b2019;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .footer-logo {
+      width: 180px;
+      max-height: 46px;
+      object-fit: contain;
+      object-position: left center;
+      filter: brightness(0) invert(1);
+      opacity: 0.93;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.83rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+      font-size: 0.86rem;
+    }
+
+    .footer-links a {
+      color: #f2c978;
+      text-decoration: none;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .problem-grid,
+      .offer-grid,
+      .why-grid { grid-template-columns: 1fr; }
+
+      .framework-grid { grid-template-columns: repeat(3, 1fr); }
+      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding-top: 68px; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 30px, 1120px); }
+      .header-inner { min-height: 64px; }
+      .brand img { width: 148px; }
+      .header-label { display: none; }
+      .hero { padding: 58px 0 56px; }
+      section { padding: 62px 0; }
+      .vsl-placeholder { min-height: 280px; padding: 30px 21px; }
+      .framework-grid,
+      .deliverables-grid,
+      .paths-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+      .framework-card { min-height: auto; }
+      .apply-card { padding: 33px 23px; }
+      .btn { width: 100%; }
+      .hero-cta { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Wealth Assistance home">
+        <img src="logo.png.WEBP" alt="Wealth Assistance">
+      </a>
+      <div class="header-label">Investor Strategy Intensive</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Free investor mini-masterclass</p>
+          <h1>Stop chasing real-estate strategies. Build a plan for your next move.</h1>
+          <p>Learn how to make more disciplined decisions about your capital, financing, properties, and opportunities—whether you are preparing for your first acquisition or managing a long-term portfolio.</p>
+          <ul class="hero-points">
+            <li>Clarify which strategy fits your position today</li>
+            <li>Evaluate opportunities in the context of your bigger plan</li>
+            <li>Know what to validate before you commit money, credit, or time</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn" href="#apply">Apply for an Investor Strategy Intensive</a>
+            <a class="btn btn-light" href="#framework">See the framework</a>
+          </div>
+        </div>
+
+        <div class="vsl-card">
+          <!-- COACHMATIC VSL EMBED: Replace the placeholder below with Coachmatic's video embed code when the mini-masterclass is ready. -->
+          <div class="vsl-placeholder" role="img" aria-label="Video placeholder for the Investor Strategy Mini-Masterclass">
+            <div class="play" aria-hidden="true">▶</div>
+            <strong>Your Investor Strategy Mini-Masterclass Will Play Here</strong>
+            <span>Discover how to stop following someone else’s strategy and build a decision process that fits your real situation.</span>
+          </div>
+          <!-- END COACHMATIC VSL EMBED -->
+        </div>
+      </div>
+    </section>
+
+    <section class="problem">
+      <div class="container problem-grid">
+        <div class="intro">
+          <p class="eyebrow">The real problem</p>
+          <h2>More information does not automatically create better investing decisions.</h2>
+          <p>Real-estate investors hear a constant stream of advice: buy rentals, flip houses, use BRRRR, tap equity, find private money, go multifamily, refinance, hold, sell, or wait. The hard part is not finding another idea. It is knowing which move fits your goals, resources, timeline, and risk tolerance.</p>
+          <p>A deal can look attractive and still be the wrong deal for you. The wrong financing, partner, timeline, reserve position, or exit plan can turn a promising opportunity into an expensive lesson.</p>
+        </div>
+
+        <div>
+          <div class="quote-card">
+            <p>“The question is not: What strategy is working for someone else? The question is: What is the right next move for me?”</p>
+          </div>
+          <ul class="check-list" style="margin-top: 25px;">
+            <li>Stop evaluating every opportunity without clear decision criteria</li>
+            <li>Stop treating a popular tactic as a universal answer</li>
+            <li>Stop letting uncertainty keep you in research mode for another year</li>
+            <li>Start using a disciplined process before you commit capital</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="framework" id="framework">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">The Investor Decision Framework</p>
+          <h2>A simple way to turn competing strategies into a clear next move.</h2>
+          <p>This is the framework behind the Investor Strategy Intensive. It helps you evaluate a potential direction before you let momentum, fear, or somebody else’s playbook make the decision for you.</p>
+        </div>
+
+        <div class="framework-grid">
+          <article class="framework-card">
+            <div class="framework-number">01 — POSITION</div>
+            <h3>What do you have to work with?</h3>
+            <p>Look honestly at income, liquidity, equity, credit, current properties, debt, experience, available time, and access to capital.</p>
+          </article>
+          <article class="framework-card">
+            <div class="framework-number">02 — PURPOSE</div>
+            <h3>What are you actually trying to build?</h3>
+            <p>Define whether the priority is cash flow, a first acquisition, portfolio growth, preservation, liquidity, long-term control, or another clear objective.</p>
+          </article>
+          <article class="framework-card">
+            <div class="framework-number">03 — PATH</div>
+            <h3>Which direction fits right now?</h3>
+            <p>Decide whether the right move is to prepare, acquire, hold, improve, refinance, sell, simplify, or wait for better information.</p>
+          </article>
+          <article class="framework-card">
+            <div class="framework-number">04 — PROOF</div>
+            <h3>What must be validated?</h3>
+            <p>Test the numbers, financing terms, assumptions, costs, partner roles, risk, exit options, and questions that need professional input.</p>
+          </article>
+          <article class="framework-card">
+            <div class="framework-number">05 — PLAN</div>
+            <h3>What happens in the next 90 days?</h3>
+            <p>Create a practical order of operations: what to do now, what to prepare for next, what to defer, and what to stop chasing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer">
+      <div class="container offer-grid">
+        <div>
+          <p class="eyebrow">Private strategy engagement</p>
+          <h2>Investor Strategy Intensive</h2>
+          <p>This is not a free discovery call or a generic coaching conversation. It is a focused process for serious real-estate investors who need to make a better next decision before committing their money, credit, or time.</p>
+          <div class="price">$750</div>
+          <p class="price-note">Founding rate for qualified applicants. Scope is limited to one investor situation or primary strategic decision.</p>
+          <a class="btn" href="#apply">Apply for the Intensive</a>
+        </div>
+
+        <div class="process">
+          <div class="process-row">
+            <div class="process-step">1</div>
+            <div>
+              <h3>Apply</h3>
+              <p>Share your goals, experience, current position, and the real-estate decision you are facing.</p>
+            </div>
+          </div>
+          <div class="process-row">
+            <div class="process-step">2</div>
+            <div>
+              <h3>Get approved and complete pre-work</h3>
+              <p>If the Intensive is a fit, you complete a focused worksheet so our session starts with the right context.</p>
+            </div>
+          </div>
+          <div class="process-row">
+            <div class="process-step">3</div>
+            <div>
+              <h3>Meet for a 90-minute strategy session</h3>
+              <p>We organize your position, goals, options, assumptions, risks, and priorities into a practical direction.</p>
+            </div>
+          </div>
+          <div class="process-row">
+            <div class="process-step">4</div>
+            <div>
+              <h3>Receive your Investor Action Blueprint</h3>
+              <p>Within three business days, you receive a written plan that tells you what to focus on, what to validate, and what to do next.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="deliverables">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Your tangible outcome</p>
+          <h2>You leave with more than a conversation.</h2>
+          <p>Your Investor Action Blueprint is a practical document you can use to guide your next steps and prepare stronger conversations with your lender, attorney, CPA, insurance professional, broker, property manager, or other appropriate specialist.</p>
+        </div>
+
+        <div class="deliverables-grid">
+          <article class="deliverable">
+            <h3>Investor Snapshot</h3>
+            <p>A plain-English summary of your stated goals, current position, resources, experience, and constraints.</p>
+          </article>
+          <article class="deliverable">
+            <h3>Strategic Direction</h3>
+            <p>A recommended focus for your next phase: prepare, acquire, hold, improve, refinance, sell, simplify, or investigate further.</p>
+          </article>
+          <article class="deliverable">
+            <h3>Opportunity Filter</h3>
+            <p>Clear criteria for evaluating whether an opportunity fits your goals, capacity, capital, risk tolerance, and timeline.</p>
+          </article>
+          <article class="deliverable">
+            <h3>Risks &amp; Questions List</h3>
+            <p>The assumptions, risks, and questions that need to be validated before you make a commitment.</p>
+          </article>
+          <article class="deliverable">
+            <h3>90-Day Action Plan</h3>
+            <p>A short, prioritized sequence of actions that shows what to do now, what to prepare for next, and what to defer.</p>
+          </article>
+          <article class="deliverable">
+            <h3>Next-Step Recommendation</h3>
+            <p>A clear recommendation to execute independently, continue with coaching, seek specialist input, or pause until critical information is available.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paths">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Built for real investors</p>
+          <h2>Different investor stages. The same need for disciplined decisions.</h2>
+          <p>The Intensive is designed for investors with a genuine decision in front of them—not just people collecting free information.</p>
+        </div>
+
+        <div class="paths-grid">
+          <article class="path-card">
+            <p class="eyebrow">Investor growth</p>
+            <h3>Preparing for your first or next acquisition</h3>
+            <p>You have income, savings, equity, credit, capital access, or a realistic path to invest—but too many competing strategies and not enough confidence in what comes first.</p>
+            <ul class="check-list">
+              <li>Choose an investment path that fits your position</li>
+              <li>Clarify your buy box and readiness requirements</li>
+              <li>Identify financing questions and team needs</li>
+              <li>Build the discipline to evaluate opportunities before acting</li>
+            </ul>
+          </article>
+
+          <article class="path-card featured">
+            <p class="eyebrow">Long-term investor strategy</p>
+            <h3>Managing capital, properties, and portfolio decisions</h3>
+            <p>You already have investment experience, assets, properties, business interests, or access to meaningful capital. You need a high-level strategic sounding board—not beginner education.</p>
+            <ul class="check-list">
+              <li>Screen acquisitions, holds, refinances, sales, and opportunities</li>
+              <li>Consider capital deployment, liquidity, leverage, and portfolio fit</li>
+              <li>Identify downside risks and decision assumptions early</li>
+              <li>Prepare sharper questions for your professional advisory team</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container why-grid">
+        <div class="intro">
+          <p class="eyebrow">Why Wealth Assistance</p>
+          <h2>Real-world perspective before you make an expensive commitment.</h2>
+          <p>Wealth Assistance is built around the idea that no single real-estate strategy is right for every investor. The value is not in pushing a tactic. The value is in helping you see how your resources, goals, financing, timing, risks, and opportunities connect before you act.</p>
+          <p>Our approach draws from real-estate experience, creative deal structure, leverage and cash-flow education, deal evaluation, and lessons learned from transactions where incentives, financing, timing, and partners mattered.</p>
+        </div>
+
+        <aside class="why-panel">
+          <h3>What you can expect</h3>
+          <p><strong>Clear thinking.</strong> We start with your actual position, not a one-size-fits-all script.</p>
+          <p><strong>Practical structure.</strong> You receive a written, prioritized plan—not just ideas to remember after a call.</p>
+          <p><strong>Appropriate boundaries.</strong> When a decision requires legal, tax, lending, insurance, accounting, brokerage, or other licensed expertise, we help you identify better questions and involve the right professional.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2>Questions before you apply.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Who is the Investor Strategy Intensive for?</summary>
+            <p>It is for real-estate investors with a meaningful decision in front of them. That can include someone preparing for a first or next acquisition, or an experienced investor considering an acquisition, hold, refinance, sale, portfolio change, or capital deployment decision.</p>
+          </details>
+          <details>
+            <summary>Do I need to already own investment property?</summary>
+            <p>No. You do need a realistic path to invest and a willingness to share the relevant context about your resources, constraints, goals, and decision. The Intensive is not intended for people looking only for generic free tips.</p>
+          </details>
+          <details>
+            <summary>Is this appropriate for established or high-net-worth investors?</summary>
+            <p>Yes. Long-term investors can use the process to organize portfolio priorities, screen opportunities, think through financing and capital deployment questions, identify downside risks, and prepare for discussions with their existing professional team. More complex situations may require a separate scope and fee.</p>
+          </details>
+          <details>
+            <summary>Will you tell me exactly what property to buy or guarantee a return?</summary>
+            <p>No. Wealth Assistance provides education, coaching, and strategic decision support. We help you create decision criteria, identify issues to validate, and organize your next steps. We do not guarantee financing, returns, cash flow, acquisition timing, or the performance of any property or strategy.</p>
+          </details>
+          <details>
+            <summary>What is included in the $750 Intensive?</summary>
+            <p>Qualified clients receive a focused pre-work process, one private 90-minute strategy session, and a written Investor Action Blueprint delivered within three business days. The engagement covers one investor situation or primary strategic decision. It does not include unlimited deal review, detailed underwriting, legal-document review, brokerage representation, lender negotiation, or tax planning.</p>
+          </details>
+          <details>
+            <summary>What happens after the Intensive?</summary>
+            <p>You may choose to execute independently. If ongoing coaching is an appropriate fit, you may be invited to continue through Investor Growth Coaching or a more advanced long-term investor strategy engagement. If a specialist is the right next step, you will receive a recommendation to seek the appropriate qualified professional.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="apply" id="apply">
+      <div class="container">
+        <div class="apply-card">
+          <p class="eyebrow">Applications opening soon</p>
+          <h2>Ready to make your next move with a plan?</h2>
+          <p>Applications for the Investor Strategy Intensive will open soon. When the Coachmatic application is live, this section will become your direct application step.</p>
+          <a class="btn" href="mailto:info@wealthassistance.us?subject=Investor%20Strategy%20Intensive%20Interest">Request an invitation</a>
+          <p class="small-note">For now, clicking this button opens an email request. This will be replaced with the Coachmatic application form when it is ready.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" aria-label="Wealth Assistance home">
+          <img class="footer-logo" src="logo.png.WEBP" alt="Wealth Assistance">
+        </a>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <p>Wealth Assistance provides real-estate education, coaching, and strategic decision support. We do not provide legal, tax, accounting, insurance, lending, appraisal, brokerage, property-management, or individualized investment advice. You are responsible for your own decisions and should consult appropriately qualified professionals before acting. Nothing on this page is an offer, solicitation, recommendation, or guarantee regarding any investment, property, financing, insurance product, legal structure, or financial outcome.</p>
+    </div>
+  </footer>
+</body>
+</html>
